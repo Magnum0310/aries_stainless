@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "title": "CONTACT",
+    "info": "XXPERSONXX | XXX-XXXX-XXXX"
+  },
+  {
+    "id": 2,
+    "title": "EMAIL",
+    "info": "xxxx-@email.com"
+  },
+  {
+    "id": 3,
+    "title": "LOCATION",
+    "info": "XXXX-PH"
+  },
+  {
+    "id": 4,
+    "title": "FACEBOOK PAGE",
+    "info": "XXXXX@fb.com"
+  },
+  {
+    "id": 5,
+    "title": "LAZADA | SHOPEE",
+    "info": "@SHOP-LAZADA | @SHOP-SHOPPEE"
+  }
+]
