@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Expert Craftmanship",
+    "description": " Our team of skilled professionals is dedicated to delivering top-notch stainless steel products with meticulous attention to detail.",
+    "image": "src/assets/Svg/ChooseUsIcon/colorTools.svg"
+  },
+  {
+    "id": 2,
+    "title": " Customer-Centered Approach ",
+    "description": "We prioritize your needs and preferences, offering customized stainless steel solutions that perfectly match your requirements.",
+    "image": "src/assets/Svg/ChooseUsIcon/colorReview.svg"
+  },
+  {
+    "id": 3,
+    "title": "Unwavering Quality",
+    "description": "We use only the highest quality materials to ensure that our products are durable, reliable, and built to last.",
+    "image": "src/assets/Svg/ChooseUsIcon/colorShield.svg"
+  },
+  {
+    "id": 4,
+    "title": "Reliable and Timely Service ",
+    "description": "We are committed to delivering reliable and timely service, ensuring your projects are completed on schedule and to your satisfaction.",
+    "image": "src/assets/Svg/ChooseUsIcon/colorList.svg"
+  }
+]
