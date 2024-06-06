@@ -1,9 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import {
   motion,
-  useMotionValue,
-  useAnimation,
-  useInView,
   useScroll,
   useTransform,
   easeInOut,
@@ -20,8 +17,6 @@ const ChooseUsContent = () => {
   const divRef = useRef(null);
   const { width } = useWindowDimensions();
 
-  console.log(width);
-
   const { scrollYProgress } = useScroll({
     target: divRef,
     offset: ["start end", "end end"],
@@ -29,71 +24,49 @@ const ChooseUsContent = () => {
 
   const [xPosition, setXPosition] = useState({ firstBox: 0, box: 0 });
 
-  useEffect(() => {
-    if (width >= 1280) {
-      setXPosition((prevPos) => ({
-        ...prevPos,
-        firstBox: (prevPos.firstBox = 0),
-        Box: (prevPos.box = -500),
-      }));
-    } else if (width < 1280) {
-      setXPosition((prevPos) => ({
-        ...prevPos,
-        firstBox: (prevPos.firstBox = -1200),
-        Box: (prevPos.box = -1200),
-      }));
-    }
-  }, [width]);
-
-  const sample = [0, 0.5];
+  // useEffect(() => {
+  //   if (width >= 1280) {
+  //     setXPosition((prevPos) => ({
+  //       ...prevPos,
+  //       firstBox: (prevPos.firstBox = 0),
+  //       Box: (prevPos.box = -500),
+  //     }));
+  //   } else if (width < 1280) {
+  //     setXPosition((prevPos) => ({
+  //       ...prevPos,
+  //       firstBox: (prevPos.firstBox = -1200),
+  //       Box: (prevPos.box = -1200),
+  //     }));
+  //   }
+  // }, [width]);
 
   // MOBILE
-  const firstBoxMobile = useTransform(
-    scrollYProgress,
-    [0, 0.4],
-    [xPosition.firstBox, 0],
-    {
-      ease: easeInOut,
-    },
-  );
+  const firstBoxMobile = useTransform(scrollYProgress, [0, 0.4], [-1200, 0], {
+    ease: easeInOut,
+  });
   const secondBoxMobile = useTransform(
     scrollYProgress,
     [0.2, 0.6],
-    [xPosition.box, 0],
+    [-1200, 0],
     {
       ease: easeInOut,
     },
   );
-  const thirdBoxMobile = useTransform(
-    scrollYProgress,
-    [0.4, 0.8],
-    [xPosition.box, 0],
-    {
-      ease: easeInOut,
-    },
-  );
-  const fourthBoxMobile = useTransform(
-    scrollYProgress,
-    [0.6, 1],
-    [xPosition.box, 0],
-    {
-      ease: easeInOut,
-    },
-  );
+  const thirdBoxMobile = useTransform(scrollYProgress, [0.4, 0.8], [-1200, 0], {
+    ease: easeInOut,
+  });
+  const fourthBoxMobile = useTransform(scrollYProgress, [0.6, 1], [-1200, 0], {
+    ease: easeInOut,
+  });
 
   // TABLET
-  const firstBoxTablet = useTransform(
-    scrollYProgress,
-    [0, 0.4],
-    [xPosition.firstBox, 0],
-    {
-      ease: easeInOut,
-    },
-  );
+  const firstBoxTablet = useTransform(scrollYProgress, [0, 0.4], [-1200, 0], {
+    ease: easeInOut,
+  });
   const secondBoxTablet = useTransform(
     scrollYProgress,
     [0.25, 0.5],
-    [xPosition.box, 0],
+    [-1200, 0],
     {
       ease: easeInOut,
     },
@@ -101,7 +74,7 @@ const ChooseUsContent = () => {
   const thirdBoxTablet = useTransform(
     scrollYProgress,
     [0.45, 0.75],
-    [xPosition.box, 0],
+    [-1200, 0],
     {
       ease: easeInOut,
     },
@@ -109,47 +82,32 @@ const ChooseUsContent = () => {
   const fourthBoxTablet = useTransform(
     scrollYProgress,
     [0.7, 0.9],
-    [xPosition.box, 0],
+    [-1200, 0],
     {
       ease: easeInOut,
     },
   );
 
   // Laptop
-  const firstBox = useTransform(
-    scrollYProgress,
-    [0, 0.4],
-    [xPosition.firstBox, 0],
-    {
-      ease: easeInOut,
-    },
-  );
-  const secondBox = useTransform(
-    scrollYProgress,
-    [0.5, 0.65],
-    [xPosition.box, 0],
-    {
-      ease: easeInOut,
-    },
-  );
-  const thirdBox = useTransform(
-    scrollYProgress,
-    [0.6, 0.75],
-    [xPosition.box, 0],
-    {
-      ease: easeInOut,
-    },
-  );
-  const fourthBox = useTransform(
-    scrollYProgress,
-    [0.7, 0.85],
-    [xPosition.box, 0],
-    {
-      ease: easeInOut,
-    },
-  );
+  const firstBox = useTransform(scrollYProgress, [0, 0.4], [0, 0], {
+    ease: easeInOut,
+  });
+  const secondBox = useTransform(scrollYProgress, [0.5, 0.65], [-500, 0], {
+    ease: easeInOut,
+  });
+  const thirdBox = useTransform(scrollYProgress, [0.6, 0.75], [-500, 0], {
+    ease: easeInOut,
+  });
+  const fourthBox = useTransform(scrollYProgress, [0.7, 0.85], [-500, 0], {
+    ease: easeInOut,
+  });
 
-  const test = useTransform(scrollYProgress, [0.7, 0.75], [0, 1]);
+  const opacityThirdBox = useTransform(
+    scrollYProgress,
+    [0.6, 0.7, 0.75],
+    [0, 1, 1],
+  );
+  const opacityFourthBox = useTransform(scrollYProgress, [0.7, 0.75], [0, 1]);
 
   return (
     <div
@@ -160,17 +118,21 @@ const ChooseUsContent = () => {
       <div className="h-1/2 lg:flex lg:h-1/3 xl:sticky xl:top-1/2 xl:z-20 xl:-translate-y-1/2">
         {/* FIRST BOX */}
         <motion.div
-          className="z-40 flex h-1/2 w-full flex-col items-center justify-center gap-10 border-b-2 border-r-2 border-solid border-adobe-gray bg-adobe-white px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-t-2 xl:border-t-0"
+          className="z-40 flex h-1/2 w-full flex-col items-center justify-center gap-10 border-b-2 border-solid border-adobe-gray bg-adobe-white px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-r-2 lg:border-t-2 xl:border-b-0 xl:border-t-0"
           style={{
-            // translateX: firstBox,
-            translateX: width >= 1024 ? firstBoxTablet : firstBoxMobile,
+            translateX:
+              width <= 1023
+                ? firstBoxMobile
+                : width >= 1280
+                  ? firstBox
+                  : firstBoxTablet,
           }}
         >
           <div className="size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
             <div
               className="size-full lg:size-2/5"
               style={{
-                backgroundImage: `url("${Data[0].image}")`,
+                backgroundImage: `url("${Tool}")`,
                 backgroundSize: "contain",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -188,7 +150,7 @@ const ChooseUsContent = () => {
         </motion.div>
         {/* SECOND BOX */}
         <motion.div
-          className="z-30 flex h-1/2 w-full flex-col items-center justify-center gap-10 border-b-2 border-solid border-adobe-gray bg-adobe-white px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-t-2 xl:border-r-2 xl:border-t-0"
+          className="z-30 flex h-1/2 w-full flex-col items-center justify-center gap-10 border-b-2 border-solid border-adobe-gray bg-adobe-white px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-t-2 xl:border-b-0 xl:border-r-2 xl:border-t-0"
           style={{
             translateX:
               width <= 1023
@@ -202,7 +164,7 @@ const ChooseUsContent = () => {
             <div
               className="size-full lg:size-2/5"
               style={{
-                backgroundImage: `url("${Data[1].image}")`,
+                backgroundImage: `url("${Customer}")`,
                 backgroundSize: "contain",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -223,7 +185,7 @@ const ChooseUsContent = () => {
       <div className="h-1/2 lg:flex lg:h-1/3 lg:items-center xl:sticky xl:top-1/2 xl:z-10 xl:-translate-y-1/2">
         {/* THIRD BOX */}
         <motion.div
-          className="z-20 flex h-1/2 w-full flex-col items-center justify-center gap-10 border-b-2 border-solid border-adobe-gray bg-adobe-white px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-r-2"
+          className="z-20 flex h-1/2 w-full flex-col items-center justify-center gap-10 border-b-2 border-solid border-adobe-gray bg-adobe-white px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-r-2 xl:border-b-0"
           style={{
             // translateX: thirdBox,
             translateX:
@@ -232,13 +194,14 @@ const ChooseUsContent = () => {
                 : width >= 1280
                   ? thirdBox
                   : thirdBoxTablet,
+            opacity: opacityThirdBox,
           }}
         >
           <div className="size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
             <div
               className="size-full lg:size-2/5"
               style={{
-                backgroundImage: `url("${Data[2].image}")`,
+                backgroundImage: `url("${Shield}")`,
                 backgroundSize: "contain",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -256,7 +219,7 @@ const ChooseUsContent = () => {
         </motion.div>
         {/* FOURTH BOX */}
         <motion.div
-          className="z-10 flex h-1/2 w-full flex-col items-center justify-center gap-10 border-b-2 border-solid border-adobe-gray bg-adobe-white px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start"
+          className="z-10 flex h-1/2 w-full flex-col items-center justify-center gap-10 border-b-2 border-solid border-adobe-gray bg-adobe-white px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start xl:border-b-0"
           style={{
             // translateX: fourthBox,
             translateX:
@@ -265,15 +228,14 @@ const ChooseUsContent = () => {
                 : width >= 1280
                   ? fourthBox
                   : fourthBoxTablet,
-
-            opacity: test,
+            opacity: opacityFourthBox,
           }}
         >
           <div className="size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
             <div
               className="size-full lg:size-2/5"
               style={{
-                backgroundImage: `url("${Data[3].image}")`,
+                backgroundImage: `url("${List}")`,
                 backgroundSize: "contain",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
