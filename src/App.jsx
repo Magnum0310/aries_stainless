@@ -4,6 +4,8 @@ import Lenis from "lenis";
 import HeroPage from "./components/HeroPage";
 import ChooseUsPage from "./components/ChooseUsPage";
 import ChooseUsContent from "./components/ChooseUsContent";
+import ServicePage from "./components/ServicePage";
+import ServiceContectPage from "./components/ServiceContectPage";
 
 function App() {
   useEffect(() => {
@@ -21,7 +23,8 @@ function App() {
       <HeroPage />
       <ChooseUsPage />
       <ChooseUsContent />
-      <div className="h-screen"></div>
+      <ServicePage />
+      <ServiceContectPage />
     </>
   );
 }

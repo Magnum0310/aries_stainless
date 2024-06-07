@@ -22,24 +22,6 @@ const ChooseUsContent = () => {
     offset: ["start end", "end end"],
   });
 
-  const [xPosition, setXPosition] = useState({ firstBox: 0, box: 0 });
-
-  // useEffect(() => {
-  //   if (width >= 1280) {
-  //     setXPosition((prevPos) => ({
-  //       ...prevPos,
-  //       firstBox: (prevPos.firstBox = 0),
-  //       Box: (prevPos.box = -500),
-  //     }));
-  //   } else if (width < 1280) {
-  //     setXPosition((prevPos) => ({
-  //       ...prevPos,
-  //       firstBox: (prevPos.firstBox = -1200),
-  //       Box: (prevPos.box = -1200),
-  //     }));
-  //   }
-  // }, [width]);
-
   // MOBILE
   const firstBoxMobile = useTransform(scrollYProgress, [0, 0.4], [-1200, 0], {
     ease: easeInOut,
@@ -95,7 +77,7 @@ const ChooseUsContent = () => {
   const secondBox = useTransform(scrollYProgress, [0.5, 0.65], [-500, 0], {
     ease: easeInOut,
   });
-  const thirdBox = useTransform(scrollYProgress, [0.6, 0.75], [-500, 0], {
+  const thirdBox = useTransform(scrollYProgress, [0.6, 0.75], [-1200, 0], {
     ease: easeInOut,
   });
   const fourthBox = useTransform(scrollYProgress, [0.7, 0.85], [-500, 0], {
@@ -111,11 +93,11 @@ const ChooseUsContent = () => {
 
   return (
     <div
-      className="relative h-[250vh] justify-center bg-adobe-white font-shareTech lg:flex lg:flex-col xl:flex-row xl:items-center"
+      className="relative h-[200vh] justify-center bg-adobe-red font-shareTech lg:flex lg:flex-col xl:flex-row xl:items-center"
       ref={divRef}
     >
       {/* FIRST HALF */}
-      <div className="h-1/2 lg:flex lg:h-1/3 xl:sticky xl:top-1/2 xl:z-20 xl:-translate-y-1/2">
+      <div className="h-1/2 lg:flex lg:h-[35%] xl:sticky xl:top-1/2 xl:z-20 xl:-translate-y-1/2">
         {/* FIRST BOX */}
         <motion.div
           className="z-40 flex h-1/2 w-full flex-col items-center justify-center gap-10 border-b-2 border-solid border-adobe-gray bg-adobe-white px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-r-2 lg:border-t-2 xl:border-b-0 xl:border-t-0"
@@ -182,7 +164,7 @@ const ChooseUsContent = () => {
         </motion.div>
       </div>
       {/* SECOND HALF */}
-      <div className="h-1/2 lg:flex lg:h-1/3 lg:items-center xl:sticky xl:top-1/2 xl:z-10 xl:-translate-y-1/2">
+      <div className="h-1/2 lg:flex lg:h-[35%] lg:items-center xl:sticky xl:top-1/2 xl:z-10 xl:-translate-y-1/2">
         {/* THIRD BOX */}
         <motion.div
           className="z-20 flex h-1/2 w-full flex-col items-center justify-center gap-10 border-b-2 border-solid border-adobe-gray bg-adobe-white px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-r-2 xl:border-b-0"
@@ -194,7 +176,6 @@ const ChooseUsContent = () => {
                 : width >= 1280
                   ? thirdBox
                   : thirdBoxTablet,
-            opacity: opacityThirdBox,
           }}
         >
           <div className="size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
@@ -228,7 +209,7 @@ const ChooseUsContent = () => {
                 : width >= 1280
                   ? fourthBox
                   : fourthBoxTablet,
-            opacity: opacityFourthBox,
+            opacity: width <= 1280 ? 1 : opacityFourthBox,
           }}
         >
           <div className="size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
