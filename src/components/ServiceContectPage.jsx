@@ -1,5 +1,11 @@
-import { useRef, useEffect } from "react";
-import { motion, useTransform, useScroll, useInView } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import {
+  motion,
+  useTransform,
+  useScroll,
+  useAnimation,
+  useInView,
+} from "framer-motion";
 import Bakery from "../assets/Svg/SvgIcons/colorBakery.svg";
 import Blinds from "../assets/Svg/SvgIcons/colorBlinds.svg";
 import Chair from "../assets/Svg/SvgIcons/colorChairs.svg";
@@ -8,113 +14,117 @@ import Gate from "../assets/Svg/SvgIcons/colorGate.svg";
 import Grill from "../assets/Svg/SvgIcons/colorGrill.svg";
 import Kitchen from "../assets/Svg/SvgIcons/colorKitchen.svg";
 import Signage from "../assets/Svg/SvgIcons/colorSignage.svg";
+import ServiceItem from "./ServiceItem";
+import ServiceItemEven from "./ServiceItem";
 
 const ServiceContectPage = () => {
-  const test = useRef(null);
-  const sample = useRef(null);
-  const sample1 = useRef(null);
-  const sample2 = useRef(null);
-  const sample3 = useRef(null);
-  const sample4 = useRef(null);
-  const sample5 = useRef(null);
-  const sample6 = useRef(null);
-  const sample7 = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: test,
+  const divRef = useRef(null);
+  const [currentInView, setCurrentInView] = useState(0);
+
+  const TWEEN_OPTIONS = {
+    type: "tween",
+    ease: "easeInOut",
+    duration: 0.5,
+  };
+
+  const isInView = useInView(divRef, {
+    margin: "-255px 0px",
+    once: true,
   });
-
-  console.log(scrollYProgress);
-
-  const isInView = useInView(sample);
-  const isInView1 = useInView(sample1);
-  const isInView2 = useInView(sample2);
-  const isInView3 = useInView(sample3);
-  const isInView4 = useInView(sample4);
-  const isInView5 = useInView(sample5);
-  const isInView6 = useInView(sample6);
-  const isInView7 = useInView(sample7);
 
   const Data = [
     {
       id: 1,
+      number: "01",
       title: "Gate and Fences",
       description:
         "Secure and stylish, our stainless steel gates and fences are designed to enhance the security and aesthetic appeal of your property.",
       image: Gate,
-      ref: sample,
-      view: isInView,
+      track: 0,
     },
     {
       id: 2,
+      number: "02",
       title: "Railings",
       description:
         "We offer a wide range of stainless steel railings that combine safety with sleek, modern design.",
       image: Fence,
-      ref: sample1,
-      view: isInView1,
+      track: 100,
     },
     {
       id: 3,
+      number: "03",
       title: "Bakery Equipment",
       description:
         "Equip your bakery with durable and hygienic stainless steel equipment designed for efficiency and longevity.",
       image: Bakery,
-      ref: sample2,
-      view: isInView2,
+      track: 200,
     },
     {
       id: 4,
+      number: "04",
       title: "Kitchen Equipment",
       description:
         "Our stainless steel kitchen equipment is perfect for both commercial and residential kitchens, ensuring top-notch hygiene and durability.",
       image: Kitchen,
-      ref: sample3,
-      view: isInView3,
+      track: 300,
     },
     {
       id: 5,
+      number: "05",
       title: "Tables and Chairs",
       description:
         "Discover our range of stainless steel tables and chairs that offer both functionality and contemporary style.",
       image: Chair,
-      ref: sample4,
-      view: isInView4,
+      track: 400,
     },
     {
       id: 6,
+      number: "06",
       title: "Letter/Signage",
       description:
         "Make a statement with our custom stainless steel letters and signage, perfect for businesses looking to stand out.",
       image: Signage,
-      ref: sample5,
-      view: isInView5,
+      track: 500,
     },
     {
       id: 7,
+      number: "07",
       title: "Grills",
       description:
         "Our stainless steel grills are built to last, offering superior performance and easy maintenance.",
       image: Grill,
-      ref: sample6,
-      view: isInView6,
+      track: 600,
     },
     {
       id: 8,
+      number: "08",
       title: "Korean Blinds",
       description:
         "Add a touch of elegance to your space with our premium stainless steel Korean blinds.",
       image: Blinds,
-      ref: sample7,
-      view: isInView7,
+      track: 700,
     },
   ];
 
   const primaryVariant = {
-    initial: { opacity: 1 },
+    initial: {
+      opacity: 0,
+      x: -600,
+      transition: {
+        type: "tween",
+        ease: "easeInOut",
+        duration: 1,
+        delayChildren: 0.5,
+      },
+    },
     animate: {
       opacity: 1,
+      x: 0,
       transition: {
+        type: "tween",
         ease: "easeInOut",
+        duration: 1,
         delayChildren: 0.5,
       },
     },
@@ -128,126 +138,66 @@ const ServiceContectPage = () => {
     initial: { scale: 0.5 },
     animate: { scale: 1 },
   };
+  const handleInView = (data) => {
+    setCurrentInView(data);
+  };
 
-  const yScroll = useTransform(scrollYProgress, [0, 1], [0, -1170]);
-
-  useEffect(() => {
-    scrollYProgress.on("change", (e) => console.log(e));
-  }, []);
   return (
     <div
-      className="relative h-[350vh] bg-adobe-white font-shareTech"
-      ref={test}
+      className="relative h-[400vh] bg-adobe-white font-shareTech"
+      ref={divRef}
     >
-      <div className="flex h-full w-full flex-col">
-        <div className="sticky top-0 flex basis-[10%] items-center justify-center bg-green-500 text-center">
-          <div className="size-1/2 overflow-hidden border-2 border-solid border-black bg-violet-500">
+      <div className="flex h-full w-full flex-col lg:grid lg:grid-cols-2">
+        {/* MAIN ICON BOX */}
+        <motion.div
+          className="sticky top-0 z-40 flex basis-[10%] items-center justify-center bg-adobe-white text-center lg:col-start-1 lg:h-screen"
+          variants={primaryVariant}
+          initial={isInView ? "" : "initial"}
+          animate={isInView ? "animate" : ""}
+        >
+          {/* SIZE ICON BOX */}
+          <div className="size-[55%] overflow-hidden md:h-[60%] md:w-1/4 lg:h-[50%] lg:w-[60%] 2xl:max-w-[500px]">
+            {/* ICONS */}
             <motion.div
-              className="h-full w-full"
-              // variants={primaryVariant}
-              // animate="animate"
-              // initial="initial"
-              style={{ translateY: yScroll }}
+              className="size-full"
+              animate={{ translateY: `-${currentInView}%` }}
+              transition={TWEEN_OPTIONS}
             >
               {Data.map((data) => (
                 <motion.div
                   key={data.id}
-                  ref={data.ref}
-                  className="h-full w-full place-content-center bg-red-100"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: 0.5, ease: "easeInOut" }}
+                  className="size-full"
                   style={{
-                    backgroundImage: `url(${data.image})`,
-                    backgroundPosition: "center",
+                    backgroundImage: `url("${data.image}")`,
                     backgroundSize: "contain",
+                    backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
+                    scale: 0.8,
                   }}
                 ></motion.div>
               ))}
-
-              {/* <motion.div
-                className="h-full w-full place-content-center bg-red-100"
-                variants={childVariant}
-                style={{
-                  backgroundImage: `url("${Data[0].image}")`,
-                  backgroundSize: "contain",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                }}
-              ></motion.div>
-              <motion.div
-                className="h-full w-full place-content-center bg-red-200"
-                variants={childVariant}
-              >
-                2
-              </motion.div>
-              <motion.div
-                className="h-full w-full place-content-center bg-red-300"
-                variants={childVariant}
-              >
-                3
-              </motion.div>
-              <motion.div
-                className="h-full w-full place-content-center bg-red-400"
-                variants={childVariant}
-              >
-                4
-              </motion.div>
-              <motion.div
-                className="h-full w-full place-content-center bg-red-500"
-                variants={childVariant}
-              >
-                5
-              </motion.div>
-              <motion.div
-                className="h-full w-full place-content-center bg-red-500"
-                variants={childVariant}
-              >
-                6
-              </motion.div>
-              <motion.div
-                className="h-full w-full place-content-center bg-red-500"
-                variants={childVariant}
-              >
-                7
-              </motion.div>
-              <motion.div
-                className="h-full w-full place-content-center bg-red-500"
-                variants={childVariant}
-              >
-                8
-              </motion.div> */}
             </motion.div>
           </div>
+        </motion.div>
+
+        {/* TOP GRADIENT SPACER */}
+        <div className="sticky top-1/4 z-20 h-[250px] place-content-center bg-gradient-to-b from-adobe-white/100 via-adobe-white/70 to-gray-100/40 text-center lg:top-0 lg:z-50 lg:col-start-2"></div>
+        {/* BOTTOM GRADIENT SPACER */}
+        <div className="sticky top-[85%] z-20 h-[250px] place-content-center bg-gradient-to-b from-adobe-white/50 via-gray-300/100 to-gray-100/100 text-center lg:z-50 lg:col-span-2 lg:col-start-1"></div>
+        {/* MAIN DESCRIPTION BOX */}
+        <div className="flex size-full flex-col lg:relative lg:bottom-[25%] lg:col-start-2 lg:h-[300vh]">
+          {Data.map((data) => (
+            <ServiceItem
+              key={data.id}
+              title={data.title}
+              description={data.description}
+              number={data.number}
+              track={data.track}
+              tracking={handleInView}
+            />
+          ))}
         </div>
-        <div className="basis-[12%] place-content-center bg-blue-500 text-center">
-          #1
-        </div>
-        <div className="basis-[12%] place-content-center bg-orange-500 text-center">
-          #2
-        </div>
-        <div className="basis-[12%] place-content-center bg-blue-500 text-center">
-          #3
-        </div>
-        <div className="basis-[12%] place-content-center bg-orange-500 text-center">
-          #4
-        </div>
-        <div className="basis-[12%] place-content-center bg-blue-500 text-center">
-          #5
-        </div>
-        <div className="basis-[12%] place-content-center bg-orange-500 text-center">
-          #6
-        </div>
-        <div className="basis-[12%] place-content-center bg-blue-500 text-center">
-          #7
-        </div>
-        <div className="basis-[12%] place-content-center bg-orange-500 text-center">
-          #8
-        </div>
-        <div className="basis-[12%] place-content-center bg-orange-500 text-center">
-          END
-        </div>
+        <div className="sticky top-0 basis-[12%] place-content-center text-center"></div>
       </div>
     </div>
   );

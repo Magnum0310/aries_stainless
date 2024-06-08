@@ -25,6 +25,7 @@ function App() {
       <ChooseUsContent />
       <ServicePage />
       <ServiceContectPage />
+      <div className="h-screen w-full bg-red-500"></div>
     </>
   );
 }
