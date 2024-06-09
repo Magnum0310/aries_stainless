@@ -30,7 +30,9 @@ const ServiceItem = ({ description, track, tracking, title, number }) => {
       </div>
       {/* SERVICE DESCRIPTION */}
       {/* <div className="font-spaceMono text-lg md:text-xl">{description}</div> */}
-      <div className="text-service-content font-spaceMono">{description}</div>
+      <div className="text-service-content font-spaceMono 3xl:mt-5">
+        {description}
+      </div>
     </div>
   );
 };

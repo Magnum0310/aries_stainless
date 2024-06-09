@@ -6,6 +6,8 @@ import ChooseUsPage from "./components/ChooseUsPage";
 import ChooseUsContent from "./components/ChooseUsContent";
 import ServicePage from "./components/ServicePage";
 import ServiceContectPage from "./components/ServiceContectPage";
+import ProjectPage from "./components/ProjectsPage";
+import ProjectsContent from "./components/ProjectsContent";
 
 function App() {
   useEffect(() => {
@@ -25,7 +27,8 @@ function App() {
       <ChooseUsContent />
       <ServicePage />
       <ServiceContectPage />
-      <div className="h-screen w-full bg-red-500"></div>
+      <ProjectPage />
+      <ProjectsContent />
     </>
   );
 }

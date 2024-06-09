@@ -155,35 +155,44 @@ const ServiceContectPage = () => {
           initial={isInView ? "" : "initial"}
           animate={isInView ? "animate" : ""}
         >
-          {/* SIZE ICON BOX */}
-          <div className="size-[55%] overflow-hidden md:h-[60%] md:w-1/4 lg:h-[50%] lg:w-[60%] 2xl:max-w-[500px]">
-            {/* ICONS */}
-            <motion.div
-              className="size-full"
-              animate={{ translateY: `-${currentInView}%` }}
-              transition={TWEEN_OPTIONS}
-            >
-              {Data.map((data) => (
-                <motion.div
-                  key={data.id}
-                  className="size-full"
-                  style={{
-                    backgroundImage: `url("${data.image}")`,
-                    backgroundSize: "contain",
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
-                    scale: 0.8,
-                  }}
-                ></motion.div>
-              ))}
-            </motion.div>
+          <div className="relative flex size-full items-center justify-center">
+            <div className="absolute size-[80%]">
+              <div className="absolute z-10 size-full scale-95 bg-adobe-white"></div>
+              <div className="absolute h-[95%] w-[95%] rounded-b-3xl rounded-r-3xl bg-adobe-red"></div>
+              <div className="absolute bottom-0 right-0 h-[95%] w-[95%] rounded-bl-3xl rounded-tr-3xl bg-adobe-gray"></div>
+            </div>
+            {/* SIZE ICON BOX */}
+            <div className="relative z-20 size-[55%] overflow-hidden md:h-[60%] md:w-1/4 lg:h-[50%] lg:w-[60%] 2xl:max-w-[500px]">
+              {/*  */}
+
+              {/* ICONS */}
+              <motion.div
+                className="size-full"
+                animate={{ translateY: `-${currentInView}%` }}
+                transition={TWEEN_OPTIONS}
+              >
+                {Data.map((data) => (
+                  <motion.div
+                    key={data.id}
+                    className="size-full bg-adobe-white"
+                    style={{
+                      backgroundImage: `url("${data.image}")`,
+                      backgroundSize: "contain",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                      scale: 0.8,
+                    }}
+                  ></motion.div>
+                ))}
+              </motion.div>
+            </div>
           </div>
         </motion.div>
 
         {/* TOP GRADIENT SPACER */}
         <div className="sticky top-1/4 z-20 h-[250px] place-content-center bg-gradient-to-b from-adobe-white/100 via-adobe-white/70 to-gray-100/40 text-center lg:top-0 lg:z-50 lg:col-start-2"></div>
         {/* BOTTOM GRADIENT SPACER */}
-        <div className="sticky top-[85%] z-20 h-[250px] place-content-center bg-gradient-to-b from-adobe-white/50 via-gray-300/100 to-gray-100/100 text-center lg:z-50 lg:col-span-2 lg:col-start-1"></div>
+        <div className="sticky top-[85%] z-20 h-[250px] place-content-center bg-gradient-to-b from-adobe-white/50 via-gray-300/100 to-gray-100/100 text-center lg:z-50 lg:col-start-2"></div>
         {/* MAIN DESCRIPTION BOX */}
         <div className="flex size-full flex-col lg:relative lg:bottom-[25%] lg:col-start-2 lg:h-[300vh]">
           {Data.map((data) => (
