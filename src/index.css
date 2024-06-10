@@ -22,12 +22,21 @@
   }
   /* SERVICE SECTION */
   .text-service-title {
-    @apply text-4xl xs:text-[2.4rem] md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl;
+    @apply text-4xl xs:text-[2.4rem] md:text-5xl;
   }
   .text-service-description {
-    @apply pr-10 text-sm xs:text-base md:text-xl lg:text-2xl xl:text-3xl;
+    @apply pr-10 text-sm xs:text-base md:text-xl lg:text-xl;
   }
   .text-service-content {
-    @apply pr-10 text-sm xs:text-base md:text-xl xl:text-2xl;
+    @apply pr-10 text-sm xs:text-base md:text-xl;
+  }
+
+  /* CONTACT */
+  .text-contact-description {
+    @apply pr-10 text-sm xs:text-sm md:text-base;
+  }
+
+  .text-contact-details {
+    @apply pr-10 text-sm xs:text-base md:text-lg;
   }
 }

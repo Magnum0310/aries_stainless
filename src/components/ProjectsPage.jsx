@@ -6,7 +6,7 @@ const ServicePage = () => {
     <div className="relative h-screen overflow-hidden bg-adobe-white font-shareTech">
       {/* RED BORDER */}
       <div className="absolute -left-[1.1rem] top-8 z-50 flex h-[1rem] w-[5rem] -rotate-90 items-center justify-center bg-adobe-white text-center font-spaceMono text-[.5rem]">
-        SERVICE
+        PROJECT
       </div>
       <div className="absolute left-5 z-40 h-full w-full border-l-4 border-solid border-adobe-red"></div>
       {/* INNER WHITE BOX WRAPPER*/}
