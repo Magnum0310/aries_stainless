@@ -9,8 +9,6 @@ import ServiceContectPage from "./components/ServiceContectPage";
 import ProjectPage from "./components/ProjectsPage";
 import ProjectsContent from "./components/ProjectsContent";
 import ContactPage from "./components/ContactPage";
-import Dummy from "./components/Dummy";
-import Carousel from "./components/Carousel";
 
 function App() {
   useEffect(() => {

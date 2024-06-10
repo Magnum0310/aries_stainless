@@ -1,11 +1,5 @@
 import { useRef, useEffect, useState } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  easeInOut,
-  easeOut,
-} from "framer-motion";
+import { motion, useScroll, useTransform, easeInOut } from "framer-motion";
 import { useWindowDimensions } from "./hooks/useWindowDimensions";
 import Tool from "../assets/Svg/ChooseUsIcon/colorTools.svg";
 import Customer from "../assets/Svg/ChooseUsIcon/colorReview.svg";
@@ -69,38 +63,33 @@ const ChooseUsContent = () => {
       ease: easeInOut,
     },
   );
-
   // Laptop
   const firstBox = useTransform(scrollYProgress, [0, 0.4], [0, 0], {
     ease: easeInOut,
   });
-  const secondBox = useTransform(scrollYProgress, [0.5, 0.65], [-500, 0], {
+  const secondBox = useTransform(scrollYProgress, [0.5, 0.65], [-600, 0], {
     ease: easeInOut,
   });
   const thirdBox = useTransform(scrollYProgress, [0.6, 0.75], [-1200, 0], {
     ease: easeInOut,
   });
-  const fourthBox = useTransform(scrollYProgress, [0.7, 0.85], [-500, 0], {
+  const fourthBox = useTransform(scrollYProgress, [0.7, 0.85], [-600, 0], {
     ease: easeInOut,
   });
 
-  const opacityThirdBox = useTransform(
-    scrollYProgress,
-    [0.6, 0.7, 0.75],
-    [0, 1, 1],
-  );
   const opacityFourthBox = useTransform(scrollYProgress, [0.7, 0.75], [0, 1]);
 
   return (
     <div
-      className="relative h-[200vh] justify-center bg-adobe-red font-shareTech lg:flex lg:flex-col xl:flex-row xl:items-center"
+      className="justify-cente relative h-[200vh] font-shareTech lg:flex lg:flex-col xl:flex-row xl:items-center"
       ref={divRef}
     >
       {/* FIRST HALF */}
+      <div className="absolute left-5 z-50 h-full border-l-4 border-solid border-adobe-red"></div>
       <div className="h-1/2 lg:flex lg:h-[35%] xl:sticky xl:top-1/2 xl:z-20 xl:-translate-y-1/2">
         {/* FIRST BOX */}
         <motion.div
-          className="z-40 flex h-1/2 w-full flex-col items-center justify-center gap-10 border-b-2 border-solid border-adobe-gray bg-adobe-white px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-r-2 lg:border-t-2 xl:border-b-0 xl:border-t-0"
+          className="z-40 flex h-1/2 w-full flex-col items-center justify-center gap-5 border-b-2 border-solid border-adobe-gray bg-adobe-white px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-r-2 lg:border-t-2 xl:border-b-0 xl:border-t-0"
           style={{
             translateX:
               width <= 1023
@@ -121,7 +110,7 @@ const ChooseUsContent = () => {
               }}
             ></div>
           </div>
-          <div className="flex max-w-[500px] flex-col gap-10 lg:relative lg:bottom-10 lg:row-start-2">
+          <div className="flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
             <div className="text-mobile-chooseUs-title h-[3rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black">
               {Data[0].title}
             </div>
@@ -132,7 +121,7 @@ const ChooseUsContent = () => {
         </motion.div>
         {/* SECOND BOX */}
         <motion.div
-          className="z-30 flex h-1/2 w-full flex-col items-center justify-center gap-10 border-b-2 border-solid border-adobe-gray bg-adobe-white px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-t-2 xl:border-b-0 xl:border-r-2 xl:border-t-0"
+          className="z-30 flex h-1/2 w-full flex-col items-center justify-center gap-5 border-b-2 border-solid border-adobe-gray bg-adobe-white px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-t-2 xl:border-b-0 xl:border-r-2 xl:border-t-0"
           style={{
             translateX:
               width <= 1023
@@ -153,7 +142,7 @@ const ChooseUsContent = () => {
               }}
             ></div>
           </div>
-          <div className="flex max-w-[500px] flex-col gap-10 lg:relative lg:bottom-10 lg:row-start-2">
+          <div className="flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
             <div className="text-mobile-chooseUs-title h-[3rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black">
               {Data[1].title}
             </div>
@@ -167,7 +156,7 @@ const ChooseUsContent = () => {
       <div className="h-1/2 lg:flex lg:h-[35%] lg:items-center xl:sticky xl:top-1/2 xl:z-10 xl:-translate-y-1/2">
         {/* THIRD BOX */}
         <motion.div
-          className="z-20 flex h-1/2 w-full flex-col items-center justify-center gap-10 border-b-2 border-solid border-adobe-gray bg-adobe-white px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-r-2 xl:border-b-0"
+          className="z-20 flex h-1/2 w-full flex-col items-center justify-center gap-5 border-b-2 border-solid border-adobe-gray bg-adobe-white px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-r-2 xl:border-b-0"
           style={{
             // translateX: thirdBox,
             translateX:
@@ -189,7 +178,7 @@ const ChooseUsContent = () => {
               }}
             ></div>
           </div>
-          <div className="flex max-w-[500px] flex-col gap-10 lg:relative lg:bottom-10 lg:row-start-2">
+          <div className="flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
             <div className="text-mobile-chooseUs-title h-[3rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black">
               {Data[2].title}
             </div>
@@ -200,7 +189,7 @@ const ChooseUsContent = () => {
         </motion.div>
         {/* FOURTH BOX */}
         <motion.div
-          className="z-10 flex h-1/2 w-full flex-col items-center justify-center gap-10 border-b-2 border-solid border-adobe-gray bg-adobe-white px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start xl:border-b-0"
+          className="z-10 flex h-1/2 w-full flex-col items-center justify-center gap-5 border-b-2 border-solid border-adobe-gray bg-adobe-white px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start xl:border-b-0"
           style={{
             // translateX: fourthBox,
             translateX:
@@ -223,7 +212,7 @@ const ChooseUsContent = () => {
               }}
             ></div>
           </div>
-          <div className="flex max-w-[500px] flex-col gap-10 lg:relative lg:bottom-10 lg:row-start-2">
+          <div className="flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
             <div className="text-mobile-chooseUs-title h-[3rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black">
               {Data[3].title}
             </div>

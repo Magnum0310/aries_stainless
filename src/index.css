@@ -5,10 +5,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  background-color: #fafafa;
+}
+
 @layer utilities {
   /* HERO SECTION */
   .text-mobile-title {
-    @apply text-5xl md:text-6xl lg:text-[4.8rem];
+    @apply text-3xl xs:text-4xl md:text-6xl lg:text-[4.8rem];
   }
   .text-mobile-tagline {
     @apply text-[.6rem] tracking-wider md:text-base lg:text-xl;
@@ -22,21 +26,43 @@
   }
   /* SERVICE SECTION */
   .text-service-title {
-    @apply text-4xl xs:text-[2.4rem] md:text-5xl;
+    @apply text-2xl xs:text-[2.4rem] md:text-3xl lg:text-4xl;
   }
   .text-service-description {
-    @apply pr-10 text-sm xs:text-base md:text-xl lg:text-xl;
+    @apply pr-5 text-xs xs:text-base md:text-xl lg:text-xl;
   }
   .text-service-content {
-    @apply pr-10 text-sm xs:text-base md:text-xl;
+    @apply pr-10 text-sm xs:text-sm md:text-base;
   }
 
   /* CONTACT */
   .text-contact-description {
-    @apply pr-10 text-sm xs:text-sm md:text-base;
+    @apply pr-10 text-xs md:text-base;
   }
 
   .text-contact-details {
-    @apply pr-10 text-sm xs:text-base md:text-lg;
+    @apply pr-10 text-xs xl:text-sm;
+  }
+
+  /* TEST */
+  /* Act as a border */
+  .card-wrapper {
+    @apply to-adobe-darkGray relative overflow-hidden rounded-bl-2xl rounded-tr-2xl bg-gradient-to-b from-adobe-gray;
+  }
+
+  /* Gradient */
+  .card-wrapper::before {
+    background: conic-gradient(
+      rgba(128, 128, 128, 0.8) 0deg,
+      rgba(249, 27, 21, 1) 0deg,
+      transparent 180deg
+    );
+
+    @apply animate-border-spin absolute left-[-75%] top-[-75%] h-[250%] w-[250%] content-[''];
+  }
+
+  /* Body */
+  .card-content {
+    @apply absolute left-[6px] top-[6px] h-[calc(100%-12px)] w-[calc(100%-12px)] rounded-bl-2xl rounded-tr-2xl;
   }
 }

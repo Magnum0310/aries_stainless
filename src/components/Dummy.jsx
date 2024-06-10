@@ -88,7 +88,6 @@ const ImageSlider = () => {
             duration: 0.5,
             type: "tween",
             ease: "anticipate",
-            duration: 0.5,
           }}
           style={{
             width: "60%",

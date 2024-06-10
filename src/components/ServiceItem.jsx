@@ -14,17 +14,17 @@ const ServiceItem = ({ description, track, tracking, title, number }) => {
 
   return (
     <div
-      className="relative z-10 mt-10 grid basis-[12%] grid-cols-1 grid-rows-2 items-start bg-adobe-white px-8 md:left-1/2 md:max-w-[600px] md:-translate-x-1/2 lg:h-10 2xl:max-w-[800px] 2xl:items-center"
+      className="relative z-10 mt-10 grid max-w-[500px] basis-[12%] grid-cols-1 grid-rows-2 items-center bg-adobe-white px-8 md:left-[45%] md:max-w-[600px] md:-translate-x-1/2 2xl:max-w-[800px] 2xl:items-center"
       ref={ref}
     >
-      <div className="flex size-full flex-col justify-center gap-5">
+      <div className="flex size-full flex-col justify-center gap-2 max-xs:gap-2">
         {/* SERVICE NUMBER */}
-        <div className="xl text-4xl font-bold text-adobe-red md:text-5xl">
+        <div className="text-2xl font-bold text-adobe-red md:text-3xl">
           {number}
         </div>
         {/* SERVICE TITLE */}
 
-        <div className="text-service-title underline decoration-adobe-red underline-offset-8">
+        <div className="text-service-title under underline decoration-adobe-red underline-offset-8">
           {title}
         </div>
       </div>

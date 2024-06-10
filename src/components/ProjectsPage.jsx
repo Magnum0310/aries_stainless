@@ -34,9 +34,11 @@ const ServicePage = () => {
         <div className="absolute right-0 top-0 col-span-1 col-start-1 row-span-1 row-start-2 h-[55%] w-[8%] bg-adobe-red md:w-[5%] lg:hidden"></div>
         {/* TITLE BOX */}
         <div className="z-40 col-span-3 col-start-1 row-span-2 row-start-2 flex w-[117%] flex-col justify-center pl-[25%] lg:absolute lg:right-0 lg:col-span-3 lg:col-start-4 lg:row-span-2 lg:row-start-2 lg:h-[120%] lg:w-[85%] lg:bg-transparent lg:pl-[0]">
-          <div className="text-service-title flex h-[75%] items-center bg-adobe-white bg-opacity-80 max-lg:max-w-[65%] lg:w-full lg:flex-col lg:justify-center xl:h-full">
-            <div className="max-w-[95%] lg:w-full">{Data.projectPageTitle}</div>
-            <div className="relative right-[25%] flex h-[3%] w-[150%] gap-5 max-lg:hidden lg:rotate-180">
+          <div className="text-service-title flex h-fit items-center bg-adobe-white bg-opacity-80 max-lg:max-w-[65%] lg:w-full lg:flex-col lg:justify-center xl:h-full">
+            <div className="max-w-[95%] py-8 lg:w-full">
+              {Data.projectPageTitle}
+            </div>
+            <div className="relative right-[25%] flex h-5 w-[150%] gap-5 py-2 max-lg:hidden lg:rotate-180">
               <div className="h-full w-full basis-full bg-adobe-red"></div>
               <div className="h-full w-full basis-[5%] bg-adobe-red"></div>
               <div className="h-full w-full basis-[5%] bg-adobe-red"></div>
@@ -44,10 +46,9 @@ const ServicePage = () => {
             </div>
           </div>
         </div>
-        <div className="z-30 col-start-4 row-span-2 row-start-2 hidden h-full w-1/2 bg-adobe-white bg-opacity-0 xs:w-1/4 lg:absolute lg:top-[44%] lg:col-span-2 lg:col-start-4 lg:h-[37%] lg:w-full lg:rounded-tr-3xl"></div>
         {/* DESCRIPTION BOX */}
-        <div className="z-40 col-span-3 col-start-1 row-span-2 row-start-4 flex w-[117%] items-center justify-center bg-adobe-white bg-opacity-80 pl-[25%] font-spaceMono max-lg:absolute max-lg:top-1/2 max-lg:h-[80%] max-lg:-translate-y-1/2 lg:absolute lg:right-0 lg:col-span-3 lg:col-start-4 lg:row-span-2 lg:row-start-4 lg:h-[130%] lg:w-[85%] lg:justify-center lg:bg-adobe-red lg:bg-opacity-0 lg:pl-0">
-          <div className="text-service-description h-full max-w-[95%] place-content-center">
+        <div className="z-40 col-span-3 col-start-1 row-span-2 row-start-4 flex w-[117%] items-center justify-center bg-adobe-white bg-opacity-80 pl-[25%] font-spaceMono max-lg:absolute max-lg:top-1/2 max-lg:h-fit max-lg:-translate-y-1/2 lg:absolute lg:right-0 lg:col-span-3 lg:col-start-4 lg:row-span-2 lg:row-start-4 lg:h-[130%] lg:w-[85%] lg:justify-center lg:bg-adobe-red lg:bg-opacity-0 lg:pl-0">
+          <div className="text-service-description relative h-full max-w-[95%] place-content-center py-2">
             {Data.projetPageDescription}
           </div>
         </div>

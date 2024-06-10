@@ -5,7 +5,7 @@ const HeroPage = () => {
   return (
     <div className="relative h-screen overflow-hidden bg-adobe-white font-shareTech">
       {/* RED BORDER */}
-      <div className="relative left-5 top-10 z-50 h-full w-full border-l-4 border-t-4 border-solid border-adobe-red"></div>
+      <div className="relative left-5 top-5 z-50 h-full w-full border-l-4 border-t-4 border-solid border-adobe-red"></div>
       {/* INNER WHITE BOX WRAPPER*/}
       <div className="absolute left-6 top-11 grid h-full w-full grid-cols-4 grid-rows-6 bg-adobe-white lg:left-0 lg:top-0 lg:grid-cols-6">
         {/* PAGE IMAGE WRAPPER */}

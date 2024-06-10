@@ -20,13 +20,11 @@ import ServiceItemEven from "./ServiceItem";
 const ServiceContectPage = () => {
   const divRef = useRef(null);
   const [currentInView, setCurrentInView] = useState(0);
-
   const TWEEN_OPTIONS = {
     type: "tween",
     ease: "easeInOut",
     duration: 0.5,
   };
-
   const isInView = useInView(divRef, {
     margin: "-255px 0px",
     once: true,
@@ -106,7 +104,6 @@ const ServiceContectPage = () => {
       track: 700,
     },
   ];
-
   const primaryVariant = {
     initial: {
       opacity: 0,
@@ -129,42 +126,31 @@ const ServiceContectPage = () => {
       },
     },
   };
-
-  const childVariant = {
-    initial: { opacity: 1, scale: 0.5 },
-    animate: { opacity: 1, scale: 1 },
-  };
-  const testVariant = {
-    initial: { scale: 0.5 },
-    animate: { scale: 1 },
-  };
   const handleInView = (data) => {
     setCurrentInView(data);
   };
 
   return (
     <div
-      className="relative h-[400vh] bg-adobe-white font-shareTech"
+      className="relative h-[400vh] bg-adobe-white font-shareTech md:h-[450vh]"
       ref={divRef}
     >
-      <div className="flex h-full w-full flex-col lg:grid lg:grid-cols-2">
+      <div className="flex h-full w-full flex-col md:grid md:grid-cols-2 md:grid-rows-2">
         {/* MAIN ICON BOX */}
         <motion.div
-          className="sticky top-0 z-40 flex basis-[10%] items-center justify-center bg-adobe-white text-center lg:col-start-1 lg:h-screen"
+          className="sticky top-0 z-40 flex basis-[12%] items-center justify-center bg-adobe-white text-center xs:basis-[15%] md:col-start-1 md:h-screen"
           variants={primaryVariant}
           initial={isInView ? "" : "initial"}
           animate={isInView ? "animate" : ""}
         >
-          <div className="relative flex size-full items-center justify-center">
-            <div className="absolute size-[80%]">
+          <div className="relative flex size-full items-center justify-center md:size-3/4">
+            <div className="absolute size-[65%]">
               <div className="absolute z-10 size-full scale-95 bg-adobe-white"></div>
               <div className="absolute h-[95%] w-[95%] rounded-b-3xl rounded-r-3xl bg-adobe-red"></div>
               <div className="absolute bottom-0 right-0 h-[95%] w-[95%] rounded-bl-3xl rounded-tr-3xl bg-adobe-gray"></div>
             </div>
             {/* SIZE ICON BOX */}
-            <div className="relative z-20 size-[55%] overflow-hidden md:h-[60%] md:w-1/4 lg:h-[50%] lg:w-[60%] 2xl:max-w-[500px]">
-              {/*  */}
-
+            <div className="relative z-20 size-[55%] overflow-hidden md:w-[60%] 2xl:max-w-[500px]">
               {/* ICONS */}
               <motion.div
                 className="size-full"
@@ -188,13 +174,12 @@ const ServiceContectPage = () => {
             </div>
           </div>
         </motion.div>
-
         {/* TOP GRADIENT SPACER */}
-        <div className="sticky top-1/4 z-20 h-[250px] place-content-center bg-gradient-to-b from-adobe-white/100 via-adobe-white/70 to-gray-100/40 text-center lg:top-0 lg:z-50 lg:col-start-2"></div>
+        <div className="sticky top-1/4 z-20 h-[100px] place-content-center bg-gradient-to-b from-adobe-white/100 via-adobe-white/70 to-gray-100/40 text-center md:top-0 md:z-50 md:col-span-2 md:col-start-2 md:row-start-1"></div>
         {/* BOTTOM GRADIENT SPACER */}
-        <div className="sticky top-[85%] z-20 h-[250px] place-content-center bg-gradient-to-b from-adobe-white/50 via-gray-300/100 to-gray-100/100 text-center lg:z-50 lg:col-start-2"></div>
+        <div className="sticky top-[85%] z-20 h-[150px] place-content-center bg-gradient-to-b from-adobe-white/50 via-gray-300/75 to-gray-100/25 text-center md:z-50 md:col-span-2 md:col-start-1"></div>
         {/* MAIN DESCRIPTION BOX */}
-        <div className="flex size-full flex-col lg:relative lg:bottom-[25%] lg:col-start-2 lg:h-[300vh]">
+        <div className="flex size-full flex-col items-center md:relative md:bottom-[15%] md:col-start-2 md:h-[350vh] md:items-start">
           {Data.map((data) => (
             <ServiceItem
               key={data.id}
