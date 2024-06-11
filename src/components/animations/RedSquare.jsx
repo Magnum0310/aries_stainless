@@ -1,5 +1,6 @@
-import React from "react";
+import { useContext } from "react";
 import { motion } from "framer-motion";
+import ViewContext from "../context/StatusContext";
 
 const primaryVariant = {
   initial: { opacity: 0 },
@@ -29,13 +30,16 @@ const childrenOpacityVariant = {
 };
 
 export default function redSquareAnimate() {
+  const { chooseUs } = useContext(ViewContext);
+  console.log(chooseUs);
+
   return (
     <motion.svg
       viewBox="0 0 800 800"
       xmlns="http://www.w3.org/2000/svg"
       variants={primaryVariant}
       initial="initial"
-      animate="animate"
+      animate={chooseUs ? "animate" : ""}
     >
       <g fill="none">
         <motion.path

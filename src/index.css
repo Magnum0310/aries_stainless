@@ -12,10 +12,10 @@ html {
 @layer utilities {
   /* HERO SECTION */
   .text-mobile-title {
-    @apply text-3xl xs:text-4xl md:text-6xl lg:text-[4.8rem];
+    @apply text-3xl xs:text-4xl md:text-5xl lg:text-6xl;
   }
   .text-mobile-tagline {
-    @apply text-[.6rem] tracking-wider md:text-base lg:text-xl;
+    @apply text-[.45rem] tracking-wider xs:text-[.6rem] md:text-base lg:text-xl;
   }
   /* CHOOSE US SECTION */
   .text-mobile-chooseUs-title {
@@ -47,7 +47,7 @@ html {
   /* TEST */
   /* Act as a border */
   .card-wrapper {
-    @apply to-adobe-darkGray relative overflow-hidden rounded-bl-2xl rounded-tr-2xl bg-gradient-to-b from-adobe-gray;
+    @apply relative overflow-hidden rounded-bl-2xl rounded-tr-2xl bg-gradient-to-b from-adobe-gray to-adobe-darkGray;
   }
 
   /* Gradient */
@@ -58,7 +58,7 @@ html {
       transparent 180deg
     );
 
-    @apply animate-border-spin absolute left-[-75%] top-[-75%] h-[250%] w-[250%] content-[''];
+    @apply absolute left-[-75%] top-[-75%] h-[250%] w-[250%] animate-border-spin content-[''];
   }
 
   /* Body */

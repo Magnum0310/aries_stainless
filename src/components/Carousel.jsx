@@ -119,7 +119,7 @@ const Carousel = () => {
     borderFarLeft: {
       x: "-14rem",
       opacity: 1,
-      filter: "brightness(40%)",
+      filter: "brightness(20%)",
       scale: 1,
       backgroundImage: "linear-gradient(#808080,#626262)",
       zIndex: "2",
@@ -146,7 +146,7 @@ const Carousel = () => {
       backgroundImage: "linear-gradient(#808080,#626262)",
       x: "14rem",
       opacity: 1,
-      filter: "brightness(40%)",
+      filter: "brightness(20%)",
       scale: 1,
       boxShadow: "unset",
       zIndex: "2",

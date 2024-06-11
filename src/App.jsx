@@ -9,7 +9,11 @@ import ServiceContectPage from "./components/ServiceContectPage";
 import ProjectPage from "./components/ProjectsPage";
 import ProjectsContent from "./components/ProjectsContent";
 import ContactPage from "./components/ContactPage";
-import Stagger from "./components/animations/StaggerText";
+import AnimateSquare from "./components/animations/AnimateSquare";
+import AnimateCircle from "./components/animations/AnimateCircle";
+import AnimateCurveLine from "./components/animations/AnimateCurveLine";
+import { StatusProvider } from "./components/context/StatusContext";
+import Lines from "./components/animations/AnimateLine";
 
 function App() {
   useEffect(() => {
@@ -23,24 +27,19 @@ function App() {
   }, []);
 
   return (
-    <>
+    <StatusProvider>
+      <AnimateCurveLine />
       <HeroPage />
       <ChooseUsPage />
+      <AnimateSquare />
       <ChooseUsContent />
       <ServicePage />
       <ServiceContectPage />
       <ProjectPage />
       <ProjectsContent />
+      <AnimateCircle />
       <ContactPage />
-      <div className="h-[50vh] w-full bg-lime-500">
-        <Stagger
-          text={"HELLO"}
-          className={
-            "flex h-full w-full items-center justify-center bg-amber-500 text-5xl"
-          }
-        />
-      </div>
-    </>
+    </StatusProvider>
   );
 }
 

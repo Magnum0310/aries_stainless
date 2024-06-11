@@ -1,16 +1,20 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform, easeInOut } from "framer-motion";
+import ViewContext from "./context/StatusContext";
 import { useWindowDimensions } from "./hooks/useWindowDimensions";
 import Tool from "../assets/Svg/ChooseUsIcon/colorTools.svg";
 import Customer from "../assets/Svg/ChooseUsIcon/colorReview.svg";
 import Shield from "../assets/Svg/ChooseUsIcon/colorShield.svg";
 import List from "../assets/Svg/ChooseUsIcon/colorList.svg";
 import Data from "../components/constants/chooseUsPage.json";
+import Lines from "./animations/AnimateLine";
+import Lines2 from "./animations/AnimateLine2";
+import Lines3 from "./animations/AnimateLine3";
+import Lines4 from "./animations/AnimateLine4";
 
 const ChooseUsContent = () => {
   const divRef = useRef(null);
   const { width } = useWindowDimensions();
-
   const { scrollYProgress } = useScroll({
     target: divRef,
     offset: ["start end", "end end"],
@@ -81,7 +85,7 @@ const ChooseUsContent = () => {
 
   return (
     <div
-      className="justify-cente relative h-[200vh] font-shareTech lg:flex lg:flex-col xl:flex-row xl:items-center"
+      className="relative z-10 h-[200vh] justify-center font-shareTech lg:flex lg:flex-col xl:flex-row xl:items-center"
       ref={divRef}
     >
       {/* FIRST HALF */}
@@ -89,7 +93,7 @@ const ChooseUsContent = () => {
       <div className="h-1/2 lg:flex lg:h-[35%] xl:sticky xl:top-1/2 xl:z-20 xl:-translate-y-1/2">
         {/* FIRST BOX */}
         <motion.div
-          className="z-40 flex h-1/2 w-full flex-col items-center justify-center gap-5 border-b-2 border-solid border-adobe-gray bg-adobe-white px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-r-2 lg:border-t-2 xl:border-b-0 xl:border-t-0"
+          className="relative z-40 flex h-1/2 w-full flex-col items-center justify-center gap-5 overflow-hidden border-b-2 border-solid border-adobe-gray bg-adobe-white bg-gradient-to-br from-adobe-gray to-adobe-white px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-r-2 lg:border-t-2 xl:border-b-0 xl:border-t-0"
           style={{
             translateX:
               width <= 1023
@@ -99,7 +103,7 @@ const ChooseUsContent = () => {
                   : firstBoxTablet,
           }}
         >
-          <div className="size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
+          <div className="z-20 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
             <div
               className="size-full lg:size-2/5"
               style={{
@@ -110,7 +114,7 @@ const ChooseUsContent = () => {
               }}
             ></div>
           </div>
-          <div className="flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
+          <div className="bg- z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
             <div className="text-mobile-chooseUs-title h-[3rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black">
               {Data[0].title}
             </div>
@@ -118,10 +122,11 @@ const ChooseUsContent = () => {
               {Data[0].description}
             </div>
           </div>
+          <Lines />
         </motion.div>
         {/* SECOND BOX */}
         <motion.div
-          className="z-30 flex h-1/2 w-full flex-col items-center justify-center gap-5 border-b-2 border-solid border-adobe-gray bg-adobe-white px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-t-2 xl:border-b-0 xl:border-r-2 xl:border-t-0"
+          className="relative z-30 flex h-1/2 w-full flex-col items-center justify-center gap-5 overflow-hidden border-b-2 border-solid border-adobe-gray bg-adobe-white bg-gradient-to-bl from-adobe-gray to-adobe-white px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-t-2 xl:border-b-0 xl:border-r-2 xl:border-t-0"
           style={{
             translateX:
               width <= 1023
@@ -131,7 +136,7 @@ const ChooseUsContent = () => {
                   : secondBoxTablet,
           }}
         >
-          <div className="size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
+          <div className="z-30 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
             <div
               className="size-full lg:size-2/5"
               style={{
@@ -142,7 +147,7 @@ const ChooseUsContent = () => {
               }}
             ></div>
           </div>
-          <div className="flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
+          <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
             <div className="text-mobile-chooseUs-title h-[3rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black">
               {Data[1].title}
             </div>
@@ -150,13 +155,14 @@ const ChooseUsContent = () => {
               {Data[1].description}
             </div>
           </div>
+          <Lines2 />
         </motion.div>
       </div>
       {/* SECOND HALF */}
       <div className="h-1/2 lg:flex lg:h-[35%] lg:items-center xl:sticky xl:top-1/2 xl:z-10 xl:-translate-y-1/2">
         {/* THIRD BOX */}
         <motion.div
-          className="z-20 flex h-1/2 w-full flex-col items-center justify-center gap-5 border-b-2 border-solid border-adobe-gray bg-adobe-white px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-r-2 xl:border-b-0"
+          className="relative z-20 flex h-1/2 w-full flex-col items-center justify-center gap-5 overflow-hidden border-b-2 border-solid border-adobe-gray bg-gradient-to-tr from-adobe-gray to-adobe-white px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-r-2 xl:border-b-0"
           style={{
             // translateX: thirdBox,
             translateX:
@@ -167,7 +173,7 @@ const ChooseUsContent = () => {
                   : thirdBoxTablet,
           }}
         >
-          <div className="size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
+          <div className="z-20 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
             <div
               className="size-full lg:size-2/5"
               style={{
@@ -178,7 +184,7 @@ const ChooseUsContent = () => {
               }}
             ></div>
           </div>
-          <div className="flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
+          <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
             <div className="text-mobile-chooseUs-title h-[3rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black">
               {Data[2].title}
             </div>
@@ -186,10 +192,11 @@ const ChooseUsContent = () => {
               {Data[2].description}
             </div>
           </div>
+          <Lines3 />
         </motion.div>
         {/* FOURTH BOX */}
         <motion.div
-          className="z-10 flex h-1/2 w-full flex-col items-center justify-center gap-5 border-b-2 border-solid border-adobe-gray bg-adobe-white px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start xl:border-b-0"
+          className="relative z-10 flex h-1/2 w-full flex-col items-center justify-center gap-5 overflow-hidden border-b-2 border-solid border-adobe-gray bg-adobe-white bg-gradient-to-tl from-adobe-gray to-adobe-white px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start xl:border-b-0"
           style={{
             // translateX: fourthBox,
             translateX:
@@ -201,7 +208,7 @@ const ChooseUsContent = () => {
             opacity: width <= 1280 ? 1 : opacityFourthBox,
           }}
         >
-          <div className="size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
+          <div className="z-20 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
             <div
               className="size-full lg:size-2/5"
               style={{
@@ -212,7 +219,7 @@ const ChooseUsContent = () => {
               }}
             ></div>
           </div>
-          <div className="flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
+          <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
             <div className="text-mobile-chooseUs-title h-[3rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black">
               {Data[3].title}
             </div>
@@ -220,6 +227,7 @@ const ChooseUsContent = () => {
               {Data[3].description}
             </div>
           </div>
+          <Lines4 />
         </motion.div>
       </div>
     </div>

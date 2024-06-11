@@ -1,7 +1,9 @@
-import React from "react";
+import { useRef, useContext, useEffect } from "react";
+import ViewContext from "./context/StatusContext";
+import { useInView } from "framer-motion";
 import Data from "./constants/data.json";
 import RedCircle from "../assets/Svg/ShapeSvg/redCircle.svg";
-
+import Circle from "./animations/RedCircle";
 const Details = [
   {
     title: "CONTACT:",
@@ -26,8 +28,18 @@ const Details = [
 ];
 
 const ContactPage = () => {
+  const divRef = useRef(null);
+  const inView = useInView(divRef);
+  const { setContactUs } = useContext(ViewContext);
+  useEffect(() => {
+    setContactUs(inView);
+  }, [inView]);
+
   return (
-    <div className="relative h-screen overflow-hidden bg-adobe-white font-shareTech">
+    <div
+      className="relative z-20 h-screen overflow-hidden font-shareTech"
+      ref={divRef}
+    >
       {/* RED BORDER */}
       <div className="absolute -left-[1.1rem] top-8 z-50 flex h-[1rem] w-[5rem] -rotate-90 items-center justify-center bg-adobe-white text-center font-spaceMono text-[.5rem]">
         CONTACT US
@@ -79,15 +91,9 @@ const ContactPage = () => {
             </div>
           </div>
           {/* RED CIRCLES */}
-          <div
-            className="absolute left-[35%] top-20 h-full w-full scale-125 md:scale-125"
-            style={{
-              backgroundImage: `url("${RedCircle}")`,
-              backgroundSize: "contain",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }}
-          ></div>
+          <div className="absolute left-[35%] top-1/4 hidden h-full w-full bg-lime-500">
+            <Circle />
+          </div>
         </div>
       </div>
     </div>
