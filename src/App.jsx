@@ -9,6 +9,7 @@ import ServiceContectPage from "./components/ServiceContectPage";
 import ProjectPage from "./components/ProjectsPage";
 import ProjectsContent from "./components/ProjectsContent";
 import ContactPage from "./components/ContactPage";
+import Stagger from "./components/animations/StaggerText";
 
 function App() {
   useEffect(() => {
@@ -31,6 +32,14 @@ function App() {
       <ProjectPage />
       <ProjectsContent />
       <ContactPage />
+      <div className="h-[50vh] w-full bg-lime-500">
+        <Stagger
+          text={"HELLO"}
+          className={
+            "flex h-full w-full items-center justify-center bg-amber-500 text-5xl"
+          }
+        />
+      </div>
     </>
   );
 }

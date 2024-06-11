@@ -5,7 +5,7 @@ import Carousel from "../components/Carousel";
 
 const ServicePage = () => {
   return (
-    <div className="relative h-screen overflow-hidden border-2 border-solid border-black bg-adobe-white font-shareTech">
+    <div className="relative h-screen overflow-hidden bg-adobe-white font-shareTech">
       {/* RED BORDER */}
       <div className="absolute -left-[1.1rem] top-8 z-[60] flex h-[1rem] w-[5rem] -rotate-90 items-center justify-center bg-adobe-white text-center font-spaceMono text-[.5rem]">
         PROJECT

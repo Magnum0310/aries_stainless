@@ -14,7 +14,7 @@ const ServiceItem = ({ description, track, tracking, title, number }) => {
 
   return (
     <div
-      className="relative z-10 mt-10 grid max-w-[500px] basis-[12%] grid-cols-1 grid-rows-2 items-center bg-adobe-white px-8 md:left-[45%] md:max-w-[600px] md:-translate-x-1/2 2xl:max-w-[800px] 2xl:items-center"
+      className="relative z-10 mt-10 grid max-w-[500px] basis-[12%] grid-cols-1 grid-rows-2 items-center bg-adobe-white px-8 md:max-w-[600px] 2xl:max-w-[800px] 2xl:items-center"
       ref={ref}
     >
       <div className="flex size-full flex-col justify-center gap-2 max-xs:gap-2">

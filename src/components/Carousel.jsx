@@ -30,7 +30,6 @@ const Carousel = () => {
   const [RightId, setRightId] = useState(1);
   const [farRightId, setFarRightId] = useState(2);
   const [farLeftId, setFarLeftId] = useState(8);
-  const [handleClick, setHandleClick] = useState(false);
 
   const nextBtn = () => {
     if (LeftId === images.length - 1) {
@@ -90,38 +89,25 @@ const Carousel = () => {
   };
 
   const variants = {
-    border: {
+    borderCenter: {
       x: "0rem",
       opacity: 1,
       scale: 1.1,
       zIndex: "5",
       filter: "brightness(100%)",
       backgroundImage: "linear-gradient(#808080,#626262)",
-      boxShadow: "0px 0px 30px 0px rgba(0,0,0,0.3)",
       transition: {
         type: "spring",
         duration: 1,
       },
     },
-    center: {
-      x: "0rem",
-      opacity: 1,
-      scale: 1.1,
-      zIndex: "5",
-      filter: "brightness(100%)",
-      backgroundImage: "url(" + images[CenterId] + ")",
-      boxShadow: "0px 0px 30px 0px rgba(0,0,0,0.3)",
-      transition: {
-        type: "spring",
-        duration: 1,
-      },
-    },
-    left: {
+
+    borderLeft: {
       x: "-10rem",
       opacity: 1,
       filter: "brightness(40%)",
       scale: 1,
-      backgroundImage: "url(" + images[LeftId] + ")",
+      backgroundImage: "linear-gradient(#808080,#626262)",
       zIndex: "4",
       boxShadow: "unset",
       transition: {
@@ -129,12 +115,13 @@ const Carousel = () => {
         duration: 1,
       },
     },
-    farLeft: {
+
+    borderFarLeft: {
       x: "-14rem",
       opacity: 1,
       filter: "brightness(40%)",
       scale: 1,
-      backgroundImage: "url(" + images[farLeftId] + ")",
+      backgroundImage: "linear-gradient(#808080,#626262)",
       zIndex: "2",
       boxShadow: "unset",
       transition: {
@@ -142,8 +129,8 @@ const Carousel = () => {
         duration: 1,
       },
     },
-    right: {
-      backgroundImage: "url(" + images[RightId] + ")",
+    borderRight: {
+      backgroundImage: "linear-gradient(#808080,#626262)",
       x: "10rem",
       opacity: 1,
       filter: "brightness(50%)",
@@ -155,9 +142,8 @@ const Carousel = () => {
         duration: 1,
       },
     },
-
-    farRight: {
-      backgroundImage: "url(" + images[farRightId] + ")",
+    borderFarRight: {
+      backgroundImage: "linear-gradient(#808080,#626262)",
       x: "14rem",
       opacity: 1,
       filter: "brightness(40%)",
@@ -191,33 +177,51 @@ const Carousel = () => {
     },
   };
 
-  const onClick = () => {
-    setHandleClick(!handleClick);
-  };
-
   return (
     <motion.div className="relative grid h-full w-full place-content-center overflow-hidden">
       {/* CAROUSEL */}
       <motion.div className="relative flex h-[75vh] w-[90vw] place-items-center justify-center md:w-[75vw] lg:h-[65vh]">
         <AnimatePresence initial={false}>
           {/* FAR LEFT IMAGE */}
+
           <motion.div
+            className="absolute size-1/2 rounded-bl-xl rounded-tr-xl bg-cover bg-center bg-no-repeat lg:h-[70%] lg:w-1/2"
+            variants={variants}
             key={farLeftId}
-            variants={variants}
             initial={FlowDirection ? "leftHidden" : "farLeftHidden"}
-            animate="farLeft"
+            animate="borderFarLeft"
             exit={"farLeftHidden"}
-            className="absolute size-1/2 rounded-bl-xl rounded-tr-xl border-4 border-solid border-adobe-gray bg-cover bg-center bg-no-repeat lg:h-[70%] lg:w-1/2"
-          ></motion.div>
+          >
+            <motion.div
+              className="card-content relativeflex items-center justify-center overflow-hidden text-xs"
+              style={{
+                backgroundImage: `url(${images[farLeftId]})`,
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+              }}
+            ></motion.div>
+          </motion.div>
+
           {/* NEAR LEFT IMAGE */}
+
           <motion.div
-            key={LeftId}
+            className="absolute size-[55%] rounded-tr-xl bg-cover bg-center bg-no-repeat lg:h-[75%] lg:w-1/2"
             variants={variants}
+            key={LeftId}
             initial={FlowDirection ? "center" : "leftHidden"}
-            animate="left"
+            animate="borderLeft"
             exit={"leftHidden"}
-            className="absolute size-[55%] rounded-tr-xl border-4 border-solid border-adobe-gray bg-cover bg-center bg-no-repeat lg:h-[75%] lg:w-1/2"
-          ></motion.div>
+          >
+            <motion.div
+              className="card-content relativeflex items-center justify-center overflow-hidden text-xs"
+              style={{
+                backgroundImage: `url(${images[LeftId]})`,
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+              }}
+            ></motion.div>
+          </motion.div>
+
           {/* CENTER IMAGE */}
 
           <motion.div
@@ -225,57 +229,62 @@ const Carousel = () => {
             variants={variants}
             key={CenterId}
             initial={FlowDirection ? "right" : "left"}
-            animate="border"
+            animate="borderCenter"
           >
-            <div className="card-content flex items-center justify-center overflow-hidden text-xs">
-              <motion.div
-                className="size-full rounded-bl-xl rounded-tr-xl border-4 border-solid border-adobe-red border-l-adobe-gray border-t-adobe-gray bg-cover bg-center bg-no-repeat"
-                variants={variants}
-                key={CenterId}
-                initial={FlowDirection ? "right" : "left"}
-                animate="center"
-              ></motion.div>
-            </div>
+            <motion.div
+              className="card-content relativeflex items-center justify-center overflow-hidden text-xs"
+              style={{
+                backgroundImage: `url(${images[CenterId]})`,
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+              }}
+            ></motion.div>
           </motion.div>
 
           {/* NEAR RIGHT IMAGE */}
+
           <motion.div
+            className="absolute size-[55%] rounded-bl-xl rounded-tr-xl bg-cover bg-center bg-no-repeat lg:h-[75%] lg:w-1/2"
+            exit={"rightHidden"}
             key={RightId}
             variants={variants}
             initial={FlowDirection ? "rightHidden" : "center"}
-            animate="right"
-            exit={"rightHidden"}
-            className="absolute size-[55%] rounded-bl-xl rounded-tr-xl border-4 border-solid border-adobe-gray bg-cover bg-center bg-no-repeat lg:h-[75%] lg:w-1/2"
-          ></motion.div>
+            animate="borderRight"
+          >
+            <motion.div
+              className="card-content relativeflex items-center justify-center overflow-hidden text-xs"
+              style={{
+                backgroundImage: `url(${images[RightId]})`,
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+              }}
+            ></motion.div>
+          </motion.div>
+
           {/* FAR RIGHT IMAGE */}
+
           <motion.div
-            key={farRightId}
+            className="absolute size-1/2 rounded-bl-xl rounded-tr-xl bg-cover bg-center bg-no-repeat lg:h-[70%] lg:w-1/2"
             variants={variants}
+            key={farRightId}
             initial={FlowDirection ? "farRightHidden" : "rightHidden"}
-            animate="farRight"
+            animate="borderFarRight"
             exit={"farRightHidden"}
-            className="absolute size-1/2 rounded-bl-xl rounded-tr-xl border-4 border-solid border-adobe-gray bg-cover bg-center bg-no-repeat lg:h-[70%] lg:w-1/2"
-          ></motion.div>
+          >
+            <motion.div
+              className="card-content relativeflex items-center justify-center overflow-hidden text-xs"
+              style={{
+                backgroundImage: `url(${images[farRightId]})`,
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+              }}
+            ></motion.div>
+          </motion.div>
         </AnimatePresence>
         {/* BUTTONS */}
       </motion.div>
       {/* BUTTONS */}
       <div className="z-[6] flex justify-center gap-24">
-        {/* <motion.button
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{
-            type: "spring",
-            duration: 0.5,
-          }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.8 }}
-          className="w-20 cursor-pointer rounded-br-xl rounded-tl-xl border-4 border-solid border-adobe-red border-r-adobe-gray border-t-adobe-gray bg-adobe-white px-[15px] py-2 font-bold uppercase tracking-[0.15rem] lg:h-16 lg:w-44"
-          onClick={prevBtn}
-        >
-          Back
-        </motion.button> */}
-
         <button
           className="group relative inline-block w-20 cursor-pointer overflow-hidden rounded rounded-bl-xl rounded-tr-xl border border-gray-100 bg-gray-200 px-12 py-3 font-bold uppercase text-slate-800 hover:text-black focus:outline-none active:bg-adobe-white active:text-black lg:w-44"
           onClick={prevBtn}
@@ -299,22 +308,6 @@ const Carousel = () => {
           <span className="ease absolute bottom-0 left-0 h-0 w-0 border-l-8 border-adobe-gray transition-all duration-200 group-hover:h-full"></span>
           <span className="relative z-20">Next</span>
         </button>
-
-        {/* 
-        <motion.button
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{
-            type: "spring",
-            duration: 0.5,
-          }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.8 }}
-          className="w-20 cursor-pointer rounded-bl-xl rounded-tr-xl border-4 border-solid border-adobe-red border-l-adobe-gray border-t-adobe-gray bg-adobe-white px-[15px] py-2 font-bold uppercase tracking-[0.15rem] lg:w-44"
-          onClick={nextBtn}
-        >
-          Next
-        </motion.button> */}
       </div>
     </motion.div>
   );
