@@ -198,8 +198,12 @@ const HeroPage = () => {
                 initial="initial"
                 transition={{ staggerChildren: 0.15, delayChildren: 0.1 }}
               >
-                {Data.heroPageTaglinefirst.split("").map((char) => (
-                  <motion.span className="block" variants={defaultVariant1}>
+                {Data.heroPageTaglinefirst.split("").map((char, i) => (
+                  <motion.span
+                    key={i}
+                    className="block"
+                    variants={defaultVariant1}
+                  >
                     {char}
                   </motion.span>
                 ))}
@@ -210,8 +214,12 @@ const HeroPage = () => {
                 initial="initial"
                 transition={{ staggerChildren: 0.15, delayChildren: 0.1 }}
               >
-                {Data.heroPageTaglineSecond.split("").map((char) => (
-                  <motion.span className="block" variants={defaultVariant2}>
+                {Data.heroPageTaglineSecond.split("").map((char, i) => (
+                  <motion.span
+                    key={i}
+                    className="block"
+                    variants={defaultVariant2}
+                  >
                     {char}
                   </motion.span>
                 ))}

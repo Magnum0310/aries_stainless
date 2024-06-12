@@ -1,5 +1,11 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform, easeInOut } from "framer-motion";
+import { useRef, useEffect, useContext } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  easeInOut,
+  useInView,
+} from "framer-motion";
 import ViewContext from "./context/StatusContext";
 import { useWindowDimensions } from "./hooks/useWindowDimensions";
 import Tool from "../assets/Svg/ChooseUsIcon/colorTools.svg";
@@ -14,11 +20,51 @@ import Lines4 from "./animations/AnimateLine4";
 
 const ChooseUsContent = () => {
   const divRef = useRef(null);
+  const firstCard = useRef(null);
+  const secondCard = useRef(null);
+  const thirdCard = useRef(null);
+  const forurthCard = useRef(null);
   const { width } = useWindowDimensions();
   const { scrollYProgress } = useScroll({
     target: divRef,
     offset: ["start end", "end end"],
   });
+
+  const { serFirstCard, setSecondCard, setThirdCard, setFourthCard } =
+    useContext(ViewContext);
+
+  const viewFirstCard = useInView(firstCard, {
+    margin: ["-50px -800px -50px -100px"],
+  });
+  const viewSecondCard = useInView(secondCard, {
+    margin: ["-50px -100px -50px -800px"],
+  });
+  const viewThirdCard = useInView(thirdCard, {
+    margin: ["-150px -800px -50px -100px"],
+  });
+  const viewFourthCard = useInView(forurthCard, {
+    margin: ["-50px -100px -50px -800px"],
+  });
+
+  useEffect(() => {
+    if (viewFirstCard) {
+      serFirstCard(viewFirstCard);
+    }
+    if (viewSecondCard) {
+      setSecondCard(viewSecondCard);
+    }
+    if (viewThirdCard) {
+      setThirdCard(viewThirdCard);
+    }
+    if (viewFourthCard) {
+      setFourthCard(viewFourthCard);
+    }
+  }, [viewFirstCard, viewSecondCard, viewThirdCard, viewFourthCard]);
+
+  // console.log("first" + viewFirstCard);
+  // console.log("second" + viewSecondCard);
+  // console.log("third" + viewThirdCard);
+  // console.log("fourth" + viewFourthCard);
 
   // MOBILE
   const firstBoxMobile = useTransform(scrollYProgress, [0, 0.4], [-1200, 0], {
@@ -94,6 +140,7 @@ const ChooseUsContent = () => {
         {/* FIRST BOX */}
         <motion.div
           className="relative z-40 flex h-1/2 w-full flex-col items-center justify-center gap-5 overflow-hidden border-b-2 border-solid border-adobe-gray bg-adobe-white bg-gradient-to-br from-adobe-gray to-adobe-white px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-r-2 lg:border-t-2 xl:border-b-0 xl:border-t-0"
+          ref={firstCard}
           style={{
             translateX:
               width <= 1023
@@ -127,6 +174,7 @@ const ChooseUsContent = () => {
         {/* SECOND BOX */}
         <motion.div
           className="relative z-30 flex h-1/2 w-full flex-col items-center justify-center gap-5 overflow-hidden border-b-2 border-solid border-adobe-gray bg-adobe-white bg-gradient-to-bl from-adobe-gray to-adobe-white px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-t-2 xl:border-b-0 xl:border-r-2 xl:border-t-0"
+          ref={secondCard}
           style={{
             translateX:
               width <= 1023
@@ -163,6 +211,7 @@ const ChooseUsContent = () => {
         {/* THIRD BOX */}
         <motion.div
           className="relative z-20 flex h-1/2 w-full flex-col items-center justify-center gap-5 overflow-hidden border-b-2 border-solid border-adobe-gray bg-gradient-to-tr from-adobe-gray to-adobe-white px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-r-2 xl:border-b-0"
+          ref={thirdCard}
           style={{
             // translateX: thirdBox,
             translateX:
@@ -197,6 +246,7 @@ const ChooseUsContent = () => {
         {/* FOURTH BOX */}
         <motion.div
           className="relative z-10 flex h-1/2 w-full flex-col items-center justify-center gap-5 overflow-hidden border-b-2 border-solid border-adobe-gray bg-adobe-white bg-gradient-to-tl from-adobe-gray to-adobe-white px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start xl:border-b-0"
+          ref={forurthCard}
           style={{
             // translateX: fourthBox,
             translateX:

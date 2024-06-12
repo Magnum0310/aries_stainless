@@ -31,7 +31,6 @@ const childrenOpacityVariant = {
 
 export default function redSquareAnimate() {
   const { chooseUs } = useContext(ViewContext);
-  console.log(chooseUs);
 
   return (
     <motion.svg

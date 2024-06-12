@@ -1,4 +1,5 @@
-import React from "react";
+import { useContext } from "react";
+import ViewContext from "../context/StatusContext";
 import { motion } from "framer-motion";
 
 const lastLine = {
@@ -43,14 +44,16 @@ const middleLine = {
 };
 
 export default function Lines() {
+  const { firstCard } = useContext(ViewContext);
+
   return (
     <motion.svg
       preserveAspectRatio="none"
       viewBox="0 0 1440 560"
       xmlns="http://www.w3.org/2000/svg"
       initial="initial"
-      animate="animate"
-      transiton={{ staggerChildren: 0.3, delayChildren: 0 }}
+      animate={firstCard ? "animate" : ""}
+      transiton={{ staggerChildren: 0.3, delayChildren: 0.5 }}
     >
       <g
         fill="none"
