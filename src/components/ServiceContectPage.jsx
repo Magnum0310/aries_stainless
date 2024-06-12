@@ -132,20 +132,20 @@ const ServiceContectPage = () => {
 
   return (
     <div
-      className="relative h-[400vh] bg-adobe-white font-shareTech md:h-[450vh]"
+      className="bg-adobe-ivory relative h-[400vh] font-shareTech md:h-[450vh]"
       ref={divRef}
     >
       <div className="flex h-full w-full flex-col md:grid md:grid-cols-2 md:grid-rows-2">
         {/* MAIN ICON BOX */}
         <motion.div
-          className="sticky top-0 z-40 flex basis-[12%] items-center justify-center bg-adobe-white text-center xs:basis-[15%] md:col-start-1 md:h-screen"
+          className="bg-adobe-ivory sticky top-0 z-40 flex basis-[12%] items-center justify-center text-center xs:basis-[15%] md:col-start-1 md:h-screen"
           variants={primaryVariant}
           initial={isInView ? "" : "initial"}
           animate={isInView ? "animate" : ""}
         >
           <div className="relative flex size-full items-center justify-center md:size-3/4">
             <div className="absolute size-[65%]">
-              <div className="absolute z-10 size-full scale-95 bg-adobe-white"></div>
+              <div className="bg-adobe-ivory absolute z-10 size-full scale-95"></div>
               <div className="absolute h-[95%] w-[95%] rounded-b-3xl rounded-r-3xl bg-adobe-red"></div>
               <div className="absolute bottom-0 right-0 h-[95%] w-[95%] rounded-bl-3xl rounded-tr-3xl bg-adobe-gray"></div>
             </div>
@@ -160,7 +160,7 @@ const ServiceContectPage = () => {
                 {Data.map((data) => (
                   <motion.div
                     key={data.id}
-                    className="size-full bg-adobe-white"
+                    className="bg-adobe-ivory size-full"
                     style={{
                       backgroundImage: `url("${data.image}")`,
                       backgroundSize: "contain",
@@ -175,9 +175,9 @@ const ServiceContectPage = () => {
           </div>
         </motion.div>
         {/* TOP GRADIENT SPACER */}
-        <div className="sticky top-1/4 z-20 h-[100px] place-content-center bg-gradient-to-b from-adobe-white/100 via-adobe-white/70 to-gray-100/40 text-center md:top-0 md:z-50 md:col-span-2 md:col-start-2 md:row-start-1"></div>
+        <div className="from-adobe-ivory/100 sticky top-1/4 z-20 h-[100px] place-content-center bg-gradient-to-b via-adobe-white/70 to-gray-100/40 text-center md:top-0 md:z-50 md:col-span-2 md:col-start-2 md:row-start-1"></div>
         {/* BOTTOM GRADIENT SPACER */}
-        <div className="sticky top-[85%] z-20 h-[150px] place-content-center bg-gradient-to-b from-adobe-white/50 via-gray-300/75 to-gray-100/25 text-center md:z-50 md:col-span-2 md:col-start-1"></div>
+        <div className="from-adobe-ivory/50 sticky top-[85%] z-20 h-[150px] place-content-center bg-gradient-to-b via-adobe-white/75 to-gray-100/25 text-center md:z-50 md:col-span-2 md:col-start-1"></div>
         {/* MAIN DESCRIPTION BOX */}
         <div className="flex size-full flex-col items-center md:relative md:bottom-[15%] md:col-start-2 md:h-[350vh] md:items-start">
           {Data.map((data) => (

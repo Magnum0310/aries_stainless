@@ -16,9 +16,17 @@
   "chooseUsPageFirstLine": "redifined",
   "chooseUsPageSecondLine": "redifened",
   "chooseUsPageThirdLine": "redifined",
-  "servicePageTitle": "Your Trusted Partner for Stainless Steel Solutions",
+  "servicePageTitle": [
+    "Your",
+    "Trusted",
+    "Partner",
+    "for",
+    "Stainless",
+    "Steel",
+    "Solutions"
+  ],
   "servicePageDescription": "At ARShop, we pride ourselves on delivering high-quality stainless steel products and services. With years of experience and a commitment to excellence, we are your go-to source for all things stainless steel.",
-  "projectPageTitle": "YOUR VISIONS IN FORMS",
+  "projectPageTitle": ["YOUR", " VISIONS", "IN", "FORMS"],
   "projetPageDescription": "Dive into the world of ARShop's stainless steel creations. Our portfolio showcases a wide array of projects, each meticulously crafted to meet our clients' unique visions. From contemporary gates to custom kitchen equipment, discover how we bring dreams to life with stainless steel.",
   "contactPageTitle": "Your Stainless Steel Experts Are Just a Call Away",
   "contactPageDescription": "Have a project in mind or need more information about our services? Reach out to us! Our team at ARShop is here to assist you with all your stainless steel needs. We look forward to working with you to bring your vision to life."

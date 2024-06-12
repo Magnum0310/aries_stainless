@@ -284,12 +284,12 @@ const Carousel = () => {
         {/* BUTTONS */}
       </motion.div>
       {/* BUTTONS */}
-      <div className="z-[6] flex justify-center gap-24">
+      <div className="z-[6] flex justify-center gap-10 md:gap-24">
         <button
-          className="group relative inline-block w-20 cursor-pointer overflow-hidden rounded rounded-bl-xl rounded-tr-xl border border-gray-100 bg-gray-200 px-12 py-3 font-bold uppercase text-slate-800 hover:text-black focus:outline-none active:bg-adobe-white active:text-black lg:w-44"
+          className="group relative flex w-20 cursor-pointer flex-col items-center justify-center overflow-hidden rounded rounded-bl-xl rounded-tr-xl border border-gray-100 bg-gray-200 px-12 py-3 font-bold uppercase text-slate-800 hover:text-black focus:outline-none active:bg-adobe-white active:text-black lg:w-44"
           onClick={prevBtn}
         >
-          <span className="ease absolute left-1/2 top-1/2 z-10 h-[90%] w-[95%] -translate-x-1/2 -translate-y-1/2 rounded rounded-bl-xl rounded-tr-xl bg-adobe-white"></span>
+          <span className="ease absolute left-1/2 top-1/2 z-10 h-[90%] w-[95%] -translate-x-1/2 -translate-y-1/2 flex-col rounded rounded-bl-xl rounded-tr-xl bg-adobe-white"></span>
           <span className="ease absolute left-0 top-0 h-0 w-0 border-t-8 border-adobe-gray transition-all duration-200 group-hover:w-full"></span>
           <span className="ease absolute right-0 top-0 h-0 w-0 border-r-8 border-adobe-gray transition-all duration-200 group-hover:h-full"></span>
           <span className="ease absolute bottom-0 right-0 h-0 w-0 border-b-8 border-adobe-red transition-all duration-200 group-hover:w-full"></span>
@@ -298,7 +298,7 @@ const Carousel = () => {
         </button>
 
         <button
-          className="group relative inline-block w-20 cursor-pointer overflow-hidden rounded rounded-bl-xl rounded-tr-xl border border-gray-100 bg-gray-200 px-12 py-3 font-bold uppercase text-slate-800 hover:text-black focus:outline-none active:bg-adobe-white active:text-black lg:w-44"
+          className="group relative flex w-20 cursor-pointer flex-col items-center justify-center overflow-hidden rounded rounded-bl-xl rounded-tr-xl border border-gray-100 bg-gray-200 px-12 py-3 font-bold uppercase text-slate-800 hover:text-black focus:outline-none active:bg-adobe-white active:text-black lg:w-44"
           onClick={nextBtn}
         >
           <span className="ease absolute left-1/2 top-1/2 z-10 h-[90%] w-[95%] -translate-x-1/2 -translate-y-1/2 rounded rounded-bl-xl rounded-tr-xl bg-adobe-white"></span>

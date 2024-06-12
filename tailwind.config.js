@@ -18,6 +18,7 @@ export default {
         "adobe-gray": "#808080",
         "adobe-darkGray": "#626262",
         "adobe-white": "#FAFAFA",
+        "adobe-ivory": "#F7F5F2",
       },
       keyframes: {
         "border-spin": {

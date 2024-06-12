@@ -24,31 +24,64 @@ const ChooseUsContent = () => {
   const secondCard = useRef(null);
   const thirdCard = useRef(null);
   const forurthCard = useRef(null);
-  const { width } = useWindowDimensions();
+  const container = useRef(null);
+  // const { width } = useWindowDimensions();
   const { scrollYProgress } = useScroll({
     target: divRef,
     offset: ["start end", "end end"],
   });
 
-  const { serFirstCard, setSecondCard, setThirdCard, setFourthCard } =
+  const { setFirstCard, setSecondCard, setThirdCard, setFourthCard, width } =
     useContext(ViewContext);
 
+  const viewCard = useInView(firstCard, {
+    margin: ["0px 0px 0px 0px"],
+  });
+
+  const marginWindowOne =
+    width >= 1280
+      ? ["-50px -800px -50px -100px"]
+      : width <= 1023
+        ? ["0px 0px 0px 0px"]
+        : ["-50px -800px -50px -100px"];
+  const marginWindowTwo =
+    width >= 1280
+      ? ["-50px -500px -50px -400px"]
+      : width <= 1023
+        ? ["0px 0px 0px 0px"]
+        : ["-50px -100px -50px -800px"];
+
+  const marginWindowThree =
+    width >= 1280
+      ? ["-50px -100px -50px -800px"]
+      : width <= 1023
+        ? ["0px 0px 0px 0px"]
+        : ["-50px -800px -50px -100px"];
+
+  const marginWindowFour =
+    width >= 1280
+      ? ["-50px -100px -50px -900px"]
+      : width <= 1023
+        ? ["0px 0px 0px 0px"]
+        : ["-50px -100px -50px -800px"];
+
+  // LARGE SCREENS
   const viewFirstCard = useInView(firstCard, {
-    margin: ["-50px -800px -50px -100px"],
+    margin: marginWindowOne,
   });
   const viewSecondCard = useInView(secondCard, {
-    margin: ["-50px -100px -50px -800px"],
+    margin: marginWindowTwo,
   });
   const viewThirdCard = useInView(thirdCard, {
-    margin: ["-150px -800px -50px -100px"],
+    margin: marginWindowThree,
   });
   const viewFourthCard = useInView(forurthCard, {
-    margin: ["-50px -100px -50px -800px"],
+    margin: marginWindowFour,
   });
 
   useEffect(() => {
     if (viewFirstCard) {
-      serFirstCard(viewFirstCard);
+      setFirstCard(viewFirstCard);
     }
     if (viewSecondCard) {
       setSecondCard(viewSecondCard);
@@ -60,11 +93,6 @@ const ChooseUsContent = () => {
       setFourthCard(viewFourthCard);
     }
   }, [viewFirstCard, viewSecondCard, viewThirdCard, viewFourthCard]);
-
-  // console.log("first" + viewFirstCard);
-  // console.log("second" + viewSecondCard);
-  // console.log("third" + viewThirdCard);
-  // console.log("fourth" + viewFourthCard);
 
   // MOBILE
   const firstBoxMobile = useTransform(scrollYProgress, [0, 0.4], [-1200, 0], {
@@ -123,11 +151,9 @@ const ChooseUsContent = () => {
   const thirdBox = useTransform(scrollYProgress, [0.6, 0.75], [-1200, 0], {
     ease: easeInOut,
   });
-  const fourthBox = useTransform(scrollYProgress, [0.7, 0.85], [-600, 0], {
+  const fourthBox = useTransform(scrollYProgress, [0.7, 0.85], [-1600, 0], {
     ease: easeInOut,
   });
-
-  const opacityFourthBox = useTransform(scrollYProgress, [0.7, 0.75], [0, 1]);
 
   return (
     <div
@@ -139,7 +165,7 @@ const ChooseUsContent = () => {
       <div className="h-1/2 lg:flex lg:h-[35%] xl:sticky xl:top-1/2 xl:z-20 xl:-translate-y-1/2">
         {/* FIRST BOX */}
         <motion.div
-          className="relative z-40 flex h-1/2 w-full flex-col items-center justify-center gap-5 overflow-hidden border-b-2 border-solid border-adobe-gray bg-adobe-white bg-gradient-to-br from-adobe-gray to-adobe-white px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-r-2 lg:border-t-2 xl:border-b-0 xl:border-t-0"
+          className="relative z-40 flex h-1/2 w-full flex-col overflow-hidden bg-gradient-to-br from-adobe-gray to-adobe-white p-px lg:h-full"
           ref={firstCard}
           style={{
             translateX:
@@ -150,30 +176,32 @@ const ChooseUsContent = () => {
                   : firstBoxTablet,
           }}
         >
-          <div className="z-20 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
-            <div
-              className="size-full lg:size-2/5"
-              style={{
-                backgroundImage: `url("${Tool}")`,
-                backgroundSize: "contain",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-            ></div>
-          </div>
-          <div className="bg- z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
-            <div className="text-mobile-chooseUs-title h-[3rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black">
-              {Data[0].title}
+          <motion.div className="bg-adobe-ivory z-40 flex h-full flex-col items-center justify-center gap-5 px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
+            <div className="z-20 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
+              <div
+                className="size-full lg:size-2/5"
+                style={{
+                  backgroundImage: `url("${Tool}")`,
+                  backgroundSize: "contain",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></div>
             </div>
-            <div className="text-mobile-chooseUs-description font-spaceMono">
-              {Data[0].description}
+            <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
+              <div className="text-mobile-chooseUs-title h-[3rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black">
+                {Data[0].title}
+              </div>
+              <div className="text-mobile-chooseUs-description font-spaceMono">
+                {Data[0].description}
+              </div>
             </div>
-          </div>
-          <Lines />
+            <Lines />
+          </motion.div>
         </motion.div>
         {/* SECOND BOX */}
         <motion.div
-          className="relative z-30 flex h-1/2 w-full flex-col items-center justify-center gap-5 overflow-hidden border-b-2 border-solid border-adobe-gray bg-adobe-white bg-gradient-to-bl from-adobe-gray to-adobe-white px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-t-2 xl:border-b-0 xl:border-r-2 xl:border-t-0"
+          className="relative z-20 flex h-1/2 w-full flex-col overflow-hidden bg-gradient-to-br from-adobe-gray to-adobe-white p-px lg:h-full"
           ref={secondCard}
           style={{
             translateX:
@@ -184,36 +212,37 @@ const ChooseUsContent = () => {
                   : secondBoxTablet,
           }}
         >
-          <div className="z-30 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
-            <div
-              className="size-full lg:size-2/5"
-              style={{
-                backgroundImage: `url("${Customer}")`,
-                backgroundSize: "contain",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-            ></div>
-          </div>
-          <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
-            <div className="text-mobile-chooseUs-title h-[3rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black">
-              {Data[1].title}
+          <motion.div className="bg-adobe-ivory z-40 flex h-full flex-col items-center justify-center gap-5 px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
+            <div className="z-30 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
+              <div
+                className="size-full lg:size-2/5"
+                style={{
+                  backgroundImage: `url("${Customer}")`,
+                  backgroundSize: "contain",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></div>
             </div>
-            <div className="text-mobile-chooseUs-description font-spaceMono">
-              {Data[1].description}
+            <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
+              <div className="text-mobile-chooseUs-title h-[3rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black">
+                {Data[1].title}
+              </div>
+              <div className="text-mobile-chooseUs-description font-spaceMono">
+                {Data[1].description}
+              </div>
             </div>
-          </div>
-          <Lines2 />
+            <Lines2 />
+          </motion.div>
         </motion.div>
       </div>
       {/* SECOND HALF */}
       <div className="h-1/2 lg:flex lg:h-[35%] lg:items-center xl:sticky xl:top-1/2 xl:z-10 xl:-translate-y-1/2">
         {/* THIRD BOX */}
         <motion.div
-          className="relative z-20 flex h-1/2 w-full flex-col items-center justify-center gap-5 overflow-hidden border-b-2 border-solid border-adobe-gray bg-gradient-to-tr from-adobe-gray to-adobe-white px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start lg:border-r-2 xl:border-b-0"
+          className="relative z-20 flex h-1/2 w-full flex-col overflow-hidden bg-gradient-to-br from-adobe-gray to-adobe-white p-px lg:h-full"
           ref={thirdCard}
           style={{
-            // translateX: thirdBox,
             translateX:
               width <= 1023
                 ? thirdBoxMobile
@@ -222,62 +251,65 @@ const ChooseUsContent = () => {
                   : thirdBoxTablet,
           }}
         >
-          <div className="z-20 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
-            <div
-              className="size-full lg:size-2/5"
-              style={{
-                backgroundImage: `url("${Shield}")`,
-                backgroundSize: "contain",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-            ></div>
-          </div>
-          <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
-            <div className="text-mobile-chooseUs-title h-[3rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black">
-              {Data[2].title}
+          <motion.div className="bg-adobe-ivory relative z-20 flex h-full w-full flex-col items-center justify-center gap-5 px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
+            <div className="z-20 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
+              <div
+                className="size-full lg:size-2/5"
+                style={{
+                  backgroundImage: `url("${Shield}")`,
+                  backgroundSize: "contain",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></div>
             </div>
-            <div className="text-mobile-chooseUs-description font-spaceMono">
-              {Data[2].description}
+            <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
+              <div className="text-mobile-chooseUs-title h-[3rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black">
+                {Data[2].title}
+              </div>
+              <div className="text-mobile-chooseUs-description font-spaceMono">
+                {Data[2].description}
+              </div>
             </div>
-          </div>
-          <Lines3 />
+            <Lines3 />
+          </motion.div>
         </motion.div>
         {/* FOURTH BOX */}
         <motion.div
-          className="relative z-10 flex h-1/2 w-full flex-col items-center justify-center gap-5 overflow-hidden border-b-2 border-solid border-adobe-gray bg-adobe-white bg-gradient-to-tl from-adobe-gray to-adobe-white px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start xl:border-b-0"
+          className="relative z-10 flex h-1/2 w-full flex-col overflow-hidden bg-gradient-to-br from-adobe-gray to-adobe-white p-px lg:h-full"
           ref={forurthCard}
           style={{
-            // translateX: fourthBox,
             translateX:
               width <= 1023
                 ? fourthBoxMobile
                 : width >= 1280
                   ? fourthBox
                   : fourthBoxTablet,
-            opacity: width <= 1280 ? 1 : opacityFourthBox,
+            // opacity: width <= 1280 ? 1 : opacityFourthBox,
           }}
         >
-          <div className="z-20 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
-            <div
-              className="size-full lg:size-2/5"
-              style={{
-                backgroundImage: `url("${List}")`,
-                backgroundSize: "contain",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-            ></div>
-          </div>
-          <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
-            <div className="text-mobile-chooseUs-title h-[3rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black">
-              {Data[3].title}
+          <motion.div className="bg-adobe-ivory relative z-10 flex h-full w-full flex-col items-center justify-center gap-5 overflow-hidden px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
+            <div className="z-20 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
+              <div
+                className="size-full lg:size-2/5"
+                style={{
+                  backgroundImage: `url("${List}")`,
+                  backgroundSize: "contain",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></div>
             </div>
-            <div className="text-mobile-chooseUs-description font-spaceMono">
-              {Data[3].description}
+            <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
+              <div className="text-mobile-chooseUs-title h-[3rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black">
+                {Data[3].title}
+              </div>
+              <div className="text-mobile-chooseUs-description font-spaceMono">
+                {Data[3].description}
+              </div>
             </div>
-          </div>
-          <Lines4 />
+            <Lines4 />
+          </motion.div>
         </motion.div>
       </div>
     </div>

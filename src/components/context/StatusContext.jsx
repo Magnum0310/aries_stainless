@@ -1,19 +1,16 @@
 import { createContext, useState } from "react";
+import { useWindowDimensions } from "../hooks/useWindowDimensions";
 
 const ViewContext = createContext({});
 
 export const StatusProvider = ({ children }) => {
+  const { width } = useWindowDimensions();
   const [chooseUs, setChooseUs] = useState(false);
   const [contactUs, setContactUs] = useState(false);
-  const [firstCard, serFirstCard] = useState(false);
+  const [firstCard, setFirstCard] = useState(false);
   const [secondCard, setSecondCard] = useState(false);
   const [thirdCard, setThirdCard] = useState(false);
   const [fourthCard, setFourthCard] = useState(false);
-
-  console.log(firstCard);
-  console.log(secondCard);
-  console.log(thirdCard);
-  console.log(fourthCard);
 
   return (
     <ViewContext.Provider
@@ -23,13 +20,14 @@ export const StatusProvider = ({ children }) => {
         contactUs,
         setContactUs,
         firstCard,
-        serFirstCard,
+        setFirstCard,
         secondCard,
         setSecondCard,
         thirdCard,
         setThirdCard,
         fourthCard,
         setFourthCard,
+        width,
       }}
     >
       {children}

@@ -91,10 +91,19 @@ const imageVariant = {
   },
 };
 
+const imageVariant1 = {
+  initial: { x: 10, opacity: 0 },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: { duration: 1.2, ease: "easeInOut" },
+  },
+};
+
 const HeroPage = () => {
   return (
     <>
-      <div className="sticky top-0 z-10 h-screen w-full bg-gradient-to-tr from-adobe-gray/40 to-adobe-white"></div>
+      <div className="from-adobe-ivory sticky top-0 z-10 h-screen w-full bg-gradient-to-tr to-adobe-white"></div>
       <div className="absolute top-0 h-screen w-full overflow-hidden bg-adobe-white font-shareTech">
         {/* RED BORDER */}
         <div className="relative left-5 top-5 z-50 h-full w-full border-l-4 border-t-4 border-solid border-adobe-red"></div>
@@ -127,7 +136,6 @@ const HeroPage = () => {
             initial="initial"
             variants={highLigthVariant}
           ></motion.div>
-          {/* <div className="absolute bottom-0 z-20 col-span-1 col-start-2 row-span-1 row-start-1 hidden h-[55%] w-full bg-adobe-red lg:hidden"></div> */}
           <motion.div
             className="absolute right-0 top-0 z-20 col-span-2 col-start-2 row-span-1 row-start-2 h-[55%] w-[102%] bg-adobe-red lg:hidden"
             animate="animate"
@@ -178,12 +186,17 @@ const HeroPage = () => {
             </div>
           </motion.div>
           {/* EXTENDED BACKGROUND */}
-          <div className="relative z-30 col-span-2 col-start-4 row-span-2 row-start-3 size-full bg-adobe-white/50 max-lg:hidden"></div>
+          <motion.div
+            initial="initial"
+            animate="animate"
+            variants={imageVariant1}
+            className="relative z-30 col-span-2 col-start-4 row-span-2 row-start-3 size-full bg-adobe-white/50 max-lg:hidden"
+          ></motion.div>
           {/* HIDDEN */}
           <div className="z-30 col-start-4 row-span-2 row-start-3 hidden h-full w-1/2 bg-adobe-white bg-opacity-80 xs:w-1/4 lg:absolute lg:top-[44%] lg:col-span-2 lg:col-start-4 lg:h-[37%] lg:w-full lg:rounded-tr-3xl"></div>
           {/* TAGLINE BOX */}
           {/* HIDDEN */}
-          <div className="z-40 col-start-4 row-span-1 row-start-5 hidden h-8 w-1/2 rounded-br-xl bg-adobe-red xs:w-1/4 sm:w-1/4 lg:hidden"></div>
+          <div className="z-40 col-start-4 row-span-1 row-start-5 hidden h-8 w-1/2 rounded-br-xl bg-adobe-red xs:w-1/4 sm:w-1/4"></div>
           <motion.div
             className="text-mobile-tagline z-40 col-span-3 col-start-1 row-start-5 flex h-8 w-[85%] basis-1/2 items-center justify-start rounded-br-xl bg-adobe-red pl-[25%] font-spaceMono text-adobe-white max-xs:w-full lg:absolute lg:bottom-[1.15rem] lg:right-0 lg:col-span-4 lg:col-start-1 lg:row-span-1 lg:row-start-4 lg:h-1/4 lg:w-[81%] lg:rounded-tl-xl lg:pl-0"
             initial="initial"
@@ -230,23 +243,25 @@ const HeroPage = () => {
                 initial="initial"
                 transition={{ staggerChildren: 0.15, delayChildren: 0.1 }}
               >
-                {Data.heroPageTaglineThird.split("").map((char) => (
-                  <motion.span className="block" variants={defaultVariant1}>
+                {Data.heroPageTaglineThird.split("").map((char, i) => (
+                  <motion.span
+                    key={i}
+                    className="block"
+                    variants={defaultVariant1}
+                  >
                     {char}
                   </motion.span>
                 ))}
               </motion.div>
-
-              {/* {Data.heroPageTaglineSecond}
-              {Data.heroPageTaglineThird} */}
             </motion.div>
           </motion.div>
           {/* BOTTOM RED BOX */}
           {/* TOP HIGHLIGHT ABOVE MD-SCREENS */}
           <motion.div className="z-20 col-span-1 col-start-3 row-span-1 row-start-6 ml-auto h-[45%] w-full bg-adobe-red max-lg:hidden lg:absolute lg:right-0 lg:col-span-2 lg:col-start-2 lg:row-start-5 lg:h-[8%] lg:w-[90%] lg:rounded-tl-xl"></motion.div>
           {/* MAIN HIGHLIGHT UNDER MD-SCREENS */}
+          <motion.div className="absolute right-0 z-20 col-span-2 col-start-2 row-start-6 h-[37%] w-[102%] bg-adobe-red lg:absolute lg:right-0 lg:top-6 lg:col-span-2 lg:col-start-2 lg:row-start-5 lg:h-[5%] lg:w-[70%]"></motion.div>
           <motion.div
-            className="absolute right-0 z-20 col-span-2 col-start-2 row-start-6 h-[37%] w-[102%] bg-adobe-red lg:absolute lg:right-0 lg:top-6 lg:col-span-2 lg:col-start-2 lg:row-start-5 lg:h-[5%] lg:w-[70%]"
+            className="absolute right-0 z-20 col-span-2 col-start-2 row-start-6 hidden h-[37%] w-[102%] bg-adobe-red lg:absolute lg:right-0 lg:top-6 lg:col-span-2 lg:col-start-2 lg:row-start-5 lg:h-[5%] lg:w-[70%]"
             initial="initial"
             animate="animate"
             variants={highLigthVariant2}

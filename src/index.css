@@ -26,10 +26,10 @@ html {
   }
   /* SERVICE SECTION */
   .text-service-title {
-    @apply text-2xl xs:text-[2.4rem] md:text-3xl lg:text-4xl;
+    @apply text-3xl xs:text-3xl md:text-4xl lg:text-5xl;
   }
   .text-service-description {
-    @apply pr-5 text-xs xs:text-base md:text-xl lg:text-xl;
+    @apply text-[.9rem] md:text-xl;
   }
   .text-service-content {
     @apply pr-10 text-sm xs:text-sm md:text-base;
