@@ -103,18 +103,18 @@ const imageVariant1 = {
 const HeroPage = () => {
   return (
     <>
-      <div className="from-adobe-ivory sticky top-0 z-10 h-screen w-full bg-gradient-to-tr to-adobe-white"></div>
-      <div className="absolute top-0 h-screen w-full overflow-hidden bg-adobe-white font-shareTech">
+      <div className="relative left-0 top-0 h-screen w-full overflow-hidden bg-adobe-ivory font-shareTech max-md:h-[100dvh]">
         {/* RED BORDER */}
         <div className="relative left-5 top-5 z-50 h-full w-full border-l-4 border-t-4 border-solid border-adobe-red"></div>
+
         {/* INNER WHITE BOX WRAPPER*/}
-        <div className="absolute left-6 top-11 grid h-full w-full grid-cols-4 grid-rows-6 lg:left-0 lg:top-0 lg:grid-cols-6">
+        <div className="absolute left-6 top-11 z-50 grid h-full w-full grid-cols-6 grid-rows-6 lg:left-0 lg:top-0 lg:grid-cols-6">
           <div className="absolute hidden h-full w-full lg:left-6 lg:top-6">
             <AnimateCurveLine />
           </div>
           {/* PAGE IMAGE WRAPPER */}
           <motion.div
-            className="z-30 col-span-4 col-start-2 row-span-6 row-start-1 flex items-center lg:absolute lg:col-start-4 lg:h-full lg:w-full"
+            className="z-30 col-span-5 col-start-2 row-span-6 row-start-1 flex items-center lg:absolute lg:col-start-4 lg:h-full lg:w-full"
             initial="initial"
             animate="animate"
             variants={imageVariant}
@@ -129,22 +129,23 @@ const HeroPage = () => {
               }}
             ></div>
           </motion.div>
-          {/*TOP RED BOX*/}
+
+          {/*TOP RED BOX - HIDDEN*/}
           <motion.div
-            className="absolute bottom-0 right-0 z-20 col-span-2 col-start-2 row-span-1 row-start-1 h-[55%] w-[102%] bg-adobe-red lg:hidden"
+            className="absolute bottom-0 right-0 z-20 col-span-2 col-start-2 row-span-1 row-start-1 hidden h-[55%] w-[102%] bg-adobe-red lg:hidden"
             animate="animate"
             initial="initial"
             variants={highLigthVariant}
           ></motion.div>
           <motion.div
-            className="absolute right-0 top-0 z-20 col-span-2 col-start-2 row-span-1 row-start-2 h-[55%] w-[102%] bg-adobe-red lg:hidden"
+            className="absolute right-0 top-0 z-20 col-span-2 col-start-2 row-span-1 row-start-2 hidden h-[55%] w-[102%] bg-adobe-red lg:hidden"
             animate="animate"
             initial="initial"
             variants={highLigthVariant}
           ></motion.div>
           {/* TITLE BOX */}
           <motion.div
-            className="z-40 col-span-3 col-start-1 row-span-2 row-start-3 flex w-[85%] flex-col justify-center bg-adobe-white/70 bg-opacity-80 pl-[25%] max-xs:w-full md:absolute md:-top-4 lg:absolute lg:right-0 lg:top-0 lg:col-span-5 lg:col-start-1 lg:row-span-3 lg:row-start-2 lg:h-full lg:w-[85%] lg:bg-transparent lg:pl-0"
+            className="z-40 col-span-4 col-start-1 row-span-2 row-start-3 flex h-full w-[95%] flex-col justify-center bg-adobe-ivory/70 bg-opacity-80 pl-[35%] max-xs:w-full md:absolute md:-top-0 lg:absolute lg:right-0 lg:top-0 lg:col-span-5 lg:col-start-1 lg:row-span-3 lg:row-start-2 lg:h-full lg:w-[85%] lg:pb-5 lg:pl-0"
             initial="initial"
             animate="animate"
             variants={backgroundVariant}
@@ -154,7 +155,7 @@ const HeroPage = () => {
               delayChildren: 0.5,
             }}
           >
-            <motion.div className="text-mobile-title flex basis-1/2 flex-col max-md:flex-col max-md:justify-center md:basis-1/4 md:items-start md:gap-2 lg:w-3/4 lg:basis-1/2 lg:flex-col lg:items-start lg:justify-end">
+            <motion.div className="text-mobile-title flex basis-1/2 flex-col max-lg:justify-center max-md:flex-col md:basis-1/2 md:items-start md:gap-0 lg:w-3/4 lg:basis-1/2 lg:flex-col lg:items-start lg:justify-end">
               <motion.div variants={defaultVariant}>
                 {Data.heroPageAries}
               </motion.div>
@@ -176,7 +177,7 @@ const HeroPage = () => {
             >
               and
             </motion.div>
-            <div className="text-mobile-title basis-1/2 bg-opacity-25 max-lg:w-[75%] lg:flex lg:basis-1/4 lg:gap-5">
+            <div className="text-mobile-title flex basis-1/2 flex-col justify-center max-lg:w-[100%] lg:flex lg:basis-1/4 lg:gap-5">
               <motion.div className="h-fit" variants={defaultVariant}>
                 {Data.heroPageSubtitleFirst}
               </motion.div>
@@ -190,15 +191,15 @@ const HeroPage = () => {
             initial="initial"
             animate="animate"
             variants={imageVariant1}
-            className="relative z-30 col-span-2 col-start-4 row-span-2 row-start-3 size-full bg-adobe-white/50 max-lg:hidden"
+            className="relative z-30 col-span-3 col-start-4 row-span-2 row-start-3 size-full bg-adobe-ivory/50 max-lg:hidden"
           ></motion.div>
           {/* HIDDEN */}
-          <div className="z-30 col-start-4 row-span-2 row-start-3 hidden h-full w-1/2 bg-adobe-white bg-opacity-80 xs:w-1/4 lg:absolute lg:top-[44%] lg:col-span-2 lg:col-start-4 lg:h-[37%] lg:w-full lg:rounded-tr-3xl"></div>
+          <div className="z-30 col-start-4 row-span-2 row-start-3 hidden h-full w-1/2 bg-adobe-ivory bg-opacity-80 xs:w-1/4 lg:absolute lg:top-[44%] lg:col-span-2 lg:col-start-4 lg:h-[37%] lg:w-full lg:rounded-tr-3xl"></div>
           {/* TAGLINE BOX */}
           {/* HIDDEN */}
           <div className="z-40 col-start-4 row-span-1 row-start-5 hidden h-8 w-1/2 rounded-br-xl bg-adobe-red xs:w-1/4 sm:w-1/4"></div>
           <motion.div
-            className="text-mobile-tagline z-40 col-span-3 col-start-1 row-start-5 flex h-8 w-[85%] basis-1/2 items-center justify-start rounded-br-xl bg-adobe-red pl-[25%] font-spaceMono text-adobe-white max-xs:w-full lg:absolute lg:bottom-[1.15rem] lg:right-0 lg:col-span-4 lg:col-start-1 lg:row-span-1 lg:row-start-4 lg:h-1/4 lg:w-[81%] lg:rounded-tl-xl lg:pl-0"
+            className="text-mobile-tagline z-40 col-span-4 col-start-1 row-start-5 flex h-8 w-[95%] basis-1/2 items-center justify-start rounded-br-xl bg-adobe-red pl-[35%] font-spaceMono text-adobe-white max-xs:w-full lg:absolute lg:bottom-[1.15rem] lg:right-0 lg:col-span-4 lg:col-start-1 lg:row-span-1 lg:row-start-4 lg:h-1/4 lg:w-[81%] lg:rounded-tl-xl lg:pl-0"
             initial="initial"
             animate="animate"
             transition={{ duration: 0.5 }}
@@ -259,7 +260,7 @@ const HeroPage = () => {
           {/* TOP HIGHLIGHT ABOVE MD-SCREENS */}
           <motion.div className="z-20 col-span-1 col-start-3 row-span-1 row-start-6 ml-auto h-[45%] w-full bg-adobe-red max-lg:hidden lg:absolute lg:right-0 lg:col-span-2 lg:col-start-2 lg:row-start-5 lg:h-[8%] lg:w-[90%] lg:rounded-tl-xl"></motion.div>
           {/* MAIN HIGHLIGHT UNDER MD-SCREENS */}
-          <motion.div className="absolute right-0 z-20 col-span-2 col-start-2 row-start-6 h-[37%] w-[102%] bg-adobe-red lg:absolute lg:right-0 lg:top-6 lg:col-span-2 lg:col-start-2 lg:row-start-5 lg:h-[5%] lg:w-[70%]"></motion.div>
+          <motion.div className="absolute right-0 z-20 col-span-2 col-start-2 row-start-6 h-[37%] w-[102%] bg-adobe-red max-lg:hidden lg:absolute lg:right-0 lg:top-6 lg:col-span-2 lg:col-start-2 lg:row-start-5 lg:h-[5%] lg:w-[70%]"></motion.div>
           <motion.div
             className="absolute right-0 z-20 col-span-2 col-start-2 row-start-6 hidden h-[37%] w-[102%] bg-adobe-red lg:absolute lg:right-0 lg:top-6 lg:col-span-2 lg:col-start-2 lg:row-start-5 lg:h-[5%] lg:w-[70%]"
             initial="initial"

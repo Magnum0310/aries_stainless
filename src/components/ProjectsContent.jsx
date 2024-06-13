@@ -53,9 +53,9 @@ const ServicePage = () => {
     once: true,
   });
   return (
-    <div className="relative h-screen overflow-hidden bg-adobe-white font-shareTech">
+    <div className="relative h-screen overflow-hidden bg-adobe-ivory font-shareTech">
       {/* RED BORDER */}
-      <div className="absolute -left-[1.1rem] top-8 z-[60] flex h-[1rem] w-[5rem] -rotate-90 items-center justify-center bg-adobe-white text-center font-spaceMono text-[.5rem]">
+      <div className="absolute -left-[1.1rem] top-8 z-[60] flex hidden h-[1rem] w-[5rem] -rotate-90 items-center justify-center bg-adobe-ivory text-center font-spaceMono text-[.5rem]">
         PROJECT
       </div>
       {/* PROJECT TITLE */}
@@ -97,7 +97,7 @@ const ServicePage = () => {
           ></motion.div>
         </div>
       </motion.div>
-      <div className="absolute left-5 z-50 h-full border-l-4 border-solid border-adobe-red"></div>
+      <div className="absolute left-5 top-0 z-50 h-full border-l-4 border-solid border-adobe-red"></div>
       {/* BACKGROUND PAGE IMAGE*/}
       <div
         className="relative left-6 top-11 z-10 h-full w-full lg:left-0 lg:top-0"

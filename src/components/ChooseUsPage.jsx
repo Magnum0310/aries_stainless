@@ -82,13 +82,10 @@ const ChooseUsPage = () => {
   return (
     <>
       <div
-        className="relative h-screen overflow-hidden bg-adobe-white font-shareTech"
+        className="relative h-screen overflow-hidden bg-adobe-ivory font-shareTech"
         ref={divRef}
       >
         {/* RED BORDER */}
-        <div className="absolute -left-[1.1rem] top-8 z-50 flex h-[1rem] w-[5rem] -rotate-90 items-center justify-center bg-adobe-white text-center font-spaceMono text-[.5rem]">
-          WHY CHOOSE US
-        </div>
         <div className="absolute left-5 z-40 h-full w-full border-l-4 border-solid border-adobe-red"></div>
         {/* GRID AREA FOR CONTENT */}
         <div className="relative left-6 grid h-full w-full grid-cols-4 grid-rows-6 items-center justify-center bg-blue-500/0 lg:left-0 lg:top-0 lg:grid-cols-6">

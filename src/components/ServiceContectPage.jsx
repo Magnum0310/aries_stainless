@@ -1,11 +1,5 @@
-import { useRef, useEffect, useState } from "react";
-import {
-  motion,
-  useTransform,
-  useScroll,
-  useAnimation,
-  useInView,
-} from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import Bakery from "../assets/Svg/SvgIcons/colorBakery.svg";
 import Blinds from "../assets/Svg/SvgIcons/colorBlinds.svg";
 import Chair from "../assets/Svg/SvgIcons/colorChairs.svg";
@@ -15,7 +9,6 @@ import Grill from "../assets/Svg/SvgIcons/colorGrill.svg";
 import Kitchen from "../assets/Svg/SvgIcons/colorKitchen.svg";
 import Signage from "../assets/Svg/SvgIcons/colorSignage.svg";
 import ServiceItem from "./ServiceItem";
-import ServiceItemEven from "./ServiceItem";
 
 const ServiceContectPage = () => {
   const divRef = useRef(null);
@@ -132,22 +125,23 @@ const ServiceContectPage = () => {
 
   return (
     <div
-      className="bg-adobe-ivory relative h-[400vh] font-shareTech md:h-[450vh]"
+      className="relative h-[400vh] bg-adobe-ivory font-shareTech md:h-[450vh]"
       ref={divRef}
     >
-      <div className="flex h-full w-full flex-col md:grid md:grid-cols-2 md:grid-rows-2">
+      <div className="absolute left-5 z-[60] h-full w-full border-l-4 border-solid border-adobe-red"></div>
+      <div className="bg-red-ivory flex h-full w-full flex-col md:grid md:grid-cols-2 md:grid-rows-2">
         {/* MAIN ICON BOX */}
         <motion.div
-          className="bg-adobe-ivory sticky top-0 z-40 flex basis-[12%] items-center justify-center text-center xs:basis-[15%] md:col-start-1 md:h-screen"
+          className="sticky top-0 z-40 flex basis-[12%] items-center justify-center bg-adobe-ivory text-center xs:basis-[15%] md:col-start-1 md:h-screen"
           variants={primaryVariant}
           initial={isInView ? "" : "initial"}
           animate={isInView ? "animate" : ""}
         >
           <div className="relative flex size-full items-center justify-center md:size-3/4">
             <div className="absolute size-[65%]">
-              <div className="bg-adobe-ivory absolute z-10 size-full scale-95"></div>
-              <div className="absolute h-[95%] w-[95%] rounded-b-3xl rounded-r-3xl bg-adobe-red"></div>
-              <div className="absolute bottom-0 right-0 h-[95%] w-[95%] rounded-bl-3xl rounded-tr-3xl bg-adobe-gray"></div>
+              <div className="absolute z-10 size-full scale-95 bg-adobe-ivory"></div>
+              <div className="absolute h-[95%] w-[95%] rounded-b-3xl rounded-r-3xl bg-gradient-to-br from-adobe-red/80 via-adobe-gray to-adobe-white"></div>
+              <div className="absolute bottom-0 right-0 h-[95%] w-[95%] rounded-bl-3xl rounded-tr-3xl bg-gradient-to-tl from-adobe-red/80 via-adobe-gray to-adobe-white"></div>
             </div>
             {/* SIZE ICON BOX */}
             <div className="relative z-20 size-[55%] overflow-hidden md:w-[60%] 2xl:max-w-[500px]">
@@ -160,7 +154,7 @@ const ServiceContectPage = () => {
                 {Data.map((data) => (
                   <motion.div
                     key={data.id}
-                    className="bg-adobe-ivory size-full"
+                    className="size-full bg-adobe-ivory"
                     style={{
                       backgroundImage: `url("${data.image}")`,
                       backgroundSize: "contain",
@@ -175,9 +169,9 @@ const ServiceContectPage = () => {
           </div>
         </motion.div>
         {/* TOP GRADIENT SPACER */}
-        <div className="from-adobe-ivory/100 sticky top-1/4 z-20 h-[100px] place-content-center bg-gradient-to-b via-adobe-white/70 to-gray-100/40 text-center md:top-0 md:z-50 md:col-span-2 md:col-start-2 md:row-start-1"></div>
+        <div className="sticky top-1/4 z-20 h-[100px] place-content-center bg-gradient-to-b from-adobe-ivory/100 via-adobe-white/70 to-gray-100/40 text-center md:top-0 md:z-50 md:col-span-2 md:col-start-2 md:row-start-1"></div>
         {/* BOTTOM GRADIENT SPACER */}
-        <div className="from-adobe-ivory/50 sticky top-[85%] z-20 h-[150px] place-content-center bg-gradient-to-b via-adobe-white/75 to-gray-100/25 text-center md:z-50 md:col-span-2 md:col-start-1"></div>
+        <div className="sticky top-[85%] z-20 h-[150px] place-content-center bg-gradient-to-b from-adobe-ivory/50 via-adobe-white/75 to-gray-100/25 text-center md:z-50 md:col-span-2 md:col-start-1"></div>
         {/* MAIN DESCRIPTION BOX */}
         <div className="flex size-full flex-col items-center md:relative md:bottom-[15%] md:col-start-2 md:h-[350vh] md:items-start">
           {Data.map((data) => (

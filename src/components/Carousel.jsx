@@ -95,7 +95,8 @@ const Carousel = () => {
       scale: 1.1,
       zIndex: "5",
       filter: "brightness(100%)",
-      backgroundImage: "linear-gradient(#808080,#626262)",
+      backgroundImage:
+        "background-image: linear-gradient(45deg,hsl(0deg 0% 50%) 0%,hsl(12deg 12% 52%) 21%,hsl(11deg 24% 53%) 30%,hsl(11deg 35% 53%) 39%,hsl(11deg 46% 54%) 46%,hsl(10deg 57% 54%) 54%,hsl(9deg 67% 54%) 61%,hsl(8deg 77% 54%) 69%,hsl(6deg 86% 54%) 79%,hsl(2deg 95% 53%) 100%)",
       transition: {
         type: "spring",
         duration: 1,
@@ -107,7 +108,8 @@ const Carousel = () => {
       opacity: 1,
       filter: "brightness(40%)",
       scale: 1,
-      backgroundImage: "linear-gradient(#808080,#626262)",
+      backgroundImage:
+        "background-image: linear-gradient(45deg,hsl(0deg 0% 50%) 0%,hsl(12deg 12% 52%) 21%,hsl(11deg 24% 53%) 30%,hsl(11deg 35% 53%) 39%,hsl(11deg 46% 54%) 46%,hsl(10deg 57% 54%) 54%,hsl(9deg 67% 54%) 61%,hsl(8deg 77% 54%) 69%,hsl(6deg 86% 54%) 79%,hsl(2deg 95% 53%) 100%)",
       zIndex: "4",
       boxShadow: "unset",
       transition: {
@@ -121,7 +123,8 @@ const Carousel = () => {
       opacity: 1,
       filter: "brightness(20%)",
       scale: 1,
-      backgroundImage: "linear-gradient(#808080,#626262)",
+      backgroundImage:
+        "background-image: linear-gradient(45deg,hsl(0deg 0% 50%) 0%,hsl(12deg 12% 52%) 21%,hsl(11deg 24% 53%) 30%,hsl(11deg 35% 53%) 39%,hsl(11deg 46% 54%) 46%,hsl(10deg 57% 54%) 54%,hsl(9deg 67% 54%) 61%,hsl(8deg 77% 54%) 69%,hsl(6deg 86% 54%) 79%,hsl(2deg 95% 53%) 100%)",
       zIndex: "2",
       boxShadow: "unset",
       transition: {
@@ -130,7 +133,8 @@ const Carousel = () => {
       },
     },
     borderRight: {
-      backgroundImage: "linear-gradient(#808080,#626262)",
+      backgroundImage:
+        "background-image: linear-gradient(45deg,hsl(0deg 0% 50%) 0%,hsl(12deg 12% 52%) 21%,hsl(11deg 24% 53%) 30%,hsl(11deg 35% 53%) 39%,hsl(11deg 46% 54%) 46%,hsl(10deg 57% 54%) 54%,hsl(9deg 67% 54%) 61%,hsl(8deg 77% 54%) 69%,hsl(6deg 86% 54%) 79%,hsl(2deg 95% 53%) 100%)",
       x: "10rem",
       opacity: 1,
       filter: "brightness(50%)",
@@ -143,7 +147,8 @@ const Carousel = () => {
       },
     },
     borderFarRight: {
-      backgroundImage: "linear-gradient(#808080,#626262)",
+      backgroundImage:
+        "background-image: linear-gradient(45deg,hsl(0deg 0% 50%) 0%,hsl(12deg 12% 52%) 21%,hsl(11deg 24% 53%) 30%,hsl(11deg 35% 53%) 39%,hsl(11deg 46% 54%) 46%,hsl(10deg 57% 54%) 54%,hsl(9deg 67% 54%) 61%,hsl(8deg 77% 54%) 69%,hsl(6deg 86% 54%) 79%,hsl(2deg 95% 53%) 100%)",
       x: "14rem",
       opacity: 1,
       filter: "brightness(20%)",

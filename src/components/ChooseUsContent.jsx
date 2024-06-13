@@ -24,7 +24,6 @@ const ChooseUsContent = () => {
   const secondCard = useRef(null);
   const thirdCard = useRef(null);
   const forurthCard = useRef(null);
-  const container = useRef(null);
   // const { width } = useWindowDimensions();
   const { scrollYProgress } = useScroll({
     target: divRef,
@@ -33,10 +32,6 @@ const ChooseUsContent = () => {
 
   const { setFirstCard, setSecondCard, setThirdCard, setFourthCard, width } =
     useContext(ViewContext);
-
-  const viewCard = useInView(firstCard, {
-    margin: ["0px 0px 0px 0px"],
-  });
 
   const marginWindowOne =
     width >= 1280
@@ -96,6 +91,8 @@ const ChooseUsContent = () => {
 
   // MOBILE
   const firstBoxMobile = useTransform(scrollYProgress, [0, 0.4], [-1200, 0], {
+    type: "tween",
+    duration: 0.5,
     ease: easeInOut,
   });
   const secondBoxMobile = useTransform(
@@ -103,13 +100,19 @@ const ChooseUsContent = () => {
     [0.2, 0.6],
     [-1200, 0],
     {
+      type: "tween",
+      duration: 0.5,
       ease: easeInOut,
     },
   );
   const thirdBoxMobile = useTransform(scrollYProgress, [0.4, 0.8], [-1200, 0], {
+    type: "tween",
+    duration: 0.5,
     ease: easeInOut,
   });
   const fourthBoxMobile = useTransform(scrollYProgress, [0.6, 1], [-1200, 0], {
+    type: "tween",
+    duration: 0.5,
     ease: easeInOut,
   });
 
@@ -122,6 +125,8 @@ const ChooseUsContent = () => {
     [0.25, 0.5],
     [-1200, 0],
     {
+      type: "tween",
+      duration: 0.5,
       ease: easeInOut,
     },
   );
@@ -130,6 +135,8 @@ const ChooseUsContent = () => {
     [0.45, 0.75],
     [-1200, 0],
     {
+      type: "tween",
+      duration: 0.5,
       ease: easeInOut,
     },
   );
@@ -138,26 +145,36 @@ const ChooseUsContent = () => {
     [0.7, 0.9],
     [-1200, 0],
     {
+      type: "tween",
+      duration: 0.5,
       ease: easeInOut,
     },
   );
   // Laptop
   const firstBox = useTransform(scrollYProgress, [0, 0.4], [0, 0], {
+    type: "tween",
+    duration: 0.5,
     ease: easeInOut,
   });
   const secondBox = useTransform(scrollYProgress, [0.5, 0.65], [-600, 0], {
+    type: "tween",
+    duration: 0.5,
     ease: easeInOut,
   });
   const thirdBox = useTransform(scrollYProgress, [0.6, 0.75], [-1200, 0], {
+    type: "tween",
+    duration: 0.5,
     ease: easeInOut,
   });
   const fourthBox = useTransform(scrollYProgress, [0.7, 0.85], [-1600, 0], {
+    type: "tween",
+    duration: 0.5,
     ease: easeInOut,
   });
 
   return (
     <div
-      className="relative z-10 h-[200vh] justify-center font-shareTech lg:flex lg:flex-col xl:flex-row xl:items-center"
+      className="relative z-10 h-[200vh] justify-center bg-adobe-ivory font-shareTech lg:flex lg:flex-col xl:flex-row xl:items-center"
       ref={divRef}
     >
       {/* FIRST HALF */}
@@ -165,7 +182,7 @@ const ChooseUsContent = () => {
       <div className="h-1/2 lg:flex lg:h-[35%] xl:sticky xl:top-1/2 xl:z-20 xl:-translate-y-1/2">
         {/* FIRST BOX */}
         <motion.div
-          className="relative z-40 flex h-1/2 w-full flex-col overflow-hidden bg-gradient-to-br from-adobe-gray to-adobe-white p-px lg:h-full"
+          className="relative z-40 flex h-1/2 w-full flex-col overflow-hidden bg-gradient-to-tr from-adobe-gray to-adobe-white p-1 lg:h-full"
           ref={firstCard}
           style={{
             translateX:
@@ -176,7 +193,7 @@ const ChooseUsContent = () => {
                   : firstBoxTablet,
           }}
         >
-          <motion.div className="bg-adobe-ivory z-40 flex h-full flex-col items-center justify-center gap-5 px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
+          <motion.div className="z-40 flex h-full flex-col items-center justify-center gap-5 bg-adobe-ivory px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
             <div className="z-20 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
               <div
                 className="size-full lg:size-2/5"
@@ -189,7 +206,7 @@ const ChooseUsContent = () => {
               ></div>
             </div>
             <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
-              <div className="text-mobile-chooseUs-title h-[3rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black">
+              <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black max-xl:h-[3rem]">
                 {Data[0].title}
               </div>
               <div className="text-mobile-chooseUs-description font-spaceMono">
@@ -201,7 +218,7 @@ const ChooseUsContent = () => {
         </motion.div>
         {/* SECOND BOX */}
         <motion.div
-          className="relative z-20 flex h-1/2 w-full flex-col overflow-hidden bg-gradient-to-br from-adobe-gray to-adobe-white p-px lg:h-full"
+          className="relative z-20 flex h-1/2 w-full flex-col overflow-hidden bg-gradient-to-tr from-adobe-gray to-adobe-white p-1 lg:h-full"
           ref={secondCard}
           style={{
             translateX:
@@ -212,7 +229,7 @@ const ChooseUsContent = () => {
                   : secondBoxTablet,
           }}
         >
-          <motion.div className="bg-adobe-ivory z-40 flex h-full flex-col items-center justify-center gap-5 px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
+          <motion.div className="z-40 flex h-full flex-col items-center justify-center gap-5 bg-adobe-ivory px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
             <div className="z-30 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
               <div
                 className="size-full lg:size-2/5"
@@ -225,7 +242,7 @@ const ChooseUsContent = () => {
               ></div>
             </div>
             <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
-              <div className="text-mobile-chooseUs-title h-[3rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black">
+              <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black max-xl:h-[3rem]">
                 {Data[1].title}
               </div>
               <div className="text-mobile-chooseUs-description font-spaceMono">
@@ -240,7 +257,7 @@ const ChooseUsContent = () => {
       <div className="h-1/2 lg:flex lg:h-[35%] lg:items-center xl:sticky xl:top-1/2 xl:z-10 xl:-translate-y-1/2">
         {/* THIRD BOX */}
         <motion.div
-          className="relative z-20 flex h-1/2 w-full flex-col overflow-hidden bg-gradient-to-br from-adobe-gray to-adobe-white p-px lg:h-full"
+          className="relative z-20 flex h-1/2 w-full flex-col overflow-hidden bg-gradient-to-tr from-adobe-gray to-adobe-white p-1 lg:h-full"
           ref={thirdCard}
           style={{
             translateX:
@@ -251,7 +268,7 @@ const ChooseUsContent = () => {
                   : thirdBoxTablet,
           }}
         >
-          <motion.div className="bg-adobe-ivory relative z-20 flex h-full w-full flex-col items-center justify-center gap-5 px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
+          <motion.div className="relative z-20 flex h-full w-full flex-col items-center justify-center gap-5 bg-adobe-ivory px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
             <div className="z-20 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
               <div
                 className="size-full lg:size-2/5"
@@ -264,7 +281,7 @@ const ChooseUsContent = () => {
               ></div>
             </div>
             <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
-              <div className="text-mobile-chooseUs-title h-[3rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black">
+              <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black max-xl:h-[3rem]">
                 {Data[2].title}
               </div>
               <div className="text-mobile-chooseUs-description font-spaceMono">
@@ -276,7 +293,7 @@ const ChooseUsContent = () => {
         </motion.div>
         {/* FOURTH BOX */}
         <motion.div
-          className="relative z-10 flex h-1/2 w-full flex-col overflow-hidden bg-gradient-to-br from-adobe-gray to-adobe-white p-px lg:h-full"
+          className="relative z-10 flex h-1/2 w-full flex-col overflow-hidden bg-gradient-to-tr from-adobe-gray to-adobe-white p-1 lg:h-full"
           ref={forurthCard}
           style={{
             translateX:
@@ -285,10 +302,9 @@ const ChooseUsContent = () => {
                 : width >= 1280
                   ? fourthBox
                   : fourthBoxTablet,
-            // opacity: width <= 1280 ? 1 : opacityFourthBox,
           }}
         >
-          <motion.div className="bg-adobe-ivory relative z-10 flex h-full w-full flex-col items-center justify-center gap-5 overflow-hidden px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
+          <motion.div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-5 overflow-hidden bg-adobe-ivory px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
             <div className="z-20 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
               <div
                 className="size-full lg:size-2/5"
@@ -301,7 +317,7 @@ const ChooseUsContent = () => {
               ></div>
             </div>
             <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
-              <div className="text-mobile-chooseUs-title h-[3rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black">
+              <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black max-xl:h-[3rem]">
                 {Data[3].title}
               </div>
               <div className="text-mobile-chooseUs-description font-spaceMono">

@@ -6,8 +6,24 @@
 @tailwind utilities;
 
 html {
-  background-color: #fafafa;
+  background-image: linear-gradient(
+    45deg,
+    hsl(36deg 24% 96%) 1%,
+    hsl(36deg 22% 96%) 31%,
+    hsl(36deg 21% 96%) 41%,
+    hsl(36deg 19% 97%) 49%,
+    hsl(36deg 17% 97%) 56%,
+    hsl(36deg 15% 97%) 62%,
+    hsl(36deg 12% 97%) 68%,
+    hsl(36deg 9% 98%) 74%,
+    hsl(36deg 5% 98%) 82%,
+    hsl(0deg 0% 98%) 100%
+  );
 }
+
+/* html {
+  background-color: #000000;
+} */
 
 @layer utilities {
   /* HERO SECTION */
@@ -15,21 +31,21 @@ html {
     @apply text-3xl xs:text-4xl md:text-5xl lg:text-6xl;
   }
   .text-mobile-tagline {
-    @apply text-[.45rem] tracking-wider xs:text-[.6rem] md:text-base lg:text-xl;
+    @apply text-[.5rem] tracking-wider xs:text-[.6rem] md:text-[.8rem] lg:text-xl;
   }
   /* CHOOSE US SECTION */
   .text-mobile-chooseUs-title {
     @apply text-base tracking-wider md:text-lg lg:text-xl;
   }
   .text-mobile-chooseUs-description {
-    @apply text-[.75rem] tracking-normal md:text-base;
+    @apply text-[.75rem] tracking-normal md:text-[.90rem];
   }
   /* SERVICE SECTION */
   .text-service-title {
     @apply text-3xl xs:text-3xl md:text-4xl lg:text-5xl;
   }
   .text-service-description {
-    @apply text-[.9rem] md:text-xl;
+    @apply text-[.75rem] md:text-base xl:text-lg;
   }
   .text-service-content {
     @apply pr-10 text-sm xs:text-sm md:text-base;
