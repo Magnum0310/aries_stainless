@@ -82,7 +82,7 @@ const ChooseUsPage = () => {
   return (
     <>
       <div
-        className="relative h-screen overflow-hidden bg-adobe-ivory font-shareTech"
+        className="relative h-screen overflow-hidden font-shareTech"
         ref={divRef}
       >
         {/* RED BORDER */}

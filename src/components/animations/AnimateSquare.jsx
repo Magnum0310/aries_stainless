@@ -68,7 +68,7 @@ const descriptionVariant = {
 
 const AnimateSquare = () => {
   return (
-    <div className="grid} absolute top-[110%] h-[100vh] w-full place-items-center overflow-hidden font-shareTech md:top-[110%] lg:h-[120vh]">
+    <div className="absolute top-[110%] grid h-[100vh] w-full place-items-center overflow-hidden font-shareTech md:top-[110%] lg:h-[120vh]">
       {/* GRID AREA FOR CONTENT */}
 
       {/* GRID WRAPPER FOR PAGE CONTENT */}

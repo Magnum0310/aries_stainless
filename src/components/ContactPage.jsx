@@ -29,7 +29,7 @@ const Details = [
 
 const ContactPage = () => {
   const divRef = useRef(null);
-  const inView = useInView(divRef);
+  const inView = useInView(divRef, { once: true });
   const { setContactUs } = useContext(ViewContext);
   useEffect(() => {
     setContactUs(inView);

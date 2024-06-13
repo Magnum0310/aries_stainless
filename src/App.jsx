@@ -29,7 +29,7 @@ function App() {
   return (
     <StatusProvider>
       <AnimateCurveLine />
-      <div className="md:mx-10 xl:mx-32">
+      <div className="md:ml-10 xl:ml-32">
         <HeroPage />
       </div>
       <div className="md:mx-10 xl:mx-32">
@@ -38,9 +38,17 @@ function App() {
       <AnimateSquare />
       <div className="md:mx-10 xl:mx-32">
         <ChooseUsContent />
+      </div>
+      <div className="md:ml-10 xl:ml-32">
         <ServicePage />
+      </div>
+      <div className="md:mx-10 xl:mx-32">
         <ServiceContectPage />
+      </div>
+      <div className="md:ml-10 xl:ml-32">
         <ProjectPage />
+      </div>
+      <div className="md:mx-10 xl:mx-32">
         <ProjectsContent />
       </div>
       <AnimateCircle />

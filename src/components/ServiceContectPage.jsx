@@ -125,11 +125,11 @@ const ServiceContectPage = () => {
 
   return (
     <div
-      className="relative h-[400vh] overflow-hidden bg-adobe-ivory font-shareTech md:h-[450vh]"
+      className="relative h-[400vh] bg-adobe-ivory font-shareTech md:h-[450vh]"
       ref={divRef}
     >
-      <div className="absolute left-5 z-[60] h-full w-full border-l-4 border-solid border-adobe-red"></div>
-      <div className="bg-red-ivory flex h-full w-full flex-col md:grid md:grid-cols-2 md:grid-rows-2">
+      <div className="absolute left-5 z-[60] h-full border-l-4 border-solid border-adobe-red"></div>
+      <div className="flex h-full w-full flex-col bg-adobe-ivory md:grid md:grid-cols-2 md:grid-rows-2">
         {/* MAIN ICON BOX */}
         <motion.div
           className="sticky top-0 z-40 flex basis-[12%] items-center justify-center bg-adobe-ivory text-center xs:basis-[15%] md:col-start-1 md:h-screen"

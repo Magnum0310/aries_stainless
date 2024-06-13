@@ -151,7 +151,7 @@ const imageVariant1 = {
 const HeroPage = () => {
   return (
     <>
-      <div className="relative left-0 top-0 h-screen w-full overflow-hidden bg-adobe-ivory font-shareTech max-md:h-[100dvh]">
+      <div className="relative left-0 right-0 top-0 h-screen overflow-hidden font-shareTech">
         {/* RED BORDER */}
         <div className="relative left-5 top-5 z-[60] h-full w-full border-l-4 border-t-4 border-solid border-adobe-red"></div>
 
