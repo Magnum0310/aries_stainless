@@ -174,7 +174,7 @@ const ChooseUsContent = () => {
 
   return (
     <div
-      className="relative z-10 h-[200vh] justify-center bg-adobe-ivory font-shareTech max-md:h-[200dvh] lg:flex lg:flex-col xl:flex-row xl:items-center"
+      className="relative z-10 h-[200vh] justify-center bg-adobe-ivory font-shareTech lg:flex lg:flex-col xl:flex-row xl:items-center"
       ref={divRef}
     >
       {/* FIRST HALF */}

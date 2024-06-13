@@ -125,7 +125,7 @@ const ServiceContectPage = () => {
 
   return (
     <div
-      className="relative h-[400vh] bg-adobe-ivory font-shareTech md:h-[450vh]"
+      className="relative h-[400vh] overflow-hidden bg-adobe-ivory font-shareTech md:h-[450vh]"
       ref={divRef}
     >
       <div className="absolute left-5 z-[60] h-full w-full border-l-4 border-solid border-adobe-red"></div>

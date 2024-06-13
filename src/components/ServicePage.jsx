@@ -57,7 +57,7 @@ const ServicePage = () => {
       <div className="absolute left-5 z-40 h-full w-full border-l-4 border-solid border-adobe-red"></div>
       {/* INNER WHITE BOX WRAPPER*/}
       <div
-        className="absolute left-6 top-11 grid h-full w-full grid-cols-4 grid-rows-6 bg-adobe-ivory lg:left-0 lg:top-0 lg:grid-cols-6"
+        className="absolute left-6 top-11 grid h-full w-full grid-cols-4 grid-rows-6 overflow-hidden bg-adobe-ivory lg:left-0 lg:top-0 lg:grid-cols-6"
         ref={divRef}
       >
         {/* PAGE IMAGE WRAPPER */}
@@ -74,7 +74,7 @@ const ServicePage = () => {
         </div>
         {/* TITLE BOX */}
         {/* MAIN TITLE CONTAINER */}
-        <div className="absolute right-0 z-40 col-span-3 col-start-1 row-span-4 row-start-2 mr-5 h-full overflow-hidden bg-gradient-to-tr from-adobe-red/80 via-adobe-gray to-adobe-white p-1 max-lg:mr-[20%] max-lg:w-[70%] max-xs:mr-10 max-xs:w-[75%] lg:row-span-5 lg:row-start-1 lg:mt-14 lg:w-[85%] lg:overflow-visible">
+        <div className="absolute right-0 z-40 col-span-3 col-start-1 row-span-4 row-start-2 mr-5 h-full bg-gradient-to-tr from-adobe-red/80 via-adobe-gray to-adobe-white p-1 max-lg:mr-[20%] max-lg:w-[70%] max-xs:mr-10 max-xs:w-[75%] lg:row-span-5 lg:row-start-1 lg:mt-14 lg:w-[85%] lg:overflow-visible">
           {/* BORDER WRAPPER */}
           <motion.div
             className="flex size-full flex-col justify-start bg-adobe-ivory"

@@ -5,7 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+/* html {
   background-image: linear-gradient(
     45deg,
     hsl(36deg 24% 96%) 1%,
@@ -19,16 +19,16 @@ html {
     hsl(36deg 5% 98%) 82%,
     hsl(0deg 0% 98%) 100%
   );
-}
-
-/* html {
-  background-color: #000000;
 } */
+
+html {
+  background-color: #f7f5f2;
+}
 
 @layer utilities {
   /* HERO SECTION */
   .text-mobile-title {
-    @apply text-3xl xs:text-4xl md:text-5xl lg:text-6xl;
+    @apply text-3xl xs:text-4xl md:text-4xl lg:text-6xl;
   }
   .text-mobile-tagline {
     @apply text-[.5rem] tracking-wider xs:text-[.6rem] md:text-[.8rem] lg:text-xl;
