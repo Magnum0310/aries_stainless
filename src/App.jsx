@@ -15,6 +15,8 @@ import AnimateCurveLine from "./components/animations/AnimateCurveLine";
 import { StatusProvider } from "./components/context/StatusContext";
 import Lines from "./components/animations/AnimateLine";
 
+import TEST from "./components/animations/TEST";
+
 function App() {
   useEffect(() => {
     const lenis = new Lenis();
@@ -28,26 +30,18 @@ function App() {
 
   return (
     <StatusProvider>
-      <AnimateCurveLine />
-      <div className="md:ml-10 xl:ml-32">
+      {/* <AnimateCurveLine /> */}
+      <div className="">
         <HeroPage />
       </div>
-      <div className="md:mx-10 xl:mx-32">
+      <div className="">
         <ChooseUsPage />
       </div>
       <AnimateSquare />
-      <div className="md:mx-10 xl:mx-32">
-        <ChooseUsContent />
-      </div>
-      <div className="md:ml-10 xl:ml-32">
-        <ServicePage />
-      </div>
-      <div className="md:mx-10 xl:mx-32">
-        <ServiceContectPage />
-      </div>
-      <div className="md:ml-10 xl:ml-32">
-        <ProjectPage />
-      </div>
+      <ChooseUsContent />
+      <ServicePage />
+      <ServiceContectPage />
+      <ProjectPage />
       <div className="md:mx-10 xl:mx-32">
         <ProjectsContent />
       </div>

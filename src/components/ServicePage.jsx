@@ -52,16 +52,14 @@ const ServicePage = () => {
   });
 
   return (
-    <div className="relative h-screen overflow-hidden bg-adobe-ivory font-shareTech">
-      {/* RED BORDER */}
-      <div className="absolute left-5 z-40 h-full w-full border-l-4 border-solid border-adobe-red"></div>
+    <div className="padding-x relative flex h-screen justify-center overflow-hidden bg-adobe-ivory bg-blue-500 font-shareTech">
       {/* INNER WHITE BOX WRAPPER*/}
       <div
-        className="absolute left-6 top-11 grid h-full w-full grid-cols-4 grid-rows-6 overflow-hidden bg-adobe-ivory lg:left-0 lg:top-0 lg:grid-cols-6"
+        className="relative grid h-full w-full max-w-[1440px] grid-cols-4 grid-rows-6 overflow-hidden bg-adobe-red lg:grid-cols-6"
         ref={divRef}
       >
         {/* PAGE IMAGE WRAPPER */}
-        <div className="z-30 col-span-4 col-start-2 row-span-6 row-start-1 flex items-center lg:absolute lg:col-start-4 lg:h-full lg:w-full">
+        <div className="z-30 col-span-4 col-start-2 row-span-6 row-start-1 flex hidden items-center lg:absolute lg:col-start-4 lg:h-full lg:w-full">
           {/* PAGE IMAGE BLOCK */}
           <div
             className="mb-5 h-[80%] w-full lg:mb-0 lg:h-full"
@@ -136,6 +134,19 @@ const ServicePage = () => {
         <div className="z-40 col-span-3 col-start-1 row-span-2 row-start-2 flex w-[117%] flex-col justify-center pl-[25%] lg:absolute lg:bottom-[13%] lg:right-0 lg:col-span-3 lg:col-start-1 lg:row-span-2 lg:row-start-2 lg:hidden lg:h-[5%] lg:w-[85%] lg:justify-start lg:pl-0"></div>
         <div className="col-span-1 col-start-1 row-span-1 row-start-6 ml-auto hidden h-[43%] w-[8%] bg-adobe-red md:w-[5%] lg:absolute lg:right-0 lg:top-6 lg:col-span-2 lg:col-start-2 lg:row-start-5 lg:hidden lg:h-[8%] lg:w-[70%]"></div>
         <div className="col-span-1 col-start-2 row-span-1 row-start-6 hidden h-[43%] w-full bg-adobe-red lg:absolute lg:right-0 lg:top-12 lg:col-span-2 lg:col-start-2 lg:row-start-5 lg:hidden lg:h-[8%] lg:w-[50%] lg:rounded-bl-xl"></div>
+      </div>
+
+      {/* TEST */}
+      <div className="absolute right-0 z-10 flex h-full w-3/4 items-center bg-blue-500 lg:h-full lg:w-1/2">
+        {/* PAGE IMAGE BLOCK */}
+        <div
+          className="mb-5 h-[80%] w-full lg:mb-0 lg:h-full"
+          style={{
+            backgroundImage: `url(${Weld02})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        ></div>
       </div>
     </div>
   );

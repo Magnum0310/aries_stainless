@@ -24,8 +24,16 @@
 html {
   background-color: #f7f5f2;
 }
+/* html {
+  background-color: #000000;
+} */
 
 @layer utilities {
+  /* PADDING */
+  .padding-x {
+    @apply px-6 xs:px-12 lg:px-24;
+  }
+
   /* HERO SECTION */
   .text-mobile-title {
     @apply text-3xl xs:text-4xl md:text-4xl lg:text-6xl;

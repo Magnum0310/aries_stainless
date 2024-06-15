@@ -63,19 +63,15 @@ const ServicePage = () => {
     once: true,
   });
   return (
-    <div className="relative h-screen overflow-hidden bg-adobe-ivory font-shareTech">
+    <div className="padding-x bg-adobe-lime relative flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-adobe-gray font-shareTech">
       {/* RED BORDER */}
-      <div className="absolute -left-[1.1rem] top-8 z-50 flex hidden h-[1rem] w-[5rem] -rotate-90 items-center justify-center bg-adobe-ivory text-center font-spaceMono text-[.5rem]">
-        PROJECT
-      </div>
-      <div className="absolute left-5 z-40 h-full w-full border-l-4 border-solid border-adobe-red"></div>
       {/* INNER WHITE BOX WRAPPER*/}
       <div
-        className="absolute left-6 top-11 grid h-full w-full grid-cols-4 grid-rows-6 bg-adobe-ivory lg:left-0 lg:top-0 lg:grid-cols-6"
+        className="absolute grid h-full w-full max-w-[1440px] grid-cols-4 grid-rows-6 bg-adobe-red lg:grid-cols-6"
         ref={divRef}
       >
         {/* PAGE IMAGE WRAPPER */}
-        <div className="z-30 col-span-4 col-start-2 row-span-6 row-start-1 flex items-center lg:absolute lg:col-start-1 lg:h-full lg:w-[83%]">
+        <div className="z-30 col-span-4 col-start-2 row-span-6 row-start-1 flex items-center lg:absolute lg:col-start-1 lg:hidden lg:h-full lg:w-[83%]">
           {/* PAGE IMAGE BLOCK */}
           <div
             className="right-0 mb-5 h-[80%] w-full lg:absolute lg:mb-0 lg:h-full lg:w-[90%] lg:rotate-180"
@@ -156,6 +152,19 @@ const ServicePage = () => {
         <div className="z-40 col-span-3 col-start-1 row-span-2 row-start-2 flex w-[117%] flex-col justify-center pl-[25%] lg:absolute lg:bottom-[13%] lg:right-0 lg:col-span-3 lg:col-start-1 lg:row-span-2 lg:row-start-2 lg:hidden lg:h-[5%] lg:w-[85%] lg:justify-start lg:pl-0"></div>
         <div className="col-span-1 col-start-1 row-span-1 row-start-6 ml-auto hidden h-[43%] w-[8%] bg-adobe-red md:w-[5%] lg:absolute lg:right-0 lg:top-6 lg:col-span-2 lg:col-start-2 lg:row-start-5 lg:hidden lg:h-[8%] lg:w-[70%]"></div>
         <div className="col-span-1 col-start-2 row-span-1 row-start-6 hidden h-[43%] w-full bg-adobe-red lg:absolute lg:right-0 lg:top-12 lg:col-span-2 lg:col-start-2 lg:row-start-5 lg:hidden lg:h-[8%] lg:w-[50%] lg:rounded-bl-xl"></div>
+      </div>
+
+      {/* TEST */}
+      <div className="left-0 z-30 flex items-center max-lg:hidden lg:absolute lg:col-start-1 lg:h-full lg:w-1/2">
+        {/* PAGE IMAGE BLOCK */}
+        <div
+          className="h-full w-full lg:absolute lg:mb-0 lg:h-full lg:w-full lg:rotate-180"
+          style={{
+            backgroundImage: `url(${Grinder})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        ></div>
       </div>
     </div>
   );

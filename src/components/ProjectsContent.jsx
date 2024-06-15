@@ -97,7 +97,7 @@ const ServicePage = () => {
           ></motion.div>
         </div>
       </motion.div>
-      <div className="absolute left-5 top-0 z-50 h-full border-l-4 border-solid border-adobe-red"></div>
+      <div className="absolute left-5 top-0 z-50 hidden h-full border-l-4 border-solid border-adobe-red"></div>
       {/* BACKGROUND PAGE IMAGE*/}
       <div
         className="relative left-6 top-11 z-10 h-full w-full lg:left-0 lg:top-0"

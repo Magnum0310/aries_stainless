@@ -82,15 +82,16 @@ const ChooseUsPage = () => {
   return (
     <>
       <div
-        className="relative h-screen overflow-hidden font-shareTech"
+        className="padding-x relative flex h-screen w-full flex-col items-center overflow-hidden bg-blue-500 font-shareTech"
         ref={divRef}
       >
         {/* RED BORDER */}
-        <div className="absolute left-5 z-40 h-full w-full border-l-4 border-solid border-adobe-red"></div>
+        {/* <div className="absolute left-5 z-40 hidden h-full w-full border-l-4 border-solid border-adobe-red"></div> */}
         {/* GRID AREA FOR CONTENT */}
-        <div className="relative left-6 grid h-full w-full grid-cols-4 grid-rows-6 items-center justify-center bg-blue-500/0 lg:left-0 lg:top-0 lg:grid-cols-6">
+        <div className="relative grid size-full max-w-[1440px] grid-cols-4 grid-rows-6 items-center justify-center bg-lime-500 lg:left-0 lg:top-0 lg:grid-cols-6">
           {/* GRID WRAPPER FOR PAGE CONTENT */}
-          <div className="z-40 col-span-3 col-start-1 row-span-2 row-start-3 flex flex-col justify-center bg-opacity-80 pl-[25%] lg:absolute lg:right-0 lg:col-span-5 lg:col-start-1 lg:row-span-4 lg:row-start-2 lg:h-full lg:w-[85%] lg:pl-0">
+          {/* <div className="z-40 col-span-3 col-start-1 row-span-2 row-start-3 flex w-full flex-col justify-center bg-amber-500 bg-opacity-80 pl-[25%] lg:absolute lg:right-0 lg:col-span-5 lg:col-start-1 lg:row-span-4 lg:row-start-2 lg:h-full lg:w-[85%] lg:pl-0"> */}
+          <div className="z-40 col-span-3 col-start-1 row-span-2 row-start-3 flex w-full flex-col justify-center bg-amber-500 bg-opacity-80 pl-[25%] lg:absolute lg:right-0 lg:col-span-5 lg:col-start-1 lg:row-span-4 lg:row-start-2 lg:h-full lg:w-[85%] lg:pl-0">
             {/* PAGE CONTENT */}
             <motion.div
               className="absolute z-20 flex h-[60%] w-3/4 flex-col justify-evenly lg:h-3/4"

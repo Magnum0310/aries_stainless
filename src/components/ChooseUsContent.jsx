@@ -1,9 +1,9 @@
-import { useRef, useEffect, useContext } from "react";
+import { useRef, useEffect, useContext, useState } from "react";
 import {
   motion,
   useScroll,
   useTransform,
-  easeInOut,
+  anticipate,
   useInView,
 } from "framer-motion";
 import ViewContext from "./context/StatusContext";
@@ -24,11 +24,18 @@ const ChooseUsContent = () => {
   const secondCard = useRef(null);
   const thirdCard = useRef(null);
   const forurthCard = useRef(null);
-  // const { width } = useWindowDimensions();
+  const [test, setTest] = useState(0);
+
   const { scrollYProgress } = useScroll({
     target: divRef,
     offset: ["start end", "end end"],
   });
+
+  const TWEEN_OPTIONS = {
+    type: "tween",
+    ease: "anticipate",
+    duration: 2,
+  };
 
   const { setFirstCard, setSecondCard, setThirdCard, setFourthCard, width } =
     useContext(ViewContext);
@@ -92,8 +99,8 @@ const ChooseUsContent = () => {
   // MOBILE
   const firstBoxMobile = useTransform(scrollYProgress, [0, 0.4], [-1200, 0], {
     type: "tween",
-    duration: 0.5,
-    ease: easeInOut,
+    duration: 1,
+    ease: anticipate,
   });
   const secondBoxMobile = useTransform(
     scrollYProgress,
@@ -101,33 +108,34 @@ const ChooseUsContent = () => {
     [-1200, 0],
     {
       type: "tween",
-      duration: 0.5,
-      ease: easeInOut,
+      duration: 1,
+      ease: anticipate,
     },
   );
   const thirdBoxMobile = useTransform(scrollYProgress, [0.4, 0.8], [-1200, 0], {
     type: "tween",
-    duration: 0.5,
-    ease: easeInOut,
+    duration: 1,
+    ease: anticipate,
   });
   const fourthBoxMobile = useTransform(scrollYProgress, [0.6, 1], [-1200, 0], {
     type: "tween",
-    duration: 0.5,
-    ease: easeInOut,
+    duration: 1,
+    ease: anticipate,
   });
 
   // TABLET
-  const firstBoxTablet = useTransform(scrollYProgress, [0, 0.4], [-1200, 0], {
-    ease: easeInOut,
+  const firstBoxTablet = useTransform(scrollYProgress, [0, 0.4], [-1000, 0], {
+    duration: 1,
+    ease: anticipate,
   });
   const secondBoxTablet = useTransform(
     scrollYProgress,
     [0.25, 0.5],
-    [-1200, 0],
+    [-1000, 0],
     {
       type: "tween",
-      duration: 0.5,
-      ease: easeInOut,
+      duration: 1,
+      ease: anticipate,
     },
   );
   const thirdBoxTablet = useTransform(
@@ -136,197 +144,204 @@ const ChooseUsContent = () => {
     [-1200, 0],
     {
       type: "tween",
-      duration: 0.5,
-      ease: easeInOut,
+      duration: 1,
+      ease: anticipate,
     },
   );
-  const fourthBoxTablet = useTransform(
-    scrollYProgress,
-    [0.7, 0.9],
-    [-1200, 0],
-    {
-      type: "tween",
-      duration: 0.5,
-      ease: easeInOut,
-    },
-  );
+  const fourthBoxTablet = useTransform(scrollYProgress, [0.7, 1], [-1200, 0], {
+    type: "tween",
+    duration: 1,
+    ease: anticipate,
+  });
+
+  console.log(firstBoxTablet);
+
   // Laptop
-  const firstBox = useTransform(scrollYProgress, [0, 0.4], [0, 0], {
+  const firstBox = useTransform(scrollYProgress, [0, 0.4], [-800, test], {
     type: "tween",
-    duration: 0.5,
-    ease: easeInOut,
+    duration: 1,
+    ease: anticipate,
   });
-  const secondBox = useTransform(scrollYProgress, [0.5, 0.65], [-600, 0], {
+  const secondBox = useTransform(scrollYProgress, [0.5, 0.75], [-800, 0], {
     type: "tween",
-    duration: 0.5,
-    ease: easeInOut,
+    duration: 1,
+    ease: anticipate,
   });
-  const thirdBox = useTransform(scrollYProgress, [0.6, 0.75], [-1200, 0], {
+  const thirdBox = useTransform(scrollYProgress, [0.6, 0.85], [-800, 0], {
     type: "tween",
-    duration: 0.5,
-    ease: easeInOut,
+    duration: 1,
+    ease: anticipate,
   });
-  const fourthBox = useTransform(scrollYProgress, [0.7, 0.85], [-1600, 0], {
+  const fourthBox = useTransform(scrollYProgress, [0.7, 0.95], [-800, 0], {
     type: "tween",
-    duration: 0.5,
-    ease: easeInOut,
+    duration: 1,
+    ease: anticipate,
   });
 
   return (
     <div
-      className="relative z-10 h-[200vh] justify-center bg-adobe-ivory font-shareTech lg:flex lg:flex-col xl:flex-row xl:items-center"
+      className="padding-x relative z-10 h-[200vh] justify-center bg-adobe-ivory bg-lime-500 font-shareTech lg:flex lg:flex-col xl:flex-row xl:items-center"
       ref={divRef}
     >
-      {/* FIRST HALF */}
-      <div className="absolute left-5 z-50 h-full border-l-4 border-solid border-adobe-red"></div>
-      <div className="h-1/2 lg:flex lg:h-[35%] xl:sticky xl:top-1/2 xl:z-20 xl:-translate-y-1/2">
-        {/* FIRST BOX */}
-        <motion.div
-          className="relative z-40 flex h-1/2 w-full flex-col overflow-hidden bg-gradient-to-tr from-adobe-gray to-adobe-white p-1 lg:h-full"
-          ref={firstCard}
-          style={{
-            translateX:
-              width <= 1023
-                ? firstBoxMobile
-                : width >= 1280
-                  ? firstBox
-                  : firstBoxTablet,
-          }}
-        >
-          <motion.div className="z-40 flex h-full flex-col items-center justify-center gap-5 bg-adobe-ivory px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
-            <div className="z-20 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
-              <div
-                className="size-full lg:size-2/5"
-                style={{
-                  backgroundImage: `url("${Tool}")`,
-                  backgroundSize: "contain",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                }}
-              ></div>
-            </div>
-            <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
-              <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black max-xl:h-[3rem]">
-                {Data[0].title}
+      <div className="h-full max-w-[1440px] max-xl:overflow-hidden lg:flex lg:flex-col lg:items-center lg:justify-center xl:grid xl:grid-cols-2">
+        {/* FIRST HALF */}
+        {/* <div className="h-1/2 lg:flex lg:h-[35%] xl:sticky xl:top-1/2 xl:z-20 xl:-translate-y-1/2"> */}
+        <div className="flex h-1/2 flex-col items-center justify-center gap-5 bg-amber-500 lg:h-[35%] lg:flex-row xl:sticky xl:left-0 xl:top-1/2 xl:z-20 xl:-translate-y-1/2 xl:gap-2 xl:overflow-hidden xl:bg-violet-500 xl:pl-2 xl:pr-1">
+          {/* FIRST BOX */}
+          <motion.div
+            className="relative z-40 flex w-full basis-[45%] flex-col overflow-hidden bg-gradient-to-tr from-adobe-gray to-adobe-white p-1 lg:h-3/4 xl:basis-[50%]"
+            ref={firstCard}
+            // initial={{ x: -500 }}
+            // animate={{
+            //   x: 0,
+            // }}
+            style={{
+              translateX:
+                width <= 1023
+                  ? firstBoxMobile
+                  : width >= 1280
+                    ? firstBox
+                    : firstBoxTablet,
+            }}
+            transition={TWEEN_OPTIONS}
+          >
+            <motion.div className="z-40 flex h-full flex-col items-center justify-center gap-5 bg-adobe-ivory px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
+              <div className="z-20 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
+                <div
+                  className="size-full lg:size-2/5"
+                  style={{
+                    backgroundImage: `url("${Tool}")`,
+                    backgroundSize: "contain",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                ></div>
               </div>
-              <div className="text-mobile-chooseUs-description font-spaceMono">
-                {Data[0].description}
+              <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
+                <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black max-xl:h-[3rem]">
+                  {Data[0].title}
+                </div>
+                <div className="text-mobile-chooseUs-description font-spaceMono">
+                  {Data[0].description}
+                </div>
               </div>
-            </div>
-            <Lines />
+              <Lines />
+            </motion.div>
           </motion.div>
-        </motion.div>
-        {/* SECOND BOX */}
-        <motion.div
-          className="relative z-20 flex h-1/2 w-full flex-col overflow-hidden bg-gradient-to-tr from-adobe-gray to-adobe-white p-1 lg:h-full"
-          ref={secondCard}
-          style={{
-            translateX:
-              width <= 1023
-                ? secondBoxMobile
-                : width >= 1280
-                  ? secondBox
-                  : secondBoxTablet,
-          }}
-        >
-          <motion.div className="z-40 flex h-full flex-col items-center justify-center gap-5 bg-adobe-ivory px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
-            <div className="z-30 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
-              <div
-                className="size-full lg:size-2/5"
-                style={{
-                  backgroundImage: `url("${Customer}")`,
-                  backgroundSize: "contain",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                }}
-              ></div>
-            </div>
-            <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
-              <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black max-xl:h-[3rem]">
-                {Data[1].title}
+          {/* SECOND BOX */}
+          <motion.div
+            className="relative z-20 flex w-full basis-[45%] flex-col overflow-hidden bg-gradient-to-tr from-adobe-gray to-adobe-white p-1 lg:h-3/4 xl:basis-[50%]"
+            ref={secondCard}
+            style={{
+              translateX:
+                width <= 1023
+                  ? secondBoxMobile
+                  : width >= 1280
+                    ? secondBox
+                    : secondBoxTablet,
+            }}
+            transition={TWEEN_OPTIONS}
+          >
+            <motion.div className="z-40 flex h-full flex-col items-center justify-center gap-5 bg-adobe-ivory px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
+              <div className="z-30 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
+                <div
+                  className="size-full lg:size-2/5"
+                  style={{
+                    backgroundImage: `url("${Customer}")`,
+                    backgroundSize: "contain",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                ></div>
               </div>
-              <div className="text-mobile-chooseUs-description font-spaceMono">
-                {Data[1].description}
+              <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
+                <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black max-xl:h-[3rem]">
+                  {Data[1].title}
+                </div>
+                <div className="text-mobile-chooseUs-description font-spaceMono">
+                  {Data[1].description}
+                </div>
               </div>
-            </div>
-            <Lines2 />
+              <Lines2 />
+            </motion.div>
           </motion.div>
-        </motion.div>
-      </div>
-      {/* SECOND HALF */}
-      <div className="h-1/2 lg:flex lg:h-[35%] lg:items-center xl:sticky xl:top-1/2 xl:z-10 xl:-translate-y-1/2">
-        {/* THIRD BOX */}
-        <motion.div
-          className="relative z-20 flex h-1/2 w-full flex-col overflow-hidden bg-gradient-to-tr from-adobe-gray to-adobe-white p-1 lg:h-full"
-          ref={thirdCard}
-          style={{
-            translateX:
-              width <= 1023
-                ? thirdBoxMobile
-                : width >= 1280
-                  ? thirdBox
-                  : thirdBoxTablet,
-          }}
-        >
-          <motion.div className="relative z-20 flex h-full w-full flex-col items-center justify-center gap-5 bg-adobe-ivory px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
-            <div className="z-20 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
-              <div
-                className="size-full lg:size-2/5"
-                style={{
-                  backgroundImage: `url("${Shield}")`,
-                  backgroundSize: "contain",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                }}
-              ></div>
-            </div>
-            <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
-              <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black max-xl:h-[3rem]">
-                {Data[2].title}
+        </div>
+        {/* SECOND HALF */}
+        <div className="flex h-1/2 flex-col justify-center gap-5 bg-adobe-gray lg:h-[35%] lg:flex-row lg:items-center xl:sticky xl:top-1/2 xl:z-10 xl:-translate-y-1/2 xl:gap-2 xl:overflow-hidden xl:pl-1 xl:pr-2">
+          {/* THIRD BOX */}
+          <motion.div
+            className="relative z-20 flex w-full basis-[45%] flex-col overflow-hidden bg-gradient-to-tr from-adobe-gray to-adobe-white p-1 lg:h-3/4 xl:basis-[50%]"
+            ref={thirdCard}
+            style={{
+              translateX:
+                width <= 1023
+                  ? thirdBoxMobile
+                  : width >= 1280
+                    ? thirdBox
+                    : thirdBoxTablet,
+            }}
+            transition={TWEEN_OPTIONS}
+          >
+            <motion.div className="relative z-20 flex h-full w-full flex-col items-center justify-center gap-5 bg-adobe-ivory px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
+              <div className="z-20 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
+                <div
+                  className="size-full lg:size-2/5"
+                  style={{
+                    backgroundImage: `url("${Shield}")`,
+                    backgroundSize: "contain",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                ></div>
               </div>
-              <div className="text-mobile-chooseUs-description font-spaceMono">
-                {Data[2].description}
+              <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
+                <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black max-xl:h-[3rem]">
+                  {Data[2].title}
+                </div>
+                <div className="text-mobile-chooseUs-description font-spaceMono">
+                  {Data[2].description}
+                </div>
               </div>
-            </div>
-            <Lines3 />
+              <Lines3 />
+            </motion.div>
           </motion.div>
-        </motion.div>
-        {/* FOURTH BOX */}
-        <motion.div
-          className="relative z-10 flex h-1/2 w-full flex-col overflow-hidden bg-gradient-to-tr from-adobe-gray to-adobe-white p-1 lg:h-full"
-          ref={forurthCard}
-          style={{
-            translateX:
-              width <= 1023
-                ? fourthBoxMobile
-                : width >= 1280
-                  ? fourthBox
-                  : fourthBoxTablet,
-          }}
-        >
-          <motion.div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-5 overflow-hidden bg-adobe-ivory px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
-            <div className="z-20 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
-              <div
-                className="size-full lg:size-2/5"
-                style={{
-                  backgroundImage: `url("${List}")`,
-                  backgroundSize: "contain",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                }}
-              ></div>
-            </div>
-            <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
-              <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black max-xl:h-[3rem]">
-                {Data[3].title}
+          {/* FOURTH BOX */}
+          <motion.div
+            className="relative z-10 flex w-full basis-[45%] flex-col overflow-hidden bg-gradient-to-tr from-adobe-gray to-adobe-white p-1 lg:h-3/4 xl:basis-[50%]"
+            ref={forurthCard}
+            style={{
+              translateX:
+                width <= 1023
+                  ? fourthBoxMobile
+                  : width >= 1280
+                    ? fourthBox
+                    : fourthBoxTablet,
+            }}
+          >
+            <motion.div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-5 overflow-hidden bg-adobe-ivory px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
+              <div className="z-20 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
+                <div
+                  className="size-full lg:size-2/5"
+                  style={{
+                    backgroundImage: `url("${List}")`,
+                    backgroundSize: "contain",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                ></div>
               </div>
-              <div className="text-mobile-chooseUs-description font-spaceMono">
-                {Data[3].description}
+              <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
+                <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black max-xl:h-[3rem]">
+                  {Data[3].title}
+                </div>
+                <div className="text-mobile-chooseUs-description font-spaceMono">
+                  {Data[3].description}
+                </div>
               </div>
-            </div>
-            <Lines4 />
+              <Lines4 />
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

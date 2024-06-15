@@ -44,7 +44,7 @@ const ContactPage = () => {
       <div className="absolute -left-[1.1rem] top-8 z-50 flex hidden h-[1rem] w-[5rem] -rotate-90 items-center justify-center bg-adobe-white text-center font-spaceMono text-[.5rem]">
         CONTACT US
       </div>
-      <div className="absolute left-5 z-40 h-full border-l-4 border-solid border-adobe-red"></div>
+      <div className="absolute left-5 z-40 hidden h-full border-l-4 border-solid border-adobe-red"></div>
       {/* INNER WHITE BOX WRAPPER*/}
       <div className="absolute grid h-full w-full grid-flow-row grid-cols-4 grid-rows-5 xs:grid-rows-4 2xl:h-full">
         <div className="relative col-span-4 col-start-1 row-span-5 row-start-1 flex h-full w-full flex-col justify-center">
