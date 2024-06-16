@@ -180,21 +180,16 @@ const ChooseUsContent = () => {
 
   return (
     <div
-      className="padding-x relative z-10 h-[200vh] justify-center bg-adobe-ivory bg-lime-500 font-shareTech lg:flex lg:flex-col xl:flex-row xl:items-center"
+      className="padding-x relative z-10 h-[200vh] justify-center bg-adobe-ivory font-shareTech lg:flex lg:flex-col xl:flex-row xl:items-center"
       ref={divRef}
     >
       <div className="h-full max-w-[1440px] max-xl:overflow-hidden lg:flex lg:flex-col lg:items-center lg:justify-center xl:grid xl:grid-cols-2">
         {/* FIRST HALF */}
-        {/* <div className="h-1/2 lg:flex lg:h-[35%] xl:sticky xl:top-1/2 xl:z-20 xl:-translate-y-1/2"> */}
-        <div className="flex h-1/2 flex-col items-center justify-center gap-5 bg-amber-500 lg:h-[35%] lg:flex-row xl:sticky xl:left-0 xl:top-1/2 xl:z-20 xl:-translate-y-1/2 xl:gap-2 xl:overflow-hidden xl:bg-violet-500 xl:pl-2 xl:pr-1">
+        <div className="flex h-1/2 flex-col items-center gap-5 max-lg:justify-end lg:h-[35%] lg:flex-row lg:items-end lg:justify-center xl:sticky xl:left-0 xl:top-1/2 xl:z-20 xl:-translate-y-1/2 xl:items-center xl:gap-2 xl:overflow-hidden xl:pl-2 xl:pr-1">
           {/* FIRST BOX */}
           <motion.div
             className="relative z-40 flex w-full basis-[45%] flex-col overflow-hidden bg-gradient-to-tr from-adobe-gray to-adobe-white p-1 lg:h-3/4 xl:basis-[50%]"
             ref={firstCard}
-            // initial={{ x: -500 }}
-            // animate={{
-            //   x: 0,
-            // }}
             style={{
               translateX:
                 width <= 1023
@@ -267,7 +262,7 @@ const ChooseUsContent = () => {
           </motion.div>
         </div>
         {/* SECOND HALF */}
-        <div className="flex h-1/2 flex-col justify-center gap-5 bg-adobe-gray lg:h-[35%] lg:flex-row lg:items-center xl:sticky xl:top-1/2 xl:z-10 xl:-translate-y-1/2 xl:gap-2 xl:overflow-hidden xl:pl-1 xl:pr-2">
+        <div className="flex h-1/2 flex-col justify-center gap-5 lg:h-[35%] lg:flex-row lg:items-start lg:pt-5 xl:sticky xl:top-1/2 xl:z-10 xl:-translate-y-1/2 xl:items-center xl:gap-2 xl:overflow-hidden xl:pl-1 xl:pr-2 xl:pt-0">
           {/* THIRD BOX */}
           <motion.div
             className="relative z-20 flex w-full basis-[45%] flex-col overflow-hidden bg-gradient-to-tr from-adobe-gray to-adobe-white p-1 lg:h-3/4 xl:basis-[50%]"

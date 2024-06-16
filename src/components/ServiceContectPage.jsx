@@ -129,20 +129,22 @@ const ServiceContectPage = () => {
 
   return (
     <div
-      className="padding-x relative flex h-[400vh] w-full flex-col items-center justify-center bg-adobe-ivory font-shareTech md:h-[450vh]"
+      className="padding-x relative flex hidden h-[400vh] w-full flex-col items-center justify-center bg-adobe-ivory font-shareTech md:h-[450vh]"
       ref={divRef}
     >
       {/* RED BORDER LINE */}
       {/* MAIN CONTAINER*/}
-      <div className="relative flex h-full max-w-[1440px] flex-col md:grid md:grid-cols-2 md:grid-rows-2">
+      <div className="relative flex h-full w-full max-w-[1440px] flex-col items-center bg-lime-500 md:grid md:grid-cols-2 md:grid-rows-2">
+        {/* <div className="relative grid h-full w-full max-w-[1440px] grid-cols-1 grid-rows-2 items-start bg-lime-500 md:grid md:grid-cols-2 md:grid-rows-2"> */}
+
         {/*ICON BOX */}
         <motion.div
-          className="sticky top-0 z-40 flex min-h-[200px] basis-[12%] items-center justify-center text-center xs:basis-[15%] md:col-span-1 md:col-start-1 md:h-screen"
+          className="sticky top-0 z-40 flex h-full w-full flex-col items-center justify-center border-2 border-solid border-white text-center xs:basis-[15%] md:col-span-1 md:col-start-1 md:h-screen"
           variants={primaryVariant}
           initial={isInView ? "" : "initial"}
           animate={isInView ? "animate" : ""}
         >
-          <div className="relative flex size-full items-center justify-center bg-adobe-ivory md:size-3/4">
+          <div className="relative z-20 flex size-full items-center justify-center bg-adobe-ivory bg-blue-500 md:size-3/4">
             {/* COLORED BORDER */}
             <div className="absolute z-20 size-[65%]">
               <div className="absolute z-10 size-full scale-95 bg-adobe-ivory"></div>
@@ -184,23 +186,21 @@ const ServiceContectPage = () => {
               </motion.div>
             </div>
           </div>
+          {/* BACKGROUND IMAGE - SCREEN */}
+          <div
+            className="absolute top-1/2 z-10 h-full w-full md:top-0 md:z-20 md:col-start-2 md:row-start-1 md:h-full md:w-full"
+            style={{
+              backgroundImage: `url("${Screen}")`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          ></div>
         </motion.div>
 
-        {/* BACKGROUND IMAGE - SCREEN */}
-        <div
-          className="sticky top-[30%] z-20 hidden h-full md:top-0 md:z-20 md:col-start-2 md:row-start-1 md:h-full md:w-full"
-          style={{
-            backgroundImage: `url("${Screen}")`,
-            backgroundSize: "cover",
-            backgroundPosition: "fill",
-            backgroundRepeat: "no-repeat",
-          }}
-        ></div>
-        {/* BOTTOM GRADIENT SPACER */}
-        <div className="sticky top-[85%] z-20 hidden h-[150px] place-content-center bg-gradient-to-b from-adobe-ivory/50 via-adobe-white/75 to-gray-100/25 text-center md:z-50 md:col-span-2 md:col-start-1"></div>
         {/* MAIN DESCRIPTION BOX */}
         {/* <div className="z-30 flex size-full flex-col items-center md:relative md:bottom-[15%] md:col-start-2 md:h-[350vh] md:items-start"> */}
-        <div className="l relative z-20 flex size-full flex-col items-center md:relative md:top-[15%] md:col-start-2 md:row-start-1 md:px-4">
+        <div className="relative z-30 flex h-full flex-col items-center justify-center md:col-start-2 md:row-span-2 md:row-start-1 md:px-4">
           {Data.map((data) => (
             <ServiceItem
               key={data.id}
@@ -213,9 +213,8 @@ const ServiceContectPage = () => {
         </div>
 
         {/* TEST */}
-
         <div
-          className="absolute z-10 h-full w-full md:top-0 md:z-10 md:col-start-2 md:row-start-1 md:h-full md:w-full"
+          className="absolute top-0 z-10 hidden h-full w-full md:top-0 md:z-10 md:col-start-2 md:row-start-1 md:h-full md:w-full"
           style={{
             backgroundImage: `url("${Screen}")`,
             backgroundSize: "cover",
@@ -223,8 +222,6 @@ const ServiceContectPage = () => {
             backgroundRepeat: "no-repeat",
           }}
         ></div>
-
-        <div className="sticky top-0 basis-[12%] place-content-center text-center"></div>
       </div>
     </div>
   );

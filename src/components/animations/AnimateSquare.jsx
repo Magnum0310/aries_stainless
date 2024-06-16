@@ -68,11 +68,11 @@ const descriptionVariant = {
 
 const AnimateSquare = () => {
   return (
-    <div className="absolute top-[110%] grid h-[100vh] w-full place-items-center overflow-hidden font-shareTech md:top-[110%] lg:h-[120vh]">
+    <div className="absolute top-[70%] z-40 grid h-full w-full place-items-center overflow-hidden font-shareTech md:top-[90%] lg:h-[120vh]">
       {/* GRID AREA FOR CONTENT */}
 
       {/* GRID WRAPPER FOR PAGE CONTENT */}
-      <div className="absolute left-[35%] z-40 flex size-[120%] flex-col justify-center bg-opacity-80 xs:justify-start md:size-[100%]">
+      <div className="absolute left-[35%] flex size-full flex-col justify-center bg-opacity-80 xs:justify-start md:size-[100%]">
         {/* PAGE CONTENT */}
         <Red />
         {/* RED SQUARE */}

@@ -31,24 +31,16 @@ function App() {
   return (
     <StatusProvider>
       {/* <AnimateCurveLine /> */}
-      <div className="">
-        <HeroPage />
-      </div>
-      <div className="">
-        <ChooseUsPage />
-      </div>
+      <HeroPage />
+      <ChooseUsPage />
       <AnimateSquare />
       <ChooseUsContent />
       <ServicePage />
       <ServiceContectPage />
       <ProjectPage />
-      <div className="md:mx-10 xl:mx-32">
-        <ProjectsContent />
-      </div>
+      <ProjectsContent />
       <AnimateCircle />
-      <div className="md:mx-10 xl:mx-32">
-        <ContactPage />
-      </div>
+      <ContactPage />
     </StatusProvider>
   );
 }

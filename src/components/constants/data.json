@@ -1,5 +1,6 @@
 {
   "heroPageTitle": "ARIES STAINLESS",
+  "heroPageTitle1": ["ARIES", "STAINLESS"],
   "heroPageAries": "ARIES",
   "heroPageStainless": "STAINLESS",
   "heroPageDivider": "and",
@@ -7,8 +8,8 @@
   "heroPageSubtitleFirst": "INSTALLATION",
   "heroPageSubtitleSecond": "SERVICES",
   "heroPageTagline": "PRECISION,QUALITY,RELIABILITY",
-  "heroPageTaglinefirst": "PRECISION,",
-  "heroPageTaglineSecond": "QUALITY,",
+  "heroPageTaglinefirst": "PRECISION",
+  "heroPageTaglineSecond": "QUALITY",
   "heroPageTaglineThird": "RELIABILITY",
   "chooseUsPageFirstTag": "Precision",
   "chooseUsPageSecondTag": "Quality",

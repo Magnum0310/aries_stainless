@@ -53,73 +53,70 @@ const ServicePage = () => {
     once: true,
   });
   return (
-    <div className="relative h-screen overflow-hidden bg-adobe-ivory font-shareTech">
-      {/* RED BORDER */}
-      <div className="absolute -left-[1.1rem] top-8 z-[60] flex hidden h-[1rem] w-[5rem] -rotate-90 items-center justify-center bg-adobe-ivory text-center font-spaceMono text-[.5rem]">
-        PROJECT
-      </div>
-      {/* PROJECT TITLE */}
-      <motion.div
-        className="text-service-title relative top-[10%] z-40 flex w-[117%] flex-col justify-center pl-[10%] lg:pl-[6%]"
-        initial="initial"
-        animate={inView ? "animate" : ""}
-        transition={{ staggerChildren: 0.1, delayChildren: 0.5 }}
-      >
-        <span>
-          {text.split("").map((char, i) => (
-            <motion.span
-              key={i}
-              className="inline-block"
-              variants={textVariant}
-            >
-              {char}
-            </motion.span>
-          ))}
-        </span>
-        {}
-        {/* RED HIGHTLIGHTS */}
-        <div className="flex h-[6px] w-[60%] gap-2 md:h-3 lg:gap-3">
-          <motion.div
-            variants={highlightVariant}
-            className="h-full w-full basis-full rounded-bl-xl rounded-tr-xl bg-adobe-red"
-          ></motion.div>
-          <motion.div
-            variants={highlightVariant1}
-            className="h-full w-full basis-[5%] bg-adobe-red lg:basis-[3%]"
-          ></motion.div>
-          <motion.div
-            variants={highlightVariant1}
-            className="h-full w-full basis-[5%] bg-adobe-red lg:basis-[3%]"
-          ></motion.div>
-          <motion.div
-            variants={highlightVariant1}
-            className="h-full w-full basis-[5%] bg-adobe-red lg:basis-[3%]"
-          ></motion.div>
+    <div className="padding-x relative flex h-screen place-content-center overflow-hidden bg-adobe-ivory font-shareTech">
+      <div className="flex size-full max-w-[1440px] flex-col items-center overflow-hidden">
+        {/* PROJECT TITLE */}
+        <motion.div
+          className="text-service-title relative top-20 z-40 flex w-full flex-col justify-center pl-[10%] lg:pl-[6%]"
+          initial="initial"
+          animate={inView ? "animate" : ""}
+          transition={{ staggerChildren: 0.1, delayChildren: 0.5 }}
+        >
+          <span>
+            {text.split("").map((char, i) => (
+              <motion.span
+                key={i}
+                className="inline-block"
+                variants={textVariant}
+              >
+                {char}
+              </motion.span>
+            ))}
+          </span>
+          {}
+          {/* RED HIGHTLIGHTS */}
+          <div className="flex h-[6px] w-[60%] gap-2 md:h-3 lg:gap-3">
+            <motion.div
+              variants={highlightVariant}
+              className="h-full w-full basis-full rounded-bl-xl rounded-tr-xl bg-adobe-red"
+            ></motion.div>
+            <motion.div
+              variants={highlightVariant1}
+              className="h-full w-full basis-[5%] bg-adobe-red lg:basis-[3%]"
+            ></motion.div>
+            <motion.div
+              variants={highlightVariant1}
+              className="h-full w-full basis-[5%] bg-adobe-red lg:basis-[3%]"
+            ></motion.div>
+            <motion.div
+              variants={highlightVariant1}
+              className="h-full w-full basis-[5%] bg-adobe-red lg:basis-[3%]"
+            ></motion.div>
+          </div>
+        </motion.div>
+        <div className="absolute left-5 top-0 z-50 hidden h-full border-l-4 border-solid border-adobe-red"></div>
+        {/* BACKGROUND PAGE IMAGE*/}
+        <div
+          className="absolute left-6 top-11 z-10 h-full w-full lg:left-0 lg:top-0"
+          ref={divRef}
+        >
+          <div className="relative -left-6 top-20 size-full place-content-center lg:left-0">
+            <div
+              className="h-1/2 w-full opacity-50 lg:h-[100%]"
+              style={{
+                backgroundImage: `url("${Stainless}")`,
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+              }}
+            ></div>
+          </div>
         </div>
-      </motion.div>
-      <div className="absolute left-5 top-0 z-50 hidden h-full border-l-4 border-solid border-adobe-red"></div>
-      {/* BACKGROUND PAGE IMAGE*/}
-      <div
-        className="relative left-6 top-11 z-10 h-full w-full lg:left-0 lg:top-0"
-        ref={divRef}
-      >
-        <div className="relative -left-6 top-20 size-full place-content-center lg:left-0">
-          <div
-            className="h-1/2 w-full opacity-50 lg:h-[60%]"
-            style={{
-              backgroundImage: `url("${Stainless}")`,
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-            }}
-          ></div>
-        </div>
-      </div>
-
-      {/* CAROUSEL */}
-      <div className="absolute top-0 flex size-full flex-col justify-center">
-        <div className="relative top-1/3 z-40 h-full w-full -translate-y-1/4">
-          <Carousel />
+        {/* CAROUSEL */}
+        <div className="relative top-0 flex size-full flex-col justify-center py-5">
+          <div className="relative z-40 h-full w-full">
+            <Carousel />
+          </div>
         </div>
       </div>
     </div>

@@ -151,47 +151,17 @@ const imageVariant1 = {
 const HeroPage = () => {
   return (
     <>
-      <div className="padding-x relative flex h-screen flex-col items-center overflow-hidden bg-lime-500 font-shareTech">
+      <div className="padding-x relative flex h-screen flex-col items-center overflow-hidden font-shareTech">
         {/* RED BORDER */}
         {/* <div className="relative left-5 top-5 z-[60] hidden h-full w-full border-l-4 border-t-4 border-solid border-adobe-red"></div> */}
 
         {/* INNER WHITE BOX WRAPPER*/}
         <div className="relative z-[60] flex size-full max-w-[1440px] flex-col items-center justify-center">
           <div className="absolute grid size-full grid-cols-6 grid-rows-6 lg:left-0 lg:top-0 lg:grid-cols-6">
-            {/* PAGE IMAGE WRAPPER */}
-            <motion.div
-              className="col-span-5 col-start-2 row-span-6 row-start-1 flex hidden items-center lg:absolute lg:right-0 lg:col-start-4 lg:h-full lg:w-full"
-              initial="initial"
-              animate="animate"
-              variants={imageVariant}
-            >
-              {/* PAGE IMAGE BLOCK */}
-              <div
-                className="relative z-40 mb-5 h-[80%] w-full lg:mb-0 lg:h-full"
-                style={{
-                  backgroundImage: `url(${Weld01})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              ></div>
-            </motion.div>
-
             {/*TOP RED BOX - HIDDEN*/}
-            <motion.div
-              className="absolute bottom-0 right-0 z-20 col-span-2 col-start-2 row-span-1 row-start-1 hidden h-[55%] w-[102%] bg-adobe-red lg:hidden"
-              animate="animate"
-              initial="initial"
-              variants={highLigthVariant}
-            ></motion.div>
-            <motion.div
-              className="absolute right-0 top-0 z-20 col-span-2 col-start-2 row-span-1 row-start-2 hidden h-[55%] w-[102%] bg-adobe-red lg:hidden"
-              animate="animate"
-              initial="initial"
-              variants={highLigthVariant}
-            ></motion.div>
             {/* TITLE BOX */}
             <motion.div
-              className="absolute z-50 col-span-4 col-start-1 row-span-2 row-start-3 flex h-[120%] w-[95%] flex-col justify-center bg-adobe-ivory bg-opacity-80 pl-[25%] max-lg:rounded-br-xl max-xs:w-full md:-top-0 lg:absolute lg:right-0 lg:top-10 lg:col-span-4 lg:col-start-1 lg:row-span-4 lg:row-start-2 lg:h-[100%] lg:w-[75%] lg:gap-5 lg:bg-transparent lg:pl-0"
+              className="absolute z-50 col-span-4 col-start-1 row-span-2 row-start-3 flex hidden h-[120%] w-[95%] flex-col justify-center bg-adobe-ivory bg-opacity-80 pl-[10%] max-lg:rounded-br-xl max-xs:w-full md:-top-0 md:col-span-6 lg:absolute lg:right-0 lg:top-10 lg:col-span-4 lg:col-start-1 lg:row-span-4 lg:row-start-2 lg:h-[100%] lg:w-[75%] lg:gap-5 lg:bg-transparent lg:pl-0"
               initial="initial"
               animate="animate"
               variants={backgroundVariant}
@@ -202,9 +172,9 @@ const HeroPage = () => {
               }}
             >
               {/* ARIES STAINLESS */}
-              <motion.div className="text-mobile-title flex basis-1/2 flex-col max-lg:justify-center max-lg:pl-5 max-md:flex-col md:basis-1/2 md:items-start md:gap-0 lg:w-3/4 lg:basis-1/2 lg:flex-col lg:items-start lg:justify-end">
+              <motion.div className="text-mobile-title flex basis-1/2 flex-col max-lg:flex-row max-lg:items-center max-lg:justify-center max-lg:pl-5 max-md:flex-col max-md:items-start md:basis-1/2 md:gap-0 lg:w-3/4 lg:basis-1/2 lg:flex-col lg:items-start lg:justify-end">
                 <motion.div variants={defaultVariant}>
-                  {Data.heroPageAries}
+                  {Data.heroPageAries}&nbsp;
                 </motion.div>
                 <div className="flex items-center">
                   <motion.div variants={defaultVariant}>
@@ -219,15 +189,15 @@ const HeroPage = () => {
                 </div>
               </motion.div>
               <motion.div
-                className="max-lg:pl-5 max-lg:text-2xl lg:hidden"
+                className="text-center max-lg:pl-5 max-lg:text-3xl max-md:text-start lg:hidden"
                 variants={defaultVariant}
               >
                 and
               </motion.div>
               {/* INSTALLATION SERVICES */}
-              <div className="text-mobile-title flex basis-1/2 flex-col justify-center max-lg:w-[100%] max-lg:pl-5 lg:flex lg:basis-1/4 lg:gap-0">
+              <div className="text-mobile-title flex basis-1/2 flex-col justify-center max-lg:w-[100%] max-lg:flex-row max-lg:items-center max-lg:pl-5 max-md:flex-col max-md:items-start max-md:justify-center lg:flex lg:basis-1/4 lg:gap-0">
                 <motion.div className="h-fit" variants={defaultVariant}>
-                  {Data.heroPageSubtitleFirst}
+                  {Data.heroPageSubtitleFirst}&nbsp;
                 </motion.div>
                 <motion.div className="h-fit" variants={defaultVariant}>
                   {Data.heroPageSubtitleSecond}
@@ -318,6 +288,143 @@ const HeroPage = () => {
               </motion.div>
             </motion.div>
 
+            {/* NEW TITLE BOX */}
+            {/* <div className="font-bebas col-span-6 col-start-1 row-span-4 row-start-2 flex place-content-center place-items-center">
+              <div className="grid size-full h-[60%] grid-cols-5 grid-rows-4">
+                <div className="relative col-span-5 col-start-1 row-start-1 w-full px-14 py-1">
+                  <div className="size-full bg-adobe-red p-3">
+                    <div className="size-full bg-black p-[2px]">
+                      <div className="flex size-full place-content-center place-items-center bg-adobe-red text-xl text-adobe-ivory">
+                        ARIES STAINLESS
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-span-5 col-start-1 row-start-2 flex size-full place-content-center place-items-center text-xl text-adobe-ivory">
+                  AND
+                </div>
+                <div className="col-span-5 col-start-1 row-start-3 size-full px-8 py-2">
+                  <div className="size-full bg-adobe-ivory p-3">
+                    <div className="size-full bg-adobe-gray p-[2px]">
+                      <div className="flex size-full place-content-center place-items-center bg-adobe-ivory text-xl">
+                        INSTALLATION SERVICES
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-span-5 col-start-1 row-start-4 flex h-1/2 w-full place-content-center place-items-center font-spaceMono text-[.6rem]">
+                  <div className="bg-adobe-ivory px-5">
+                    PRECISION,QUALITY,RELIABILITY
+                  </div>
+                </div>
+              </div>
+            </div> */}
+
+            <div className="font-bebas col-span-6 col-start-1 row-span-4 row-start-2 flex place-content-center place-items-center bg-opacity-20 md:col-start-2 lg:absolute lg:right-0 lg:col-start-1 lg:h-full lg:w-[90%] xl:w-[85%]">
+              <div className="flex size-full flex-col items-center justify-center md:items-start">
+                {/* ARIES STAINLESS */}
+                <div className="h-full w-full min-w-fit max-w-[350px] basis-[20%] px-14 py-2 md:max-w-fit md:px-0">
+                  <div className="h-full w-full bg-adobe-red p-3">
+                    <div className="text-hero-padding size-full bg-black">
+                      <div className="text-hero flex size-full place-content-center place-items-center bg-adobe-red text-adobe-ivory md:place-content-start">
+                        <motion.div variants={defaultVariant}>
+                          {Data.heroPageAries}&nbsp;
+                        </motion.div>
+                        <motion.div variants={defaultVariant}>
+                          {Data.heroPageStainless}
+                        </motion.div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex size-full basis-[5%] place-content-center place-items-center text-xl text-adobe-ivory md:place-content-start md:px-4 md:text-2xl md:text-black">
+                  AND
+                </div>
+                {/* INSTALLATION SERVICES */}
+                <div className="size-full min-w-fit max-w-[400px] basis-[20%] px-8 py-2 md:max-w-fit md:px-0">
+                  <div className="h-full w-full bg-adobe-ivory p-3">
+                    <div className="text-hero-padding flex size-full flex-col bg-adobe-gray">
+                      <div className="text-hero flex size-full place-content-center place-items-center bg-adobe-ivory md:flex md:place-content-start">
+                        <motion.div className="h-fit" variants={defaultVariant}>
+                          {Data.heroPageSubtitleFirst}&nbsp;
+                        </motion.div>
+                        <motion.div className="h-fit" variants={defaultVariant}>
+                          {Data.heroPageSubtitleSecond}
+                        </motion.div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* PRECISION QUAILITY RELIABILITY */}
+                <div className="text-hero-tagline col-span-5 col-start-1 row-start-4 flex h-1/2 w-full basis-[10%] place-content-center place-items-start font-spaceMono md:place-content-start md:text-black">
+                  <div className="md:h-full md:w-[33%] lg:w-[38%] xl:w-[34%]">
+                    <div className="flex bg-adobe-ivory px-5 md:flex-col md:items-end md:gap-3 md:bg-adobe-ivory/0 md:px-2">
+                      {/* PRECISION,QUALITY,RELIABILITY */}
+                      <motion.div
+                        className="flex"
+                        animate="animate"
+                        initial="initial"
+                        transition={{
+                          staggerChildren: 0.15,
+                          delayChildren: 0.1,
+                        }}
+                      >
+                        {Data.heroPageTaglinefirst.split("").map((char, i) => (
+                          <motion.span
+                            key={i}
+                            className="block"
+                            variants={defaultVariant1}
+                          >
+                            {char}
+                          </motion.span>
+                        ))}
+                        &nbsp;
+                      </motion.div>
+                      <motion.div
+                        className="flex"
+                        animate="animate"
+                        initial="initial"
+                        transition={{
+                          staggerChildren: 0.15,
+                          delayChildren: 0.1,
+                        }}
+                      >
+                        {Data.heroPageTaglineSecond.split("").map((char, i) => (
+                          <motion.span
+                            key={i}
+                            className="block"
+                            variants={defaultVariant2}
+                          >
+                            {char}
+                          </motion.span>
+                        ))}
+                        &nbsp;
+                      </motion.div>
+                      <motion.div
+                        className="flex"
+                        animate="animate"
+                        initial="initial"
+                        transition={{
+                          staggerChildren: 0.15,
+                          delayChildren: 0.1,
+                        }}
+                      >
+                        {Data.heroPageTaglineThird.split("").map((char, i) => (
+                          <motion.span
+                            key={i}
+                            className="block"
+                            variants={defaultVariant1}
+                          >
+                            {char}
+                          </motion.span>
+                        ))}
+                      </motion.div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* HIDDEN */}
             <div className="z-30 col-start-4 row-span-2 row-start-3 hidden h-full w-1/2 bg-adobe-ivory bg-opacity-80 xs:w-1/4 lg:absolute lg:top-[44%] lg:col-span-2 lg:col-start-4 lg:h-[37%] lg:w-full lg:rounded-tr-3xl"></div>
             {/* TAGLINE BOX */}
@@ -325,16 +432,16 @@ const HeroPage = () => {
           </div>
         </div>
 
-        {/* TEST */}
+        {/* IMAGE WRAPPER */}
         <motion.div
-          className="absolute right-0 z-10 flex h-full w-3/4 items-center bg-blue-500 lg:h-full lg:w-1/2"
+          className="absolute right-0 z-10 flex h-full w-3/4 items-center md:w-[55%] lg:h-full"
           initial="initial"
           animate="animate"
           variants={imageVariant}
         >
           {/* PAGE IMAGE BLOCK */}
           <div
-            className="relative h-[80%] w-full lg:size-full"
+            className="relative h-[80%] w-full md:h-[90%] lg:size-full"
             style={{
               backgroundImage: `url(${Weld01})`,
               backgroundSize: "cover",

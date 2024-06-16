@@ -12,6 +12,7 @@ export default {
       fontFamily: {
         shareTech: "Share Tech, sans-serif",
         spaceMono: "Space Mono, monospace",
+        bebas: "Bebas Neue, sans-serif",
       },
       colors: {
         "adobe-red": "#F91B15",

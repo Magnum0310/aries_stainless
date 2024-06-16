@@ -286,10 +286,9 @@ const Carousel = () => {
             ></motion.div>
           </motion.div>
         </AnimatePresence>
-        {/* BUTTONS */}
       </motion.div>
       {/* BUTTONS */}
-      <div className="z-[6] flex justify-center gap-10 md:gap-24">
+      <div className="absolute bottom-0 z-[60] flex h-fit w-full justify-center gap-10 md:gap-24">
         <button
           className="group relative flex w-20 cursor-pointer flex-col items-center justify-center overflow-hidden rounded rounded-bl-xl rounded-tr-xl border border-gray-100 bg-gray-200 px-12 py-3 font-bold uppercase text-slate-800 hover:text-black focus:outline-none active:bg-adobe-white active:text-black lg:w-44"
           onClick={prevBtn}

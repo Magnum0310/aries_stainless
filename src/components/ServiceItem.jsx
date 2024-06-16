@@ -54,7 +54,7 @@ const ServiceItem = ({ description, track, title, number }) => {
 
   return (
     <motion.div
-      className="z-10 mt-10 size-full max-w-[500px] rounded-bl-3xl rounded-tr-3xl bg-adobe-red p-1 md:min-h-[300px] md:max-w-[600px] 2xl:mt-14 2xl:max-w-[800px]"
+      className="z-10 mt-10 min-h-[225px] max-w-[500px] rounded-bl-3xl rounded-tr-3xl bg-adobe-red p-1 md:min-h-[300px] md:max-w-[600px] 2xl:mt-14 2xl:max-w-[800px]"
       ref={ref}
       animate={inView ? "animate" : "initial"}
       initial="initial"

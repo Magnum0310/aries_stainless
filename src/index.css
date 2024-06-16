@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Share+Tech&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -36,11 +37,24 @@ html {
 
   /* HERO SECTION */
   .text-mobile-title {
-    @apply text-3xl xs:text-4xl md:text-4xl lg:text-6xl;
+    @apply text-3xl xs:text-4xl md:text-5xl lg:text-6xl;
   }
   .text-mobile-tagline {
     @apply text-[.5rem] tracking-wider xs:text-[.6rem] md:text-[.8rem] lg:text-xl;
   }
+  /* NEW TITLE */
+
+  .text-hero {
+    @apply px-1 text-[2.1rem] leading-[0] md:px-2 md:py-2 md:text-[2.5rem] md:leading-[0] md:tracking-wide lg:text-[3.75rem] lg:leading-[1];
+    /* @apply px-1 text-3xl md:px-2 md:py-2 md:text-4xl md:tracking-wide; */
+  }
+  .text-hero-padding {
+    @apply p-[2px] md:p-[2.5px] lg:p-[4px];
+  }
+  .text-hero-tagline {
+    @apply text-[.6rem] md:text-xs lg:text-[.85rem] xl:text-[.95rem];
+  }
+
   /* CHOOSE US SECTION */
   .text-mobile-chooseUs-title {
     @apply text-base tracking-wider md:text-lg lg:text-xl;
@@ -50,10 +64,10 @@ html {
   }
   /* SERVICE SECTION */
   .text-service-title {
-    @apply text-3xl xs:text-3xl md:text-4xl lg:text-5xl;
+    @apply text-2xl max-xs:text-lg lg:text-4xl;
   }
   .text-service-description {
-    @apply text-[.75rem] md:text-base xl:text-lg;
+    @apply text-[.65rem] max-xs:text-[.55rem] md:text-[.85rem] xl:text-base;
   }
   .text-service-content {
     @apply pr-10 text-sm xs:text-sm md:text-base;
