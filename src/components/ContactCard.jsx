@@ -45,7 +45,7 @@ const imgVariant = {
 const ContactCard = ({ title, detail, image, cardTitle }) => {
   return (
     <motion.div
-      className="hover size-full bg-adobe-gray"
+      className="hover size-full"
       initial="initial"
       whileHover="animate"
     >
@@ -53,7 +53,7 @@ const ContactCard = ({ title, detail, image, cardTitle }) => {
         className="relative h-full w-full border-2 border-solid border-black bg-violet-500/0 font-shareTech"
         variants={defaultVariant}
       >
-        <div className="absolute top-2 flex h-[10%] w-full bg-cyan-500/0 pl-2 text-xs">
+        <div className="absolute top-2 flex h-[10%] w-full bg-cyan-500/0 pl-2 text-xs max-lg:text-[.5rem]">
           <div className="min-w-fit place-content-center bg-amber-500/0 pr-2">
             {cardTitle}
           </div>
@@ -65,9 +65,9 @@ const ContactCard = ({ title, detail, image, cardTitle }) => {
           </div>
         </div>
         <div className="absolute bottom-2 h-[60%] w-full bg-lime-500/0 pl-2">
-          <div className="relative size-full bg-red-500/0">
+          <div className="relative size-full place-content-start bg-red-500/0">
             <motion.div
-              className="absolute h-full w-[35%] bg-amber-500/0"
+              className="absolute flex h-full w-[30%] bg-amber-500/0 max-lg:top-1/2 max-lg:h-3/4 max-lg:-translate-y-1/2 md:max-lg:w-[20%]"
               variants={imgVariant}
               style={{
                 backgroundImage: `url("${image}")`,
@@ -76,11 +76,11 @@ const ContactCard = ({ title, detail, image, cardTitle }) => {
                 backgroundPosition: "center",
               }}
             ></motion.div>
-            <div className="absolute bottom-0 right-0 flex h-3/4 w-[95%] flex-col bg-emerald-500/0 pb-2">
-              <div className="flex basis-full flex-col place-content-center justify-end font-bebas text-4xl">
+            <div className="absolute bottom-0 right-0 flex h-3/4 w-[90%] flex-col bg-emerald-500/0 pb-2 max-lg:bottom-2 md:max-lg:w-[80%]">
+              <div className="flex basis-full flex-col place-content-center justify-end bg-blue-500/0 font-bebas text-4xl md:h-full">
                 <CapitalFirstLetter text={title} />
               </div>
-              <div className="min-w-fit basis-1/4 bg-amber-500 bg-slate-500/0 text-[.9rem] max-xs:text-xs">
+              <div className="min-w-fit basis-1/4 bg-slate-500/0 text-[.8rem] max-lg:text-[.5rem]">
                 {detail}
               </div>
             </div>

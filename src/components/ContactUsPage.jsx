@@ -13,6 +13,7 @@ import WaterLevel from "../assets/Images/waterLevel.jpg";
 import Welder from "../assets/Images/welder.jpg";
 import DotsRotateRight from "../assets/Svg/ShapeSvg/dotsRotateRight.svg";
 import DotsRotateLeft from "../assets/Svg/ShapeSvg/dotsRotateLeft.svg";
+import Dots from "../assets/Svg/ShapeSvg/dots.svg";
 
 const Details = [
   {
@@ -20,46 +21,65 @@ const Details = [
     detail: "XXX_PERSON_XXX | XXX-XXXX-XXXX",
     image: Call,
     cardTitle: "CALL US",
+    column: 1,
+    row: 1,
   },
   {
     title: "XXXX",
     image: Grinder,
+    column: 2,
+    row: 1,
   },
   {
     title: "EMAIL",
     detail: "XXXX_EMAIL.COM_XXXX",
     image: Mail,
     cardTitle: "DROP US AN EMAIL",
+    column: 2,
+    row: 2,
   },
   {
     title: "XXXX",
     image: Ruler,
+    column: 1,
+    row: 2,
   },
   {
     title: "LOCATION",
     detail: " XXXX_PHILIPPINES",
     image: Location,
     cardTitle: "VISIT US",
+    column: 1,
+    row: 3,
   },
   {
     title: "XXXX",
     image: WaterLevel,
+    column: 2,
+    row: 3,
   },
   {
     title: "FACEBOOK PAGE",
     detail: "XXXX_FACEBOOKPAGE_XXXX",
     image: Facebook,
     cardTitle: "FOLLOW US",
+    column: 2,
+    row: 4,
   },
   {
     title: "XXXX",
     image: Welder,
+    column: 1,
+    row: 4,
+    span: 2,
   },
   {
     title: "LAZADA/SHOPPEE",
     detail: "XXX_LAZADA_SHOPPEE_XXX",
     image: Shop,
     cardTitle: "ADD TO CART",
+    column: 2,
+    row: 5,
   },
 ];
 
@@ -77,13 +97,14 @@ const ContactUsPage = () => {
       ref={divRef}
     >
       <div className="relative flex h-full w-full max-w-[1440px] place-content-center place-items-center bg-blue-500/0">
-        <div className="relative z-20 flex h-[95%] w-full flex-col items-center justify-center bg-amber-500 lg:w-[85%]">
-          <div className="grid size-[95%] grid-cols-2 grid-rows-5 gap-1 bg-adobe-ivory p-2 lg:size-[85%] lg:grid-cols-3 lg:grid-rows-3">
+        <div className="relative z-20 flex h-[95%] w-full flex-col items-center justify-center bg-amber-500/0 lg:w-[85%]">
+          {/* MAIN GRID */}
+          <div className="grid size-[95%] grid-cols-2 grid-rows-5 gap-1 bg-adobe-ivory p-2 max-lg:p-1 lg:size-[85%] lg:grid-cols-3 lg:grid-rows-3">
             {Details.map((detail, i) => {
-              if (i % 2) {
+              if (i % 2)
                 return (
                   <div
-                    className="size-full bg-slate-500 grayscale duration-300 hover:grayscale-0"
+                    className={`size-full bg-slate-500 grayscale duration-300 hover:grayscale-0 col-start-${detail.column} row-start-${detail.row} row-span-${detail.span} lg:col-start-${detail.column} lg:col-start-auto lg:row-start-auto`}
                     key={i}
                     style={{
                       backgroundImage: `url(${detail.image})`,
@@ -92,24 +113,37 @@ const ContactUsPage = () => {
                     }}
                   ></div>
                 );
-              }
+
               return (
-                <Card
-                  key={i}
-                  title={detail.title}
-                  detail={detail.detail}
-                  image={detail.image}
-                  cardTitle={detail.cardTitle}
-                />
+                <div
+                  className={`size-full row-start-${detail.row} col-start-${detail.column} lg:col-start-auto lg:row-start-auto`}
+                >
+                  <Card
+                    key={i}
+                    title={detail.title}
+                    detail={detail.detail}
+                    image={detail.image}
+                    cardTitle={detail.cardTitle}
+                  />
+                </div>
               );
             })}
           </div>
         </div>
       </div>
-      <div className="absolute left-0 top-1/2 h-[75%] w-full -translate-y-1/2 bg-violet-500/0">
+      <div className="s absolute left-0 top-1/2 h-[75%] w-full -translate-y-1/2 bg-violet-500/0 max-lg:h-[100%]">
+        <div
+          className="absolute bottom-0 z-10 h-3/4 w-full bg-lime-500 max-lg:h-[40%] max-xs:h-[30%] lg:hidden"
+          style={{
+            backgroundImage: `url("${Dots}")`,
+            backgroundPosition: "top",
+            backgroundSize: "contain",
+            backgroundRepeat: "repeat",
+          }}
+        ></div>
         <div className="relative size-full overflow-hidden">
           <div
-            className="absolute -left-60 top-0 z-10 h-full w-1/2 bg-lime-500/0"
+            className="absolute -left-60 top-0 z-10 h-full w-1/2 bg-lime-500/0 max-lg:hidden"
             style={{
               backgroundImage: `url("${DotsRotateLeft}")`,
               backgroundPosition: "center",
@@ -118,7 +152,7 @@ const ContactUsPage = () => {
             }}
           ></div>
           <div
-            className="absolute -right-60 z-10 h-full w-1/2 bg-lime-500/0"
+            className="absolute -right-60 z-10 h-full w-1/2 bg-lime-500/0 max-lg:hidden"
             style={{
               backgroundImage: `url("${DotsRotateRight}")`,
               backgroundPosition: "center",

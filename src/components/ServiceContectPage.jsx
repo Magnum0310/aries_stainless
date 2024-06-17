@@ -129,7 +129,7 @@ const ServiceContectPage = () => {
 
   return (
     <div
-      className="padding-x relative flex hidden h-[400vh] w-full flex-col items-center justify-center bg-adobe-ivory font-shareTech md:h-[450vh]"
+      className="padding-x relative flex h-[400vh] w-full flex-col items-center justify-center bg-adobe-ivory font-shareTech md:h-[450vh]"
       ref={divRef}
     >
       {/* RED BORDER LINE */}
@@ -188,7 +188,7 @@ const ServiceContectPage = () => {
           </div>
           {/* BACKGROUND IMAGE - SCREEN */}
           <div
-            className="absolute top-1/2 z-10 h-full w-full md:top-0 md:z-20 md:col-start-2 md:row-start-1 md:h-full md:w-full"
+            className="absolute top-1/2 z-10 hidden h-full w-full md:top-0 md:z-20 md:col-start-2 md:row-start-1 md:h-full md:w-full"
             style={{
               backgroundImage: `url("${Screen}")`,
               backgroundSize: "cover",
