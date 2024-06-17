@@ -9,10 +9,14 @@ import ServiceContectPage from "./components/ServiceContectPage";
 import ProjectPage from "./components/ProjectsPage";
 import ProjectsContent from "./components/ProjectsContent";
 import ContactPage from "./components/ContactPage";
+import ContactUs from "./components/ContactUsPage";
+import ContactCard from "./components/ContactCard";
+
 import AnimateSquare from "./components/animations/AnimateSquare";
 import AnimateCircle from "./components/animations/AnimateCircle";
 import AnimateCurveLine from "./components/animations/AnimateCurveLine";
 import { StatusProvider } from "./components/context/StatusContext";
+
 import Lines from "./components/animations/AnimateLine";
 
 import TEST from "./components/animations/TEST";
@@ -40,7 +44,7 @@ function App() {
       <ProjectPage />
       <ProjectsContent />
       <AnimateCircle />
-      <ContactPage />
+      <ContactUs />
     </StatusProvider>
   );
 }

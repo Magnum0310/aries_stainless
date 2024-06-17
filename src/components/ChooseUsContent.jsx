@@ -154,8 +154,6 @@ const ChooseUsContent = () => {
     ease: anticipate,
   });
 
-  console.log(firstBoxTablet);
-
   // Laptop
   const firstBox = useTransform(scrollYProgress, [0, 0.4], [-800, test], {
     type: "tween",
