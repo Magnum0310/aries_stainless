@@ -18,6 +18,7 @@ import Dots from "../assets/Svg/ShapeSvg/dots.svg";
 
 const Details = [
   {
+    id: 1,
     title: "CONTACT",
     detail: "XXX_PERSON_XXX | XXX-XXXX-XXXX",
     image: Call,
@@ -26,12 +27,14 @@ const Details = [
     row: 1,
   },
   {
+    id: 2,
     title: "XXXX",
     image: Grinder,
     column: 2,
     row: 1,
   },
   {
+    id: 3,
     title: "EMAIL",
     detail: "XXXX_EMAIL.COM_XXXX",
     image: Mail,
@@ -40,12 +43,14 @@ const Details = [
     row: 2,
   },
   {
+    id: 4,
     title: "XXXX",
     image: Power,
     column: 1,
     row: 2,
   },
   {
+    id: 5,
     title: "LOCATION",
     detail: " XXXX_PHILIPPINES",
     image: Location,
@@ -54,12 +59,14 @@ const Details = [
     row: 3,
   },
   {
+    id: 6,
     title: "XXXX",
     image: WaterLevel,
     column: 2,
     row: 3,
   },
   {
+    id: 7,
     title: "FACEBOOK PAGE",
     detail: "XXXX_FACEBOOKPAGE_XXXX",
     image: Facebook,
@@ -68,6 +75,7 @@ const Details = [
     row: 4,
   },
   {
+    id: 8,
     title: "XXXX",
     image: Welder,
     column: 1,
@@ -75,6 +83,7 @@ const Details = [
     span: 2,
   },
   {
+    id: 9,
     title: "LAZADA/SHOPPEE",
     detail: "XXX_LAZADA_SHOPPEE_XXX",
     image: Shop,
@@ -106,7 +115,7 @@ const ContactUsPage = () => {
                 return (
                   <div
                     className={`size-full bg-slate-500 grayscale duration-300 hover:grayscale-0 col-start-${detail.column} row-start-${detail.row} row-span-${detail.span} lg:col-start-${detail.column} lg:col-start-auto lg:row-start-auto`}
-                    key={i}
+                    key={detail.id}
                     style={{
                       backgroundImage: `url(${detail.image})`,
                       backgroundPosition: "center",
@@ -119,9 +128,9 @@ const ContactUsPage = () => {
               return (
                 <div
                   className={`size-full row-start-${detail.row} col-start-${detail.column} lg:col-start-auto lg:row-start-auto`}
+                  key={detail.id}
                 >
                   <Card
-                    key={i}
                     title={detail.title}
                     detail={detail.detail}
                     image={detail.image}
