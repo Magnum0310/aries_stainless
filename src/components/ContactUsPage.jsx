@@ -11,6 +11,7 @@ import Grinder from "../assets/Images/grind.jpg";
 import Ruler from "../assets/Images/ruler.jpg";
 import WaterLevel from "../assets/Images/waterLevel.jpg";
 import Welder from "../assets/Images/welder.jpg";
+import Power from "../assets/Images/powerTools.jpg";
 import DotsRotateRight from "../assets/Svg/ShapeSvg/dotsRotateRight.svg";
 import DotsRotateLeft from "../assets/Svg/ShapeSvg/dotsRotateLeft.svg";
 import Dots from "../assets/Svg/ShapeSvg/dots.svg";
@@ -40,7 +41,7 @@ const Details = [
   },
   {
     title: "XXXX",
-    image: Ruler,
+    image: Power,
     column: 1,
     row: 2,
   },
@@ -93,11 +94,11 @@ const ContactUsPage = () => {
 
   return (
     <div
-      className="padding-x relative flex h-screen flex-col items-center justify-center overflow-hidden bg-lime-500/0"
+      className="padding-x relative flex h-screen flex-col items-center justify-center overflow-hidden"
       ref={divRef}
     >
-      <div className="relative flex h-full w-full max-w-[1440px] place-content-center place-items-center bg-blue-500/0">
-        <div className="relative z-20 flex h-[95%] w-full flex-col items-center justify-center bg-amber-500/0 lg:w-[85%]">
+      <div className="relative flex h-full w-full max-w-[1440px] place-content-center place-items-center">
+        <div className="relative z-20 flex h-[95%] w-full flex-col items-center justify-center lg:w-[85%]">
           {/* MAIN GRID */}
           <div className="grid size-[95%] grid-cols-2 grid-rows-5 gap-1 bg-adobe-ivory p-2 max-lg:p-1 lg:size-[85%] lg:grid-cols-3 lg:grid-rows-3">
             {Details.map((detail, i) => {
@@ -110,6 +111,7 @@ const ContactUsPage = () => {
                       backgroundImage: `url(${detail.image})`,
                       backgroundPosition: "center",
                       backgroundSize: "cover",
+                      backgroundRepeat: "no-repeat",
                     }}
                   ></div>
                 );
@@ -131,9 +133,9 @@ const ContactUsPage = () => {
           </div>
         </div>
       </div>
-      <div className="s absolute left-0 top-1/2 h-[75%] w-full -translate-y-1/2 bg-violet-500/0 max-lg:h-[100%]">
+      <div className="absolute left-0 top-1/2 h-[75%] w-full -translate-y-1/2 bg-violet-500/0 max-lg:h-[100%]">
         <div
-          className="absolute bottom-0 z-10 h-3/4 w-full bg-lime-500 max-lg:h-[40%] max-xs:h-[30%] lg:hidden"
+          className="absolute bottom-0 z-10 h-3/4 w-full max-lg:h-[40%] max-xs:h-[30%] lg:hidden"
           style={{
             backgroundImage: `url("${Dots}")`,
             backgroundPosition: "top",

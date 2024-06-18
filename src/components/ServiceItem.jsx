@@ -54,7 +54,7 @@ const ServiceItem = ({ description, track, title, number }) => {
 
   return (
     <motion.div
-      className="z-10 mt-10 min-h-[225px] max-w-[500px] rounded-bl-3xl rounded-tr-3xl bg-adobe-red p-1 md:min-h-[300px] md:max-w-[600px] 2xl:mt-14 2xl:max-w-[800px]"
+      className="z-10 mt-10 min-h-[190px] max-w-[500px] rounded-bl-3xl rounded-tr-3xl p-1 md:min-h-[250px] md:max-w-[600px] 2xl:mt-24 2xl:max-w-[800px]"
       ref={ref}
       animate={inView ? "animate" : "initial"}
       initial="initial"
@@ -75,7 +75,7 @@ const ServiceItem = ({ description, track, title, number }) => {
           </div>
         </div>
         {/* SERVICE DESCRIPTION */}
-        <div className="text-service-content relative bottom-[15%] min-h-[fit] text-pretty font-spaceMono">
+        <div className="text-service-content relative bottom-[15%] line-clamp-3 min-h-[fit] text-pretty font-spaceMono hover:line-clamp-none">
           {description}
         </div>
       </motion.div>

@@ -134,36 +134,34 @@ const ServiceContectPage = () => {
     >
       {/* RED BORDER LINE */}
       {/* MAIN CONTAINER*/}
-      <div className="relative flex h-full w-full max-w-[1440px] flex-col items-center bg-lime-500 md:grid md:grid-cols-2 md:grid-rows-2">
-        {/* <div className="relative grid h-full w-full max-w-[1440px] grid-cols-1 grid-rows-2 items-start bg-lime-500 md:grid md:grid-cols-2 md:grid-rows-2"> */}
-
+      <div className="relative grid h-full w-full max-w-[1440px] grid-cols-1 grid-rows-2 bg-adobe-ivory md:grid md:grid-cols-2 md:grid-rows-2">
         {/*ICON BOX */}
         <motion.div
-          className="sticky top-0 z-40 flex h-full w-full flex-col items-center justify-center border-2 border-solid border-white text-center xs:basis-[15%] md:col-span-1 md:col-start-1 md:h-screen"
+          className="sticky top-0 z-30 col-start-1 row-start-1 h-[20%] w-full bg-adobe-ivory md:col-span-1 md:row-span-3 md:flex md:h-[20%] md:flex-col md:items-center md:justify-center"
           variants={primaryVariant}
           initial={isInView ? "" : "initial"}
           animate={isInView ? "animate" : ""}
         >
-          <div className="relative z-20 flex size-full items-center justify-center bg-adobe-ivory bg-blue-500 md:size-3/4">
-            {/* COLORED BORDER */}
-            <div className="absolute z-20 size-[65%]">
+          {/* COLORED BORDER */}
+          <div className="relative z-20 flex size-full items-center justify-center bg-adobe-ivory md:size-3/4">
+            <div className="absolute z-20 h-[65%] w-[60%] xs:w-[45%] md:w-[75%] lg:w-[70%]">
               <div className="absolute z-10 size-full scale-95 bg-adobe-ivory"></div>
               <div className="absolute h-[95%] w-[95%] rounded-b-3xl rounded-r-3xl bg-gradient-to-br from-adobe-red via-adobe-gray to-adobe-white"></div>
               <div className="absolute bottom-0 right-0 h-[95%] w-[95%] rounded-bl-3xl rounded-tr-3xl bg-gradient-to-tl from-adobe-red via-adobe-gray to-adobe-white"></div>
             </div>
             {/* GEAR */}
-            <div className="absolute left-[12%] top-0 size-[100px] scale-75 md:left-[0%] md:top-[7.5%] lg:left-[5%] lg:scale-125">
+            <div className="absolute left-[12%] top-0 size-[100px] scale-75 xs:left-[23%] xs:top-[5%] md:left-[0%] md:top-[10%] lg:left-[10%] lg:scale-125">
               <Gear2 />
               <Gear />
             </div>
-            <div className="absolute bottom-[25%] right-[12%] size-[100px] md:bottom-[15%] md:right-[0%] lg:right-[5%] lg:scale-150">
+            <div className="absolute bottom-[25%] right-[12%] size-[100px] xs:right-[25%] md:bottom-[21%] md:right-[3%] lg:bottom-[25%] lg:right-[10%] lg:scale-150">
               <div className="relative ml-auto size-1/2">
                 <Gear3 />
               </div>
               <Gear4 />
             </div>
             {/* SIZE ICON BOX */}
-            <div className="absolute z-20 size-[55%] overflow-hidden md:w-[60%] 2xl:max-w-[500px]">
+            <div className="absolute z-20 size-[50%] overflow-hidden xs:size-[45%] md:w-[60%] 2xl:max-w-[500px]">
               {/* ICONS */}
               <motion.div
                 className="size-full"
@@ -186,42 +184,33 @@ const ServiceContectPage = () => {
               </motion.div>
             </div>
           </div>
-          {/* BACKGROUND IMAGE - SCREEN */}
-          <div
-            className="absolute top-1/2 z-10 hidden h-full w-full md:top-0 md:z-20 md:col-start-2 md:row-start-1 md:h-full md:w-full"
-            style={{
-              backgroundImage: `url("${Screen}")`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }}
-          ></div>
         </motion.div>
 
-        {/* MAIN DESCRIPTION BOX */}
-        {/* <div className="z-30 flex size-full flex-col items-center md:relative md:bottom-[15%] md:col-start-2 md:h-[350vh] md:items-start"> */}
-        <div className="relative z-30 flex h-full flex-col items-center justify-center md:col-start-2 md:row-span-2 md:row-start-1 md:px-4">
-          {Data.map((data) => (
-            <ServiceItem
-              key={data.id}
-              title={data.title}
-              description={data.description}
-              number={data.number}
-              track={data.track}
-            />
-          ))}
-        </div>
-
-        {/* TEST */}
+        {/* BACKGROUND IMAGE - SCREEN */}
         <div
-          className="absolute top-0 z-10 hidden h-full w-full md:top-0 md:z-10 md:col-start-2 md:row-start-1 md:h-full md:w-full"
+          className="sticky top-0 z-20 col-start-1 row-start-1 h-1/2 w-full md:col-span-1 md:col-start-2 md:row-start-1 md:row-end-2 md:h-1/2"
           style={{
             backgroundImage: `url("${Screen}")`,
             backgroundSize: "cover",
-            backgroundPosition: "fill",
+            backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
         ></div>
+
+        {/* MAIN DESCRIPTION BOX */}
+        <div className="relative z-20 col-span-1 col-start-1 row-start-1 row-end-3 size-full md:col-start-2 md:row-start-1">
+          <div className="absolute bottom-0 flex h-[80%] w-full flex-col items-center px-2 md:bottom-0 md:h-[90%]">
+            {Data.map((data) => (
+              <ServiceItem
+                key={data.id}
+                title={data.title}
+                description={data.description}
+                number={data.number}
+                track={data.track}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
