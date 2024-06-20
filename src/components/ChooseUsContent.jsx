@@ -17,6 +17,7 @@ import Lines from "./animations/AnimateLine";
 import Lines2 from "./animations/AnimateLine2";
 import Lines3 from "./animations/AnimateLine3";
 import Lines4 from "./animations/AnimateLine4";
+import Rec from "../assets/Svg/ShapeSvg/recLight.svg";
 
 const ChooseUsContent = () => {
   const divRef = useRef(null);
@@ -214,7 +215,7 @@ const ChooseUsContent = () => {
                 <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black max-xl:h-[3rem]">
                   {Data[0].title}
                 </div>
-                <div className="text-mobile-chooseUs-description font-spaceMono">
+                <div className="text-mobile-chooseUs-description bg-adobe-ivory font-spaceMono">
                   {Data[0].description}
                 </div>
               </div>
@@ -251,7 +252,7 @@ const ChooseUsContent = () => {
                 <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black max-xl:h-[3rem]">
                   {Data[1].title}
                 </div>
-                <div className="text-mobile-chooseUs-description font-spaceMono">
+                <div className="text-mobile-chooseUs-description bg-adobe-ivory font-spaceMono">
                   {Data[1].description}
                 </div>
               </div>
@@ -291,7 +292,7 @@ const ChooseUsContent = () => {
                 <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black max-xl:h-[3rem]">
                   {Data[2].title}
                 </div>
-                <div className="text-mobile-chooseUs-description font-spaceMono">
+                <div className="text-mobile-chooseUs-description bg-adobe-ivory font-spaceMono">
                   {Data[2].description}
                 </div>
               </div>
@@ -327,7 +328,7 @@ const ChooseUsContent = () => {
                 <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black max-xl:h-[3rem]">
                   {Data[3].title}
                 </div>
-                <div className="text-mobile-chooseUs-description font-spaceMono">
+                <div className="text-mobile-chooseUs-description bg-adobe-ivory font-spaceMono">
                   {Data[3].description}
                 </div>
               </div>
@@ -336,6 +337,15 @@ const ChooseUsContent = () => {
           </motion.div>
         </div>
       </div>
+      <div
+        className="absolute left-0 top-0 h-full w-full bg-blue-500"
+        style={{
+          backgroundImage: `url("${Rec}")`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      ></div>
     </div>
   );
 };

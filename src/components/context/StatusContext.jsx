@@ -12,6 +12,8 @@ export const StatusProvider = ({ children }) => {
   const [thirdCard, setThirdCard] = useState(false);
   const [fourthCard, setFourthCard] = useState(false);
   const [currentItem, setCurrentItem] = useState(0);
+  const [active, setActive] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
     <ViewContext.Provider
@@ -31,6 +33,10 @@ export const StatusProvider = ({ children }) => {
         currentItem,
         setCurrentItem,
         width,
+        active,
+        setActive,
+        currentIndex,
+        setCurrentIndex,
       }}
     >
       {children}

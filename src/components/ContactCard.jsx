@@ -1,5 +1,7 @@
-import React from "react";
+import { useState, useContext, useEffect } from "react";
+import ViewContext from "./context/StatusContext";
 import { motion } from "framer-motion";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import CapitalFirstLetter from "./Utilities/CapitalFirstLetter";
 
 const defaultVariant = {
@@ -42,15 +44,40 @@ const imgVariant = {
   },
 };
 
-const ContactCard = ({ title, detail, image, cardTitle }) => {
+const ContactCard = ({
+  title,
+  detail,
+  image,
+  cardTitle,
+  cardNumber,
+  indexNumber,
+}) => {
+  // CARD ACTIVE SELECTOR
+  const [select, setSelect] = useState(false);
+  const { active, setActive, currentIndex, setCurrentIndex } =
+    useContext(ViewContext);
+
+  const handleStatus = () => {
+    setSelect(!select);
+    if (currentIndex == cardNumber) {
+      return setActive(!active);
+    }
+  };
+
+  useEffect(() => {
+    setCurrentIndex(cardNumber);
+    setSelect(false);
+  }, [select]);
+
   return (
     <motion.div
-      className="hover size-full"
+      className="size-full"
       initial="initial"
-      whileHover="animate"
+      animate={active && currentIndex == cardNumber ? "animate" : ""}
+      onClick={() => handleStatus()}
     >
       <motion.div
-        className="relative h-full w-full border-2 border-solid border-black bg-violet-500/0 font-shareTech"
+        className="relative h-full w-full border-2 border-solid border-black font-shareTech"
         variants={defaultVariant}
       >
         <div className="absolute top-2 flex h-[10%] w-full bg-cyan-500/0 pl-2 text-xs max-lg:text-[.5rem]">
