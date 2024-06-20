@@ -324,7 +324,7 @@ const ContactUsPage = () => {
                 // };
                 return (
                   <motion.div
-                    className={`size-full row-start-${detail.row} col-start-${detail.column} bg-red-500 lg:col-start-auto lg:row-start-auto`}
+                    className={`size-full row-start-${detail.row} col-start-${detail.column} lg:col-start-auto lg:row-start-auto`}
                     key={detail.id}
                     variants={sample}
                   >

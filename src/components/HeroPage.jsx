@@ -2,6 +2,7 @@ import Data from "../components/constants/data.json";
 import Weld01 from "../assets/Images/weld02_grayscale.jpg";
 import AnimateCurveLine from "./animations/AnimateCurveLine";
 import { motion } from "framer-motion";
+import Shiny from "../assets/Svg/ShapeSvg/shinyOverlay.svg";
 
 const backgroundVariant = {
   initial: {
@@ -320,7 +321,7 @@ const HeroPage = () => {
               </div>
             </div> */}
 
-            <div className="font-bebas col-span-6 col-start-1 row-span-4 row-start-2 flex place-content-center place-items-center bg-opacity-20 md:col-start-2 lg:absolute lg:right-0 lg:col-start-1 lg:h-full lg:w-[90%] xl:w-[85%]">
+            <div className="col-span-6 col-start-1 row-span-4 row-start-2 flex place-content-center place-items-center bg-opacity-20 font-bebas md:col-start-2 lg:absolute lg:right-0 lg:col-start-1 lg:h-full lg:w-[90%] xl:w-[85%]">
               <div className="flex size-full flex-col items-center justify-center md:items-start">
                 {/* ARIES STAINLESS */}
                 <div className="h-full w-full min-w-fit max-w-[350px] basis-[20%] px-14 py-2 md:max-w-fit md:px-0">
@@ -449,9 +450,17 @@ const HeroPage = () => {
             }}
           ></div>
         </motion.div>
-        <div className="absolute h-full w-full">
+        <div className="absolute z-10 h-full w-full">
           <AnimateCurveLine />
         </div>
+        <div
+          className="absolute left-0 top-0 size-full"
+          style={{
+            backgroundImage: `url("${Shiny}")`,
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}
+        ></div>
       </div>
     </>
   );

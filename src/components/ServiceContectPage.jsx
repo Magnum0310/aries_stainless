@@ -15,6 +15,7 @@ import Gear from "./animations/AnimateGear";
 import Gear2 from "./animations/AnimateGear2";
 import Gear3 from "./animations/AnimateGear3";
 import Gear4 from "./animations/AnimateGear4";
+import Rec from "../assets/Svg/ShapeSvg/recLight1.svg";
 
 const ServiceContectPage = () => {
   const { currentItem } = useContext(ViewContext);
@@ -129,21 +130,21 @@ const ServiceContectPage = () => {
 
   return (
     <div
-      className="padding-x relative flex h-[400vh] w-full flex-col items-center justify-center bg-adobe-ivory font-shareTech md:h-[450vh]"
+      className="padding-x relative flex h-[400vh] w-full flex-col items-center justify-center font-shareTech max-md:bg-adobe-ivory md:h-[450vh] md:bg-adobe-ivory/0"
       ref={divRef}
     >
       {/* RED BORDER LINE */}
       {/* MAIN CONTAINER*/}
-      <div className="relative grid h-full w-full max-w-[1440px] grid-cols-1 grid-rows-2 bg-adobe-ivory md:grid md:grid-cols-2 md:grid-rows-2">
+      <div className="relative grid h-full w-full max-w-[1440px] grid-cols-1 grid-rows-2 max-md:bg-adobe-ivory md:grid md:grid-cols-2 md:grid-rows-2 md:bg-adobe-ivory/0">
         {/*ICON BOX */}
         <motion.div
-          className="sticky top-0 z-30 col-start-1 row-start-1 h-[20%] w-full bg-adobe-ivory md:col-span-1 md:row-span-3 md:flex md:h-[20%] md:flex-col md:items-center md:justify-center"
+          className="sticky top-0 z-30 col-start-1 row-start-1 h-[20%] w-full max-md:bg-adobe-ivory md:col-span-1 md:row-span-3 md:flex md:h-[25%] md:flex-col md:items-center md:justify-center md:bg-adobe-ivory/0"
           variants={primaryVariant}
           initial={isInView ? "" : "initial"}
           animate={isInView ? "animate" : ""}
         >
           {/* COLORED BORDER */}
-          <div className="relative z-20 flex size-full items-center justify-center bg-adobe-ivory md:size-3/4">
+          <div className="relative bottom-10 z-20 flex size-full items-center justify-center md:h-1/2 md:w-[85%]">
             <div className="absolute z-20 h-[65%] w-[60%] xs:w-[45%] md:w-[75%] lg:w-[70%]">
               <div className="absolute z-10 size-full scale-95 bg-adobe-ivory"></div>
               <div className="absolute h-[95%] w-[95%] rounded-b-3xl rounded-r-3xl bg-gradient-to-br from-adobe-red via-adobe-gray to-adobe-white"></div>
@@ -212,6 +213,14 @@ const ServiceContectPage = () => {
           </div>
         </div>
       </div>
+      <div
+        className="absolute left-0 top-0 size-full max-md:hidden"
+        style={{
+          backgroundImage: `url("${Rec}")`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      ></div>
     </div>
   );
 };

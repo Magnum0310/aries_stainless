@@ -2,6 +2,8 @@ import { useRef, useEffect, useContext } from "react";
 import { useInView, motion } from "framer-motion";
 import Data from "../components/constants/data.json";
 import ViewContext from "./context/StatusContext";
+import Circles from "../assets/Svg/ShapeSvg/massCircles.svg";
+import Rec from "../assets/Svg/ShapeSvg/recLight1.svg";
 
 const ChooseUsPage = () => {
   const { setChooseUs } = useContext(ViewContext);
@@ -182,6 +184,14 @@ const ChooseUsPage = () => {
             {/* RED SQUARE */}
           </div>
         </div>
+        <div
+          className="absolute left-0 top-0 size-full"
+          style={{
+            backgroundImage: `url("${Rec}")`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        ></div>
       </div>
     </>
   );

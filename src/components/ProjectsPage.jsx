@@ -3,6 +3,7 @@ import { motion, useInView } from "framer-motion";
 import Data from "./constants/data.json";
 import Grinder from "../assets/Images/grinder_grayscale.jpg";
 import ViewContext from "./context/StatusContext";
+import Rec from "../assets/Svg/ShapeSvg/recLight1.svg";
 
 const defaultVariant = {
   initial: { opacity: 0, x: -10 },
@@ -97,17 +98,17 @@ const ServicePage = () => {
     once: true,
   });
   return (
-    <div className="padding-x bg-adobe-lime relative flex h-[50vh] w-full flex-col items-center justify-center overflow-hidden font-shareTech md:h-[75vh] lg:h-[80vh]">
+    <div className="padding-x relative flex h-[50vh] justify-center font-shareTech md:h-[75vh] lg:h-[80vh]">
       {/* RED BORDER */}
       {/* INNER WHITE BOX WRAPPER*/}
       <div
-        className="relative grid h-full w-full max-w-[1440px] grid-cols-4 grid-rows-6 items-center lg:grid-cols-6"
+        className="relative grid h-full w-full max-w-[1440px] grid-cols-4 grid-rows-6 items-center overflow-hidden lg:grid-cols-6"
         ref={divRef}
       >
         {/* TITLE BOX */}
         {/* MAIN TITLE CONTAINER */}
         <motion.div
-          className="absolute right-0 z-40 col-span-4 col-start-1 row-span-4 row-start-2 h-full overflow-hidden bg-gradient-to-tr from-adobe-red/80 via-adobe-gray to-adobe-white p-1 max-lg:mr-[20%] max-lg:w-[70%] max-xs:mr-10 max-xs:w-[75%] md:top-1/2 md:col-span-3 md:col-start-1 md:h-[85%] md:min-h-fit md:-translate-y-1/2 lg:col-start-4 lg:row-span-5 lg:row-start-1 lg:mr-0 lg:min-h-fit lg:w-[85%] lg:overflow-visible lg:bg-gradient-to-tl"
+          className="absolute right-0 z-40 col-span-4 col-start-1 row-span-4 row-start-2 h-full bg-gradient-to-tr from-adobe-red/80 via-adobe-gray to-adobe-white p-1 max-lg:mr-[20%] max-lg:w-[70%] max-xs:mr-10 max-xs:w-[75%] md:top-0 md:col-span-3 md:col-start-1 md:h-[85%] md:min-h-fit md:w-[65%] md:-translate-y-1/2 lg:col-start-4 lg:row-span-5 lg:row-start-1 lg:mr-0 lg:mt-14 lg:w-[85%] lg:overflow-visible lg:bg-gradient-to-tl"
           initial={width <= 1024 ? { x: 5, opacity: 0 } : { x: -5, opacity: 0 }}
           animate={inView ? { x: 0, opacity: 1 } : ""}
           transition={{ duraton: 0.5, ease: "easeInOut" }}
@@ -187,6 +188,14 @@ const ServicePage = () => {
           }}
         ></div>
       </div>
+      <div
+        className="absolute right-0 top-0 size-full"
+        style={{
+          backgroundImage: `url("${Rec}")`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      ></div>
     </div>
   );
 };

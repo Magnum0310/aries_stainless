@@ -66,7 +66,7 @@ const ContactCard = ({
 
   useEffect(() => {
     setCurrentIndex(cardNumber);
-    setSelect(false);
+    setSelect(true);
   }, [select]);
 
   return (
