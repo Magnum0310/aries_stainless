@@ -108,7 +108,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 
 const ContactUsPage = () => {
   const divRef = useRef(null);
-  const inView = useInView(divRef, { once: true });
+  const inView = useInView(divRef, { margin: "-200px 0px", once: true });
   const { setContactUs, width, contactUs } = useContext(ViewContext);
   useEffect(() => {
     setContactUs(inView);

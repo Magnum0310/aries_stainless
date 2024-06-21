@@ -136,7 +136,7 @@ const ServicePage = () => {
             </div>
             {/* NEW HIGHLIGTS SETUP - BELOW LG-SCREENS*/}
 
-            <div className="relative flex h-[50px] basis-[2%] gap-1 overflow-hidden lg:right-[75%] lg:w-[175%] lg:rotate-180 lg:gap-2">
+            <div className="relative flex basis-[1.5%] gap-1 overflow-hidden lg:right-[75%] lg:w-[175%] lg:rotate-180 lg:gap-2">
               <motion.div
                 variants={highlightVariant}
                 className="basis-[80%] overflow-hidden rounded-tr-xl bg-adobe-red lg:rounded-br-xl lg:rounded-tr-none"
@@ -162,7 +162,7 @@ const ServicePage = () => {
             {/* PAGE DESCRIPTION */}
             <div className="text-service-description flex size-full basis-1/2 flex-col justify-center p-1 font-spaceMono xs:p-2 lg:basis-1/4 lg:px-4 lg:py-5">
               <motion.div
-                className="h-fit py-1 xs:max-w-[90%] lg:max-w-full"
+                className="h-fit py-1 xs:max-w-[95%] lg:max-w-full"
                 variants={width >= 1024 ? lgDesctVariant : desctVariant}
               >
                 {Data.projetPageDescription}

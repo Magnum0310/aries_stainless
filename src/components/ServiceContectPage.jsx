@@ -18,7 +18,7 @@ import Gear4 from "./animations/AnimateGear4";
 import Rec from "../assets/Svg/ShapeSvg/recLight1.svg";
 
 const ServiceContectPage = () => {
-  const { currentItem } = useContext(ViewContext);
+  const { currentItem, width } = useContext(ViewContext);
   const divRef = useRef(null);
 
   const TWEEN_OPTIONS = {
@@ -130,7 +130,7 @@ const ServiceContectPage = () => {
 
   return (
     <div
-      className="padding-x relative flex h-[300vh] w-full flex-col items-center justify-center font-shareTech max-md:bg-adobe-red md:h-[450vh] md:bg-adobe-ivory/0"
+      className="padding-x relative flex h-[300vh] w-full flex-col items-center justify-center font-shareTech md:h-[350vh] md:bg-adobe-ivory/0"
       ref={divRef}
     >
       {/* RED BORDER LINE */}
@@ -138,31 +138,36 @@ const ServiceContectPage = () => {
       <div className="relative grid h-full w-full max-w-[1440px] grid-cols-1 grid-rows-2 max-md:bg-adobe-ivory md:grid md:grid-cols-2 md:grid-rows-2 md:bg-adobe-ivory/0">
         {/*ICON BOX */}
         <motion.div
-          className="sticky top-0 z-30 col-start-1 row-start-1 h-[20%] w-full max-md:bg-adobe-ivory md:col-span-1 md:row-span-3 md:flex md:h-[25%] md:flex-col md:items-center md:justify-center md:bg-adobe-ivory/0"
+          className="sticky top-0 z-30 col-start-1 row-start-1 h-[30%] w-full max-md:bg-adobe-ivory md:top-16 md:col-span-1 md:row-span-3 md:flex md:h-[25%] md:flex-col md:items-center md:justify-center md:bg-adobe-ivory/0"
           variants={primaryVariant}
           initial={isInView ? "" : "initial"}
           animate={isInView ? "animate" : ""}
+          style={{
+            backgroundImage: width >= 768 ? " " : `url("${Rec}")`,
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}
         >
           {/* COLORED BORDER */}
-          <div className="bottom-10 z-20 flex size-full items-center justify-center bg-red-500 md:h-1/2 md:w-[85%]">
-            <div className="absolute z-20 h-[65%] w-[60%] xs:w-[45%] md:w-[75%] lg:w-[70%]">
-              <div className="absolute z-10 size-full scale-95 bg-adobe-ivory"></div>
+          <div className="bottom-10 z-20 flex size-full items-center justify-center md:h-1/2 md:w-[85%]">
+            <div className="absolute z-20 h-[65%] w-[60%] xs:w-[45%] md:w-[75%] lg:w-[65%]">
+              <div className="absolute z-10 size-full scale-95 rounded-bl-3xl rounded-tr-3xl bg-adobe-ivory bg-gradient-to-br"></div>
               <div className="absolute h-[95%] w-[95%] rounded-b-3xl rounded-r-3xl bg-gradient-to-br from-adobe-red via-adobe-gray to-adobe-white"></div>
               <div className="absolute bottom-0 right-0 h-[95%] w-[95%] rounded-bl-3xl rounded-tr-3xl bg-gradient-to-tl from-adobe-red via-adobe-gray to-adobe-white"></div>
             </div>
             {/* GEAR */}
-            <div className="absolute left-[12%] top-0 size-[100px] scale-75 xs:left-[23%] xs:top-[5%] md:left-[0%] md:top-[10%] lg:left-[10%] lg:scale-125">
+            <div className="absolute left-[12%] top-0 size-[100px] scale-75 xs:left-[23%] xs:top-[5%] md:left-[0%] md:top-[10%] lg:left-[15%] lg:scale-125">
               <Gear2 />
               <Gear />
             </div>
-            <div className="absolute bottom-[25%] right-[12%] size-[100px] xs:right-[25%] md:bottom-[21%] md:right-[3%] lg:bottom-[25%] lg:right-[10%] lg:scale-150">
+            <div className="absolute bottom-[25%] right-[12%] size-[100px] xs:right-[25%] md:bottom-[21%] md:right-[3%] lg:bottom-[25%] lg:right-[15%] lg:scale-150">
               <div className="relative ml-auto size-1/2">
                 <Gear3 />
               </div>
               <Gear4 />
             </div>
             {/* SIZE ICON BOX */}
-            <div className="absolute z-20 size-[50%] overflow-hidden xs:size-[45%] md:w-[60%] 2xl:max-w-[500px]">
+            <div className="absolute z-20 size-[50%] overflow-hidden xs:size-[45%] md:w-[60%] lg:w-[45%] 2xl:max-w-[500px]">
               {/* ICONS */}
               <motion.div
                 className="size-full"
@@ -189,7 +194,7 @@ const ServiceContectPage = () => {
 
         {/* BACKGROUND IMAGE - SCREEN */}
         <div
-          className="sticky top-0 z-20 col-start-1 row-start-1 hidden h-1/2 w-full md:col-span-1 md:col-start-2 md:row-start-1 md:row-end-2 md:h-1/2"
+          className="sticky top-0 z-20 col-start-1 row-start-1 h-full w-full md:col-span-1 md:col-start-2 md:row-start-1 md:row-end-2 md:h-full"
           style={{
             backgroundImage: `url("${Screen}")`,
             backgroundSize: "cover",
@@ -199,8 +204,8 @@ const ServiceContectPage = () => {
         ></div>
 
         {/* MAIN DESCRIPTION BOX */}
-        <div className="relative z-20 col-span-1 col-start-1 row-start-1 row-end-3 size-full border-2 border-solid border-purple-500 md:col-start-2 md:row-start-1">
-          <div className="absolute bottom-0 flex h-full w-full flex-col items-center justify-center bg-lime-500 px-2 md:bottom-0 md:h-[90%]">
+        <div className="relative z-20 col-span-1 col-start-1 row-start-1 row-end-3 size-full min-h-fit md:col-start-2 md:row-start-1 md:h-[100%]">
+          <div className="absolute bottom-0 flex h-[85%] w-full flex-col items-center justify-center px-2 pb-32 pt-24 md:bottom-0 md:h-[95%]">
             {Data.map((data) => (
               <ServiceItem
                 key={data.id}

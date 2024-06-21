@@ -72,7 +72,7 @@ const AnimateSquare = () => {
       {/* GRID AREA FOR CONTENT */}
 
       {/* GRID WRAPPER FOR PAGE CONTENT */}
-      <div className="absolute left-[35%] flex size-full flex-col justify-center bg-opacity-80 xs:justify-start md:size-[100%]">
+      <div className="absolute left-[35%] flex size-full flex-col justify-center bg-opacity-80 md:size-[100%]">
         {/* PAGE CONTENT */}
         <Red />
         {/* RED SQUARE */}

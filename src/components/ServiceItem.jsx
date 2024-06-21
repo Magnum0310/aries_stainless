@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import ViewContext from "./context/StatusContext";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
@@ -6,8 +6,10 @@ const ServiceItem = ({ description, track, title, number }) => {
   const { setCurrentItem } = useContext(ViewContext);
   const { ref, inView } = useInView({
     threshold: 1,
-    rootMargin: "-120px 0px",
+    rootMargin: "-150px 0px",
   });
+
+  const [clamp, setClamp] = useState(true);
 
   const defaultVariant = {
     initial: {
@@ -52,9 +54,13 @@ const ServiceItem = ({ description, track, title, number }) => {
     }
   }, [inView]);
 
+  const onClick = () => {
+    setClamp(!clamp);
+  };
+
   return (
     <motion.div
-      className="z-10 mt-10 min-h-[190px] max-w-[500px] rounded-bl-3xl rounded-tr-3xl p-1 md:min-h-[250px] md:max-w-[600px] 2xl:mt-24 2xl:max-w-[800px]"
+      className="z-10 min-h-fit max-w-[500px] rounded-bl-3xl rounded-tr-3xl p-1 max-md:mt-5 md:mt-10 md:min-h-fit md:max-w-[600px] xl:max-w-[550px] 2xl:mt-24"
       ref={ref}
       animate={inView ? "animate" : "initial"}
       initial="initial"
@@ -75,7 +81,10 @@ const ServiceItem = ({ description, track, title, number }) => {
           </div>
         </div>
         {/* SERVICE DESCRIPTION */}
-        <div className="text-service-content relative bottom-[15%] line-clamp-3 min-h-[fit] text-pretty font-spaceMono hover:line-clamp-none">
+        <div
+          className={`text-service-content relative bottom-[15%] min-h-[fit] text-pretty font-spaceMono ${clamp ? "line-clamp-3" : "line-clamp-none"}`}
+          onClick={() => onClick()}
+        >
           {description}
         </div>
       </motion.div>

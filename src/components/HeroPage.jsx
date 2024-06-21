@@ -158,7 +158,7 @@ const HeroPage = () => {
                     animate="animate"
                     variants={ariesVariant}
                     transition={{
-                      duration: 0.5,
+                      // duration: 0.5,
                       type: "tween",
                       ease: "anticipate",
                       duration: 1.5,
@@ -202,7 +202,7 @@ const HeroPage = () => {
                     animate="animate"
                     variants={servicesVariant}
                     transition={{
-                      duration: 0.5,
+                      // duration: 0.5,
                       type: "tween",
                       ease: "anticipate",
                       duration: 1.5,
@@ -234,7 +234,7 @@ const HeroPage = () => {
                 <motion.div className="text-hero-tagline lg:pr- relative col-span-5 col-start-1 row-start-4 flex h-1/2 w-[35%] basis-[10%] place-content-center place-items-start font-spaceMono md:w-[33%] md:basis-[20%] md:flex-col md:items-end md:overflow-hidden md:text-black lg:w-[37.5%] xl:w-[34%]">
                   <motion.div className="md:relative md:flex md:h-full md:w-[fit] md:flex-col md:justify-center lg:w-[38%] xl:w-[34%]">
                     <motion.div
-                      className="flex overflow-hidden bg-adobe-ivory px-5 md:h-fit md:flex-col md:items-end md:justify-center md:gap-0 md:bg-adobe-ivory md:px-2"
+                      className="flex overflow-hidden bg-adobe-ivory px-5 md:h-fit md:flex-col md:items-end md:justify-center md:gap-0 md:bg-adobe-ivory/0 md:px-2"
                       initial="initial"
                       animate="animate"
                       style={{ originY: 1 }}
@@ -251,7 +251,7 @@ const HeroPage = () => {
                       {/* PRECISION,QUALITY,RELIABILITY */}
                       {/* FIRST TAGLNIE */}
                       <motion.div
-                        className="md:bg-adobe-ivory"
+                        className="md:bg-adobe-ivory md:px-2"
                         variants={
                           width >= 768 ? defaultVariant1X : tagLineVariant
                         }
@@ -261,7 +261,7 @@ const HeroPage = () => {
                       &nbsp;
                       {/* SECOND TAGLNIE */}
                       <motion.div
-                        className="md:bg-adobe-ivory"
+                        className="md:bg-adobe-ivory md:px-2"
                         variants={
                           width >= 768 ? defaultVariant1X : tagLineVariant
                         }
@@ -271,7 +271,7 @@ const HeroPage = () => {
                       &nbsp;
                       {/* THIRD TAGLNIE */}
                       <motion.div
-                        className="md:bg-adobe-ivory"
+                        className="md:bg-adobe-ivory md:px-2"
                         variants={
                           width >= 768 ? defaultVariant1X : tagLineVariant
                         }
@@ -310,14 +310,17 @@ const HeroPage = () => {
         <div className="absolute z-10 h-full w-full">
           <AnimateCurveLine />
         </div>
-        <div
+        <motion.div
           className="absolute left-0 top-0 size-full"
+          initial={{ x: -150, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ ease: "linear", duration: 1 }}
           style={{
             backgroundImage: `url("${Shiny}")`,
             backgroundPosition: "center",
             backgroundSize: "cover",
           }}
-        ></div>
+        ></motion.div>
       </div>
     </>
   );
