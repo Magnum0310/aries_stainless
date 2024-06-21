@@ -68,12 +68,12 @@ const ContactCard = ({
     setCurrentIndex(cardNumber);
     setSelect(true);
   }, [select]);
-
   return (
     <motion.div
       className="size-full"
       initial="initial"
       animate={active && currentIndex == cardNumber ? "animate" : ""}
+      whileHover="animate"
       onClick={() => handleStatus()}
     >
       <motion.div

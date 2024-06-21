@@ -41,7 +41,7 @@ const ChooseUsPage = () => {
     animate: {
       opacity: 1,
       width: "120%",
-      transition: { delay: 3, duration: 0.5 },
+      transition: { delay: 2, duration: 0.5 },
     },
   };
   const borderVariant2 = {
@@ -52,7 +52,7 @@ const ChooseUsPage = () => {
     animate: {
       opacity: 1,
       width: "120%",
-      transition: { delay: 3.2, duration: 0.5 },
+      transition: { delay: 2.2, duration: 0.5 },
     },
   };
   const borderVariant3 = {
@@ -63,7 +63,7 @@ const ChooseUsPage = () => {
     animate: {
       opacity: 1,
       width: "120%",
-      transition: { delay: 3.4, duration: 0.5 },
+      transition: { delay: 2.4, duration: 0.5 },
     },
   };
   const descriptionVariant = {
@@ -75,7 +75,7 @@ const ChooseUsPage = () => {
       y: 0,
       opacity: 1,
       transition: {
-        delay: 3.75,
+        delay: 2.65,
         duration: 0.5,
       },
     },
@@ -88,18 +88,16 @@ const ChooseUsPage = () => {
         ref={divRef}
       >
         {/* RED BORDER */}
-        {/* <div className="absolute left-5 z-40 hidden h-full w-full border-l-4 border-solid border-adobe-red"></div> */}
         {/* GRID AREA FOR CONTENT */}
         <div className="relative z-50 grid size-full max-w-[1440px] grid-cols-4 grid-rows-6 items-center justify-center lg:left-0 lg:top-0 lg:grid-cols-6">
           {/* GRID WRAPPER FOR PAGE CONTENT */}
-          {/* <div className="z-40 col-span-3 col-start-1 row-span-2 row-start-3 flex w-full flex-col justify-center bg-amber-500 bg-opacity-80 pl-[25%] lg:absolute lg:right-0 lg:col-span-5 lg:col-start-1 lg:row-span-4 lg:row-start-2 lg:h-full lg:w-[85%] lg:pl-0"> */}
           <div className="z-40 col-span-3 col-start-1 row-span-2 row-start-3 flex w-full flex-col justify-center bg-opacity-80 pl-[25%] lg:absolute lg:right-0 lg:col-span-5 lg:col-start-1 lg:row-span-4 lg:row-start-2 lg:h-full lg:w-[85%] lg:pl-0">
             {/* PAGE CONTENT */}
             <motion.div
               className="absolute z-20 flex h-[60%] w-3/4 flex-col justify-evenly lg:h-3/4"
               initial="initial"
               animate={isInView && "animate"}
-              transition={{ delayChildren: 0.1, staggerChildren: 0.1 }}
+              transition={{ delayChildren: 0.1, staggerChildren: 0.05 }}
             >
               {/* FIRST TAG */}
 
@@ -181,7 +179,6 @@ const ChooseUsPage = () => {
                 </div>
               </div>
             </motion.div>
-            {/* RED SQUARE */}
           </div>
         </div>
         <div

@@ -45,11 +45,11 @@ html {
   /* NEW TITLE */
 
   .text-hero {
-    @apply px-1 text-[2.1rem] leading-[0] md:px-2 md:py-2 md:text-[2.5rem] md:leading-[0] md:tracking-wide lg:text-[3.75rem] lg:leading-[1];
+    @apply px-1 text-[2.1rem] leading-[0] md:px-2 md:py-2 md:text-[2.5rem] md:leading-[0] md:tracking-wide lg:text-[3.75rem] lg:leading-[0];
     /* @apply px-1 text-3xl md:px-2 md:py-2 md:text-4xl md:tracking-wide; */
   }
   .text-hero-padding {
-    @apply p-[2px] md:p-[2.5px] lg:p-[4px];
+    @apply p-[1.5px] md:p-[2.5px] lg:p-[4px];
   }
   .text-hero-tagline {
     @apply text-[.6rem] md:text-xs lg:text-[.85rem] xl:text-[.95rem];

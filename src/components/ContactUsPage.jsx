@@ -109,12 +109,12 @@ import CopyToClipboard from "react-copy-to-clipboard";
 const ContactUsPage = () => {
   const divRef = useRef(null);
   const inView = useInView(divRef, { once: true });
-  const { setContactUs, width } = useContext(ViewContext);
+  const { setContactUs, width, contactUs } = useContext(ViewContext);
   useEffect(() => {
     setContactUs(inView);
   }, [inView]);
 
-  const testBack = {
+  const defaultVariant = {
     initial: { opacity: 1 },
     animate: { opacity: 1 },
   };
@@ -153,6 +153,7 @@ const ContactUsPage = () => {
       x: width > 1023 ? "-100%" : "-110%",
       y: width > 1023 ? "100%" : "0%",
       zIndex: 20,
+      link: "",
     },
     {
       id: 4,
@@ -174,6 +175,7 @@ const ContactUsPage = () => {
       row: 3,
       x: width > 1023 ? "0%" : "110%",
       zIndex: 50,
+      link: "",
     },
     {
       id: 6,
@@ -196,6 +198,7 @@ const ContactUsPage = () => {
       x: width > 1023 ? "100%" : "-110%",
       y: width > 1023 ? "-100%" : "0%",
       zIndex: 20,
+      link: "https://facebook.com",
     },
     {
       id: 8,
@@ -205,8 +208,6 @@ const ContactUsPage = () => {
       row: 4,
       span: 2,
       scale: 1,
-      x: "0%",
-      y: "110%",
       opacity: width > 1023 ? 0 : 1,
       x: width > 1023 ? "100%" : "-110%",
       y: width > 1023 ? "0%" : "0%",
@@ -222,6 +223,7 @@ const ContactUsPage = () => {
       x: width > 1023 ? "-100%" : "-110%",
       y: width > 1023 ? "-100%" : "0%",
       zIndex: 20,
+      link: "https://www.lazada.com.ph/",
     },
   ];
 
@@ -237,7 +239,7 @@ const ContactUsPage = () => {
             className="relative grid size-[95%] grid-cols-2 grid-rows-5 gap-1 bg-adobe-ivory p-2 max-lg:p-1 lg:size-[85%] lg:grid-cols-3 lg:grid-rows-3"
             initial="initial"
             animate={inView ? "animate" : ""}
-            variants={testBack}
+            variants={defaultVariant}
             transition={{ delayChildren: 0.5 }}
           >
             {Details.map((detail, i) => {
@@ -247,35 +249,22 @@ const ContactUsPage = () => {
                 opacity: 1,
                 transition: {
                   type: "tween",
-                  ease: width > 1023 ? "circIn" : "anticipate",
+                  ease: width > 1023 ? "circIn" : "circIn",
                   duration: 0.5,
-                  delay: width > 1023 ? 1.3 : 1.3,
+                  delay: width > 1023 ? 1.3 : 1,
                 },
               };
-              const test = {
+              const oddVariant = {
                 initial: { x: detail.x, y: detail.y, opacity: detail.opacity },
                 animate: inView ? move : "",
               };
 
               // ODD NUMBERED GRIDS
               if (i % 2) {
-                // const test = {
-                //   initial: {
-                //     x: detail.x,
-                //     y: detail.y,
-                //     opacity: 0,
-                //   },
-                //   animate: {
-                //     x: "0%",
-                //     y: "0%",
-                //     opacity: 1,
-                //     transition: {},
-                //   },
-                // };
                 return (
                   <motion.div
                     className={`size-full bg-slate-500 grayscale duration-300 hover:grayscale-0 col-start-${detail.column} row-start-${detail.row} row-span-${detail.span} lg:col-start-${detail.column} lg:col-start-auto lg:row-start-auto`}
-                    variants={test}
+                    variants={oddVariant}
                     key={detail.id}
                     style={{
                       backgroundImage: `url(${detail.image})`,
@@ -288,7 +277,7 @@ const ContactUsPage = () => {
               }
               // EVEN NUMBERED GRIDS
               else {
-                const sample = {
+                const evenVariant = {
                   initial: {
                     x: detail.x,
                     y: detail.y,
@@ -308,25 +297,29 @@ const ContactUsPage = () => {
                     },
                   },
                 };
-                // const sample = {
-                //   initial: { x: detail.x, y: detail.y, opacity: 1 },
-                //   animate: {
-                //     x: "0%",
-                //     y: "0%",
-                //     opacity: 1,
-                //     transition: {
-                //       type: "tween",
-                //       ease: "anticipate",
-                //       duration: 0.8,
-                //       delay: 0.5,
-                //     },
-                //   },
-                // };
-                return (
+                return detail.link ? (
+                  <motion.a
+                    href={detail.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`size-full row-start-${detail.row} col-start-${detail.column} lg:col-start-auto lg:row-start-auto`}
+                    key={detail.id}
+                    variants={evenVariant}
+                  >
+                    <Card
+                      title={detail.title}
+                      detail={detail.detail}
+                      image={detail.image}
+                      cardTitle={detail.cardTitle}
+                      cardNumber={detail.id}
+                      indexNumber={i + 1}
+                    />
+                  </motion.a>
+                ) : (
                   <motion.div
                     className={`size-full row-start-${detail.row} col-start-${detail.column} lg:col-start-auto lg:row-start-auto`}
                     key={detail.id}
-                    variants={sample}
+                    variants={evenVariant}
                   >
                     <Card
                       title={detail.title}
@@ -345,34 +338,58 @@ const ContactUsPage = () => {
       </div>
       {/* BACKGROUND IMAGE */}
       <div className="absolute left-0 top-1/2 h-[75%] w-full -translate-y-1/2 bg-violet-500/0 max-lg:h-[100%]">
-        <div
+        <motion.div
           className="absolute bottom-0 z-10 h-3/4 w-full max-lg:h-[40%] max-xs:h-[30%] lg:hidden"
+          initial={{ y: 400 }}
+          animate={inView ? { y: 0 } : {}}
+          transition={{
+            delay: 1,
+            duration: 2,
+            type: "tween",
+            ease: "anticipate",
+          }}
           style={{
             backgroundImage: `url("${Dots}")`,
             backgroundPosition: "top",
             backgroundSize: "contain",
             backgroundRepeat: "repeat",
           }}
-        ></div>
+        ></motion.div>
         <div className="relative size-full overflow-hidden">
-          <div
+          <motion.div
             className="absolute -left-60 top-0 z-10 h-full w-1/2 bg-lime-500/0 max-lg:hidden"
+            initial={{ x: 500 }}
+            animate={inView ? { x: 0 } : {}}
+            transition={{
+              delay: 1.2,
+              duration: 2,
+              type: "tween",
+              ease: "anticipate",
+            }}
             style={{
               backgroundImage: `url("${DotsRotateLeft}")`,
               backgroundPosition: "center",
               backgroundSize: "contain",
               backgroundRepeat: "repeat",
             }}
-          ></div>
-          <div
+          ></motion.div>
+          <motion.div
             className="absolute -right-60 z-10 h-full w-1/2 bg-lime-500/0 max-lg:hidden"
+            initial={{ x: -500 }}
+            animate={inView ? { x: 0 } : {}}
+            transition={{
+              delay: 1.2,
+              duration: 2,
+              type: "tween",
+              ease: "anticipate",
+            }}
             style={{
               backgroundImage: `url("${DotsRotateRight}")`,
               backgroundPosition: "center",
               backgroundSize: "contain",
               backgroundRepeat: "repeat",
             }}
-          ></div>
+          ></motion.div>
         </div>
       </div>
     </div>

@@ -122,7 +122,7 @@ const ServicePage = () => {
           >
             {/* PAGE TITLE */}
             <div className="text-service-title flex size-full basis-1/2 flex-col justify-center p-1 xs:px-2 lg:basis-1/4 lg:items-end lg:px-4 lg:py-5">
-              <div className="h- relative max-w-[250px] md:max-w-[90%] lg:max-w-full">
+              <div className="relative h-full max-w-[250px] place-content-center md:max-w-[90%] lg:max-w-full">
                 {Data.projectPageTitle.map((char, i) => (
                   <motion.span
                     key={i}

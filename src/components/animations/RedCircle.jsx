@@ -53,7 +53,7 @@ export default function RedCircleSvg() {
       animate={contactUs ? "animate" : ""}
       transition={{
         staggerChildren: 0.2,
-        delayChildren: 1,
+        delayChildren: 2,
       }}
     >
       <g fill="none">

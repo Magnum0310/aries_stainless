@@ -81,10 +81,10 @@ const ServicePage = () => {
       >
         {/* TITLE BOX */}
         {/* MAIN TITLE CONTAINER */}
-        <div className="absolute right-0 z-40 col-span-4 col-start-1 row-span-4 row-start-2 mr-5 flex h-full flex-col bg-lime-500 bg-gradient-to-tr from-adobe-red/80 via-adobe-gray to-adobe-white p-1 max-lg:mr-[20%] max-lg:w-[70%] max-xs:mr-10 max-xs:w-[75%] md:left-0 md:top-1/2 md:col-span-3 md:col-start-1 md:h-[85%] md:min-h-fit md:w-[65%] md:-translate-y-1/2 lg:row-span-5 lg:row-start-1 lg:mt-14 lg:w-[85%] lg:overflow-visible">
+        <div className="absolute right-0 z-40 col-span-4 col-start-1 row-span-4 row-start-2 mr-5 flex h-full flex-col bg-gradient-to-tr from-adobe-red/80 via-adobe-gray to-adobe-white p-1 max-lg:mr-[20%] max-lg:w-[70%] max-xs:mr-10 max-xs:w-[75%] md:left-0 md:top-1/2 md:col-span-3 md:col-start-1 md:h-[100%] md:min-h-fit md:w-[65%] md:-translate-y-1/2 lg:row-span-5 lg:row-start-1 lg:mt-14 lg:w-[85%] lg:overflow-visible">
           {/* BORDER WRAPPER */}
           <motion.div
-            className="flex size-full min-h-fit flex-col justify-start bg-adobe-ivory lg:justify-center"
+            className="flex h-full min-h-fit w-full flex-col justify-start bg-adobe-ivory lg:justify-center"
             initial="initial"
             animate={inView ? "animate" : ""}
             transition={{ staggerChildren: 0.1 }}

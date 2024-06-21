@@ -130,7 +130,7 @@ const ServiceContectPage = () => {
 
   return (
     <div
-      className="padding-x relative flex h-[400vh] w-full flex-col items-center justify-center font-shareTech max-md:bg-adobe-ivory md:h-[450vh] md:bg-adobe-ivory/0"
+      className="padding-x relative flex h-[300vh] w-full flex-col items-center justify-center font-shareTech max-md:bg-adobe-red md:h-[450vh] md:bg-adobe-ivory/0"
       ref={divRef}
     >
       {/* RED BORDER LINE */}
@@ -144,7 +144,7 @@ const ServiceContectPage = () => {
           animate={isInView ? "animate" : ""}
         >
           {/* COLORED BORDER */}
-          <div className="relative bottom-10 z-20 flex size-full items-center justify-center md:h-1/2 md:w-[85%]">
+          <div className="bottom-10 z-20 flex size-full items-center justify-center bg-red-500 md:h-1/2 md:w-[85%]">
             <div className="absolute z-20 h-[65%] w-[60%] xs:w-[45%] md:w-[75%] lg:w-[70%]">
               <div className="absolute z-10 size-full scale-95 bg-adobe-ivory"></div>
               <div className="absolute h-[95%] w-[95%] rounded-b-3xl rounded-r-3xl bg-gradient-to-br from-adobe-red via-adobe-gray to-adobe-white"></div>
@@ -189,7 +189,7 @@ const ServiceContectPage = () => {
 
         {/* BACKGROUND IMAGE - SCREEN */}
         <div
-          className="sticky top-0 z-20 col-start-1 row-start-1 h-1/2 w-full md:col-span-1 md:col-start-2 md:row-start-1 md:row-end-2 md:h-1/2"
+          className="sticky top-0 z-20 col-start-1 row-start-1 hidden h-1/2 w-full md:col-span-1 md:col-start-2 md:row-start-1 md:row-end-2 md:h-1/2"
           style={{
             backgroundImage: `url("${Screen}")`,
             backgroundSize: "cover",
@@ -199,8 +199,8 @@ const ServiceContectPage = () => {
         ></div>
 
         {/* MAIN DESCRIPTION BOX */}
-        <div className="relative z-20 col-span-1 col-start-1 row-start-1 row-end-3 size-full md:col-start-2 md:row-start-1">
-          <div className="absolute bottom-0 flex h-[80%] w-full flex-col items-center px-2 md:bottom-0 md:h-[90%]">
+        <div className="relative z-20 col-span-1 col-start-1 row-start-1 row-end-3 size-full border-2 border-solid border-purple-500 md:col-start-2 md:row-start-1">
+          <div className="absolute bottom-0 flex h-full w-full flex-col items-center justify-center bg-lime-500 px-2 md:bottom-0 md:h-[90%]">
             {Data.map((data) => (
               <ServiceItem
                 key={data.id}
