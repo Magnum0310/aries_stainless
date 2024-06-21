@@ -72,6 +72,14 @@ const imageVariant = {
     transition: { duration: 1.2, ease: "easeInOut" },
   },
 };
+const imageVariantY = {
+  initial: { y: 10, opacity: 0 },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 1.2, ease: "easeInOut" },
+  },
+};
 
 const fillerVariant = {
   initial: { opacity: 1 },
@@ -292,14 +300,14 @@ const HeroPage = () => {
         </div>
         {/* IMAGE WRAPPER */}
         <motion.div
-          className="absolute right-0 z-20 flex h-full w-3/4 items-center md:w-[55%] lg:h-full"
+          className="absolute z-20 flex h-full w-3/4 items-center max-md:justify-center md:right-0 md:w-[55%] lg:h-full"
           initial="initial"
           animate="animate"
-          variants={imageVariant}
+          variants={width >= 768 ? imageVariant : imageVariantY}
         >
           {/* PAGE IMAGE BLOCK */}
           <div
-            className="relative h-[80%] w-full md:h-3/4 md:w-[90%] lg:left-10 lg:h-3/4 lg:w-3/4"
+            className="relative w-full rounded-bl-3xl rounded-tr-3xl max-md:h-3/4 max-md:w-3/4 md:h-3/4 md:w-[90%] lg:left-10 lg:h-3/4 lg:w-3/4"
             style={{
               backgroundImage: `url(${Weld01})`,
               backgroundSize: "cover",
