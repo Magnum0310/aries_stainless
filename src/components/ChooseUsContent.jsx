@@ -212,7 +212,7 @@ const ChooseUsContent = () => {
                 ></div>
               </div>
               <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
-                <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black max-xl:h-[3rem]">
+                <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black bg-adobe-ivory max-xl:h-[3rem]">
                   {Data[0].title}
                 </div>
                 <div className="text-mobile-chooseUs-description bg-adobe-ivory font-spaceMono">
@@ -249,7 +249,7 @@ const ChooseUsContent = () => {
                 ></div>
               </div>
               <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
-                <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black max-xl:h-[3rem]">
+                <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black bg-adobe-ivory max-xl:h-[3rem]">
                   {Data[1].title}
                 </div>
                 <div className="text-mobile-chooseUs-description bg-adobe-ivory font-spaceMono">
@@ -289,7 +289,7 @@ const ChooseUsContent = () => {
                 ></div>
               </div>
               <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
-                <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black max-xl:h-[3rem]">
+                <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black bg-adobe-ivory max-xl:h-[3rem]">
                   {Data[2].title}
                 </div>
                 <div className="text-mobile-chooseUs-description bg-adobe-ivory font-spaceMono">
@@ -325,7 +325,7 @@ const ChooseUsContent = () => {
                 ></div>
               </div>
               <div className="z-20 flex max-w-[500px] flex-col gap-5 lg:relative lg:bottom-10 lg:row-start-2">
-                <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black max-xl:h-[3rem]">
+                <div className="text-mobile-chooseUs-title h-[4rem] place-content-center rounded-bl-xl rounded-tr-xl border-2 border-solid border-black bg-adobe-ivory max-xl:h-[3rem]">
                   {Data[3].title}
                 </div>
                 <div className="text-mobile-chooseUs-description bg-adobe-ivory font-spaceMono">
