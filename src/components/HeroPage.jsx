@@ -143,7 +143,7 @@ const HeroPage = () => {
 
   return (
     <>
-      <div className="padding-x relative flex h-screen flex-col items-center overflow-hidden font-shareTech">
+      <div className="padding-x relative flex h-[95vh] flex-col items-center font-shareTech">
         {/* INNER WHITE BOX WRAPPER*/}
         <div className="relative z-[60] flex size-full max-w-[1440px] flex-col items-center justify-center">
           <div className="absolute grid size-full grid-cols-6 grid-rows-6 lg:left-0 lg:top-0 lg:grid-cols-6">
@@ -182,7 +182,7 @@ const HeroPage = () => {
                   </motion.div>
                 </motion.div>
                 <motion.div
-                  className="flex h-full w-fit basis-[5%] place-content-center place-items-center text-xl text-adobe-ivory md:w-fit md:place-content-start md:px-4 md:text-2xl md:text-black"
+                  className="flex h-full w-fit basis-[5%] place-content-center place-items-center text-xl text-adobe-ivory md:w-fit md:place-content-start md:px-4 md:text-2xl md:text-black lg:text-5xl"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{
@@ -231,10 +231,10 @@ const HeroPage = () => {
                   </motion.div>
                 </div>
                 {/* PRECISION QUAILITY RELIABILITY */}
-                <motion.div className="text-hero-tagline lg:pr- relative col-span-5 col-start-1 row-start-4 flex h-1/2 w-[35%] basis-[10%] place-content-center place-items-start font-spaceMono md:w-[33%] md:basis-[20%] md:flex-col md:items-end md:overflow-hidden md:text-black lg:w-[37.5%] xl:w-[34%]">
+                <motion.div className="text-hero-tagline relative col-span-5 col-start-1 row-start-4 flex h-1/2 w-[35%] basis-[10%] place-content-center place-items-start font-spaceMono md:w-[33%] md:basis-[20%] md:flex-col md:items-end md:overflow-hidden md:text-black lg:left-10 lg:w-[37.5%] xl:w-[34%]">
                   <motion.div className="md:relative md:flex md:h-full md:w-[fit] md:flex-col md:justify-center lg:w-[38%] xl:w-[34%]">
                     <motion.div
-                      className="flex overflow-hidden bg-adobe-ivory px-5 md:h-fit md:flex-col md:items-end md:justify-center md:gap-0 md:bg-adobe-ivory/0 md:px-2"
+                      className="flex overflow-hidden bg-adobe-ivory px-5 md:h-fit md:flex-col md:items-end md:justify-center md:gap-0 md:bg-adobe-ivory/0 md:px-1"
                       initial="initial"
                       animate="animate"
                       style={{ originY: 1 }}
@@ -299,7 +299,7 @@ const HeroPage = () => {
         >
           {/* PAGE IMAGE BLOCK */}
           <div
-            className="relative h-[80%] w-full md:h-[90%] lg:size-full"
+            className="relative h-[80%] w-full md:h-3/4 md:w-[90%] lg:left-10 lg:h-3/4 lg:w-3/4"
             style={{
               backgroundImage: `url(${Weld01})`,
               backgroundSize: "cover",
@@ -311,7 +311,7 @@ const HeroPage = () => {
           <AnimateCurveLine />
         </div>
         <motion.div
-          className="absolute left-0 top-0 size-full"
+          className="absolute left-0 top-10 size-full"
           initial={{ x: -150, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ ease: "linear", duration: 1 }}
