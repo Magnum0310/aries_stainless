@@ -223,7 +223,7 @@ const ContactUsPage = () => {
       x: width > 1023 ? "-100%" : "-110%",
       y: width > 1023 ? "-100%" : "0%",
       zIndex: 20,
-      link: "https://www.lazada.com.ph/",
+      link: "https://www.lazada.com.ph/shop/arshop-services",
     },
   ];
 
