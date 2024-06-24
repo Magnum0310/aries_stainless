@@ -199,7 +199,7 @@ const ChooseUsContent = () => {
             }}
             transition={TWEEN_OPTIONS}
           >
-            <motion.div className="z-40 flex h-full flex-col items-center justify-center gap-5 bg-adobe-ivory px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
+            <motion.div className="z-40 flex h-full flex-col items-center justify-center gap-5 bg-adobe-ivory px-5 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
               <div className="z-20 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
                 <div
                   className="size-full lg:size-2/5"
@@ -236,7 +236,7 @@ const ChooseUsContent = () => {
             }}
             transition={TWEEN_OPTIONS}
           >
-            <motion.div className="z-40 flex h-full flex-col items-center justify-center gap-5 bg-adobe-ivory px-12 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
+            <motion.div className="z-40 flex h-full flex-col items-center justify-center gap-5 bg-adobe-ivory px-5 text-center lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
               <div className="z-30 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
                 <div
                   className="size-full lg:size-2/5"
@@ -276,7 +276,7 @@ const ChooseUsContent = () => {
             }}
             transition={TWEEN_OPTIONS}
           >
-            <motion.div className="relative z-20 flex h-full w-full flex-col items-center justify-center gap-5 bg-adobe-ivory px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
+            <motion.div className="relative z-20 flex h-full w-full flex-col items-center justify-center gap-5 bg-adobe-ivory px-5 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
               <div className="z-20 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
                 <div
                   className="size-full lg:size-2/5"
@@ -312,7 +312,7 @@ const ChooseUsContent = () => {
                     : fourthBoxTablet,
             }}
           >
-            <motion.div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-5 overflow-hidden bg-adobe-ivory px-12 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
+            <motion.div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-5 overflow-hidden bg-adobe-ivory px-5 text-center max-lg:from-adobe-gray/40 lg:grid lg:h-full lg:grid-cols-1 lg:grid-rows-2 lg:place-items-start">
               <div className="z-20 size-1/4 lg:row-start-1 lg:flex lg:size-full lg:place-content-center lg:place-items-center">
                 <div
                   className="size-full lg:size-2/5"

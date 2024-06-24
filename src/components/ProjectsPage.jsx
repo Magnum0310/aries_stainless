@@ -23,7 +23,7 @@ const highlightVariant = {
     transition: {
       type: "tween",
       ease: "anticipate",
-      duration: 2,
+      duration: 1,
     },
   },
 };
@@ -35,7 +35,7 @@ const highlightVariant1 = {
     transition: {
       type: "tween",
       ease: "anticipate",
-      duration: 2,
+      duration: 1,
     },
   },
 };
@@ -118,7 +118,7 @@ const ServicePage = () => {
             className="flex h-full min-h-fit w-full flex-col justify-start bg-adobe-ivory lg:justify-center"
             initial="initial"
             animate={inView ? "animate" : ""}
-            transition={{ staggerChildren: 0.1 }}
+            transition={{ staggerChildren: 0.02 }}
           >
             {/* PAGE TITLE */}
             <div className="text-service-title flex size-full basis-1/2 flex-col justify-center p-1 xs:px-2 lg:basis-1/4 lg:items-end lg:px-4 lg:py-5">

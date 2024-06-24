@@ -60,7 +60,7 @@ const ServicePage = () => {
           className="text-service-title relative top-20 z-40 flex w-full flex-col justify-center pl-[10%] lg:pl-[6%]"
           initial="initial"
           animate={inView ? "animate" : ""}
-          transition={{ staggerChildren: 0.1, delayChildren: 0.5 }}
+          transition={{ staggerChildren: 0.02, delayChildren: 0.3 }}
         >
           <span>
             {text.split("").map((char, i) => (
